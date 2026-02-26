@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>span_</name>
+   <tag></tag>
+   <elementGuidId>15bb4b41-0989-4bfa-a962-b9b5cdbab23b</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='lnb']/ul/li[5]/a/span[2]</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value></value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>span</value>
+      <webElementGuid>263267d2-1240-4b86-b65b-c4243d508ffa</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>nav_txt</value>
+      <webElementGuid>9d4c8442-2770-49c9-bf9f-9824bf22fe06</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>운영자 관리</value>
+      <webElementGuid>b6caa039-5955-4c9e-a2db-496b66dc0270</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;lnb&quot;)/ul[1]/li[@class=&quot;noDepth&quot;]/a[1]/span[@class=&quot;nav_txt&quot;]</value>
+      <webElementGuid>c6fcc6b7-3514-4194-ac7b-0f9c4e5d9a86</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='lnb']/ul/li[5]/a/span[2]</value>
+      <webElementGuid>1f7fcf90-9253-4d51-905e-3aa70ff602fd</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='이용기관 관리'])[1]/following::span[2]</value>
+      <webElementGuid>07b35147-db68-4aa3-912b-ea95eeca9115</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='인증서창 설정'])[1]/following::span[4]</value>
+      <webElementGuid>7402135b-7b08-4bc8-a557-5b12b0adb2ab</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='(※ 조회 및 엑셀 다운로드는 최대 3개월 까지만 가능합니다.)'])[1]/preceding::span[1]</value>
+      <webElementGuid>43177da9-eef9-4daf-8f7e-db511aba2ebb</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='이용기관 아이디'])[1]/preceding::span[2]</value>
+      <webElementGuid>1d77fead-ad72-447c-9a85-2069e1cbc202</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='운영자 관리']/parent::*</value>
+      <webElementGuid>dae5713f-0189-4f94-9cc5-6fa4915e77ea</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//li[5]/a/span[2]</value>
+      <webElementGuid>50e96187-d16f-457c-ab26-d4bc8f2a807a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//span[(text() = '운영자 관리' or . = '운영자 관리')]</value>
+      <webElementGuid>0e19fa0b-cfba-41ea-8f07-583597794d0b</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

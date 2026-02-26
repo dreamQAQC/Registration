@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>sdp 등록 검증</description>
+   <name>Magicsdp_verification</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>9c53305a-d382-450e-a22d-4d7602f36f07</testCaseGuid>
+</TestCaseEntity>

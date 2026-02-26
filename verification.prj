@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project>
+   <description>등록기능 검증&#xd;
+</description>
+   <name>verification</name>
+   <tag></tag>
+   <UUID>adc9b2b7-8ab4-4f97-b1ce-ca4136a6474f</UUID>
+   <createdEdition>ENTERPRISE</createdEdition>
+   <createdVersion>10.4.2</createdVersion>
+   <freeLicense>true</freeLicense>
+   <migratedVersion>5.9.0</migratedVersion>
+   <modifiedEdition>ENTERPRISE</modifiedEdition>
+   <modifiedVersion>10.4.2</modifiedVersion>
+   <pageLoadTimeout>0</pageLoadTimeout>
+   <projectFileLocation>C:\Users\ssr0128\Katalon Studio\verification\verification.prj</projectFileLocation>
+   <sourceContent>
+      <sourceFolderList>
+         <sourceFolderConfiguration>
+            <url>Include/scripts/groovy</url>
+         </sourceFolderConfiguration>
+      </sourceFolderList>
+      <systemFolderList>
+         <systemFolderConfiguration>
+            <url>Include/scripts/groovy</url>
+         </systemFolderConfiguration>
+         <systemFolderConfiguration>
+            <url>Include/features</url>
+         </systemFolderConfiguration>
+         <systemFolderConfiguration>
+            <url>Include/config</url>
+         </systemFolderConfiguration>
+      </systemFolderList>
+   </sourceContent>
+   <timeStampInProperties>false</timeStampInProperties>
+   <type>WEBUI</type>
+</Project>

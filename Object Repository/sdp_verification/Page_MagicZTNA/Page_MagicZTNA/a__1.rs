@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>a__1</name>
+   <tag></tag>
+   <elementGuidId>39821e98-dede-4e53-a5b8-b2a5d872e579</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='__next']/div/div/div/ul/li/ul/li/a</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>li.nav-item.parent-item.collapsed > ul > li.nav-item > a.nav-link</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>a</value>
+      <webElementGuid>0e32832a-4a0c-4f95-a91b-798c368afd23</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>nav-link</value>
+      <webElementGuid>8df6ccfc-618f-4558-97d0-1b196c98df12</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>/managers/</value>
+      <webElementGuid>99aacd55-744c-4fda-a889-2ae0c72bd15c</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>관리자 관리</value>
+      <webElementGuid>b856b5c3-19c0-4b35-92f0-cf79c1080b44</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;__next&quot;)/div[@class=&quot;wrap&quot;]/div[@class=&quot;container&quot;]/div[@class=&quot;sidebar&quot;]/ul[@class=&quot;sidebar-nav&quot;]/li[@class=&quot;nav-item parent-item collapsed&quot;]/ul[1]/li[@class=&quot;nav-item&quot;]/a[@class=&quot;nav-link&quot;]</value>
+      <webElementGuid>15a77745-d228-4521-ab26-ef9579cbd269</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='__next']/div/div/div/ul/li/ul/li/a</value>
+      <webElementGuid>8f416230-2643-428c-a97e-cfd74f418b1b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:link</name>
+      <type>Main</type>
+      <value>//a[contains(text(),'관리자 관리')]</value>
+      <webElementGuid>d9835bd5-b706-468c-8348-68ab588bbb9d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='사용자 관리'])[1]/preceding::a[1]</value>
+      <webElementGuid>039a962e-12e3-4365-a0a8-4278000b26b4</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='클라이언트 관리'])[1]/preceding::a[2]</value>
+      <webElementGuid>9996c181-5eb8-4788-bd37-1c6239bb83a9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='관리자 관리']/parent::*</value>
+      <webElementGuid>eb65d2f9-9e2b-4179-b4c5-10e27da5d01c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:href</name>
+      <type>Main</type>
+      <value>//a[contains(@href, '/managers/')]</value>
+      <webElementGuid>029de1a5-ded2-4115-a2c9-01a86943e498</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//li/ul/li/a</value>
+      <webElementGuid>f8e63df4-bb0d-4a34-8707-a3598f425f6e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@href = '/managers/' and (text() = '관리자 관리' or . = '관리자 관리')]</value>
+      <webElementGuid>14d7ffed-1889-47c7-9953-4340369d6c82</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

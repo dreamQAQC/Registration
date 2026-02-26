@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>내가만든 사이트</description>
+   <name>Registration</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>bc231f1a-f916-4e4d-9303-0877f6194510</testCaseGuid>
+</TestCaseEntity>
