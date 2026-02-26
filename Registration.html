@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 등록 - 마케팅 검증 포함 버전</title>
+    <style>
+        :root {
+            --primary-navy: #1a2a40;
+            --soft-orange: #fff1eb;
+            --accent-orange: #ff7e5f;
+            --border-color: #e1e4e8;
+            --text-main: #333;
+            --error-red: #e74c3c;
+            --success-green: #2ecc71;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            width: 460px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .modal-header h2 { 
+            margin: 0 0 30px 0; 
+            font-size: 1.5rem; 
+            color: var(--primary-navy); 
+            text-align: center; 
+        }
+
+        .field { margin-bottom: 22px; }
+        .field label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+        .input-row { display: flex; gap: 10px; }
+
+        input, select {
+            width: 100%; padding: 14px; border: 1px solid var(--border-color); border-radius: 12px;
+            font-size: 0.95rem; background-color: #fafafa; box-sizing: border-box; transition: all 0.2s;
+        }
+
+        input:focus { outline: none; border-color: var(--primary-navy); background-color: #fff; box-shadow: 0 0 0 4px rgba(26, 42, 64, 0.08); }
+
+        /* 라디오 버튼 스타일 */
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            padding: 5px 0;
+        }
+        .radio-item {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+        .radio-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            accent-color: var(--primary-navy);
+            cursor: pointer;
+        }
+
+        button { cursor: pointer; border-radius: 12px; font-weight: 700; border: none; transition: 0.2s; }
+        .btn-check { background-color: var(--primary-navy); color: white; padding: 0 20px; font-size: 0.85rem; white-space: nowrap; }
+        .modal-footer { display: flex; justify-content: space-between; margin-top: 40px; }
+        .btn-reset { background-color: var(--soft-orange); color: var(--accent-orange); padding: 15px 35px; }
+        .btn-submit { background-color: var(--primary-navy); color: white; padding: 15px 60px; }
+
+        .msg { font-size: 0.75rem; margin-top: 6px; display: block; min-height: 16px; font-weight: 500; }
+        .error { color: var(--error-red); }
+        .valid { color: var(--success-green); }
+
+        /* 알림창 스타일 */
+        .alert-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); display: none; justify-content: center; align-items: center; z-index: 9999;
+            backdrop-filter: blur(4px);
+        }
+        .alert-box { background: white; padding: 30px; border-radius: 20px; width: 320px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: scale(0.9); transition: 0.2s; }
+        .alert-box.show { transform: scale(1); }
+        .alert-icon { font-size: 40px; margin-bottom: 15px; display: block; }
+        .alert-text { font-size: 1rem; color: var(--text-main); margin-bottom: 25px; line-height: 1.4; word-break: keep-all; }
+        .btn-alert-confirm { background-color: var(--primary-navy); color: white; width: 100%; padding: 12px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<div id="customAlert" class="alert-overlay">
+    <div class="alert-box" id="alertBox">
+        <span id="alertIcon" class="alert-icon"></span>
+        <div id="alertMsg" class="alert-text"></div>
+        <button class="btn-alert-confirm" onclick="closeAlert()">확인</button>
+    </div>
+</div>
+
+<div class="modal-card">
+    <div class="modal-header">
+        <h2>관리자 등록</h2>
+    </div>
+    
+    <form id="adminForm" novalidate>
+        <div class="field">
+            <label>관리자 ID (영문/숫자/이모지 ✨)</label>
+            <div class="input-row">
+                <input type="text" id="adminId" placeholder="4~20자 입력" maxlength="20">
+                <button type="button" class="btn-check" onclick="handleDuplicateCheck()">중복체크</button>
+            </div>
+            <span id="idMsg" class="msg"></span>
+        </div>
+
+        <div class="field">
+            <label>비밀번호</label>
+            <input type="password" id="password" placeholder="영문+숫자+특수문자 조합 8자 이상">
+            <span id="pwMsg" class="msg"></span>
+        </div>
+
+        <div class="field">
+            <label>비밀번호 확인</label>
+            <input type="password" id="passwordConfirm" placeholder="비밀번호 재입력">
+            <span id="pwConfirmMsg" class="msg"></span>
+        </div>
+
+        <div class="field">
+            <label>관리자 이름</label>
+            <input type="text" id="adminName" placeholder="실명 입력">
+        </div>
+
+        <div class="field">
+            <label>이메일 주소</label>
+            <input type="email" id="adminEmail" placeholder="example@domain.com">
+            <span id="emailMsg" class="msg"></span>
+        </div>
+
+        <div class="field">
+            <label>관리자 유형</label>
+            <select id="adminType">
+                <option value="" selected disabled>선택해 주세요</option>
+                <option value="super">전체 관리자</option>
+                <option value="qa">QA 담당자</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>마케팅 정보 수신 동의</label>
+            <div class="radio-group">
+                <label class="radio-item">
+                    <input type="radio" name="marketing" value="sms" checked> SMS
+                </label>
+                <label class="radio-item">
+                    <input type="radio" name="marketing" value="email"> 이메일
+                </label>
+                <label class="radio-item">
+                    <input type="radio" name="marketing" value="none"> 거부
+                </label>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="reset" class="btn-reset" onclick="resetMessages()">초기화</button>
+            <button type="submit" class="btn-submit">등록</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const validation = { id: false, pw: false, pwConfirm: false, email: false };
+    const existingIds = ['admin', 'tester123'];
+    
+    const allowedCharsRegex = /^[a-zA-Z0-9\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]+$/u;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    function openAlert(message, type = 'error') {
+        const overlay = document.getElementById('customAlert');
+        const box = document.getElementById('alertBox');
+        document.getElementById('alertMsg').innerText = message;
+        document.getElementById('alertIcon').innerText = type === 'success' ? '✅' : '❌';
+        overlay.style.display = 'flex';
+        setTimeout(() => box.classList.add('show'), 10);
+    }
+
+    function closeAlert() {
+        document.getElementById('alertBox').classList.remove('show');
+        setTimeout(() => document.getElementById('customAlert').style.display = 'none', 150);
+    }
+
+    // 실시간 검증 로직들
+    document.getElementById('adminId').addEventListener('input', (e) => {
+        const val = e.target.value;
+        const msg = document.getElementById('idMsg');
+        validation.id = false;
+        if (val.length > 0 && !allowedCharsRegex.test(val)) {
+            msg.innerText = "영문, 숫자, 이모지만 사용 가능합니다.";
+            msg.className = "msg error";
+        } else if (val.length > 0 && val.length < 4) {
+            msg.innerText = "4자 이상 입력해 주세요.";
+            msg.className = "msg error";
+        } else { msg.innerText = ""; }
+    });
+
+    function handleDuplicateCheck() {
+        const val = document.getElementById('adminId').value;
+        if (val.length < 4 || !allowedCharsRegex.test(val)) {
+            openAlert("아이디 형식이 올바르지 않습니다.");
+            return;
+        }
+        if (existingIds.includes(val)) {
+            openAlert("이미 사용 중인 아이디입니다.");
+            validation.id = false;
+        } else {
+            openAlert("사용 가능한 아이디입니다!", 'success');
+            document.getElementById('idMsg').innerText = "✓ 아이디 확인 완료";
+            document.getElementById('idMsg').className = "msg valid";
+            validation.id = true;
+        }
+    }
+
+    const pwInput = document.getElementById('password');
+    const pwConfirmInput = document.getElementById('passwordConfirm');
+
+    function validatePasswords() {
+        const pwMsg = document.getElementById('pwMsg');
+        const confirmMsg = document.getElementById('pwConfirmMsg');
+        const reg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/;
+
+        if (!reg.test(pwInput.value)) {
+            pwMsg.innerText = "영문+숫자+특수문자 조합 8자 이상 필요합니다.";
+            pwMsg.className = "msg error";
+            validation.pw = false;
+        } else {
+            pwMsg.innerText = "안전한 비밀번호입니다.";
+            pwMsg.className = "msg valid";
+            validation.pw = true;
+        }
+
+        if (pwConfirmInput.value.length > 0) {
+            if (pwInput.value !== pwConfirmInput.value) {
+                confirmMsg.innerText = "비밀번호가 일치하지 않습니다.";
+                confirmMsg.className = "msg error";
+                validation.pwConfirm = false;
+            } else {
+                confirmMsg.innerText = "비밀번호가 일치합니다.";
+                confirmMsg.className = "msg valid";
+                validation.pwConfirm = true;
+            }
+        }
+    }
+
+    pwInput.addEventListener('input', validatePasswords);
+    pwConfirmInput.addEventListener('input', validatePasswords);
+
+    document.getElementById('adminEmail').addEventListener('input', (e) => {
+        const val = e.target.value;
+        const msg = document.getElementById('emailMsg');
+        if (val.length === 0) { msg.innerText = ""; validation.email = false; }
+        else if (!emailRegex.test(val)) {
+            msg.innerText = "올바른 이메일 형식이 아닙니다.";
+            msg.className = "msg error";
+            validation.email = false;
+        } else {
+            msg.innerText = "올바른 이메일 형식입니다.";
+            msg.className = "msg valid";
+            validation.email = true;
+        }
+    });
+
+    function resetMessages() {
+        document.querySelectorAll('.msg').forEach(m => m.innerText = "");
+        Object.keys(validation).forEach(k => validation[k] = false);
+    }
+
+    // 최종 등록 버튼 클릭 시
+    document.getElementById('adminForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('adminName').value;
+        const type = document.getElementById('adminType').value;
+        const marketing = document.querySelector('input[name="marketing"]:checked').value;
+
+        // 유효성 체크 순서
+        if (!validation.id) return openAlert("아이디 중복체크를 해주세요.");
+        if (!validation.pw) return openAlert("비밀번호 형식을 확인해주세요.");
+        if (!validation.pwConfirm) return openAlert("비밀번호 일치 여부를 확인해주세요.");
+        if (!name) return openAlert("이름을 입력해주세요.");
+        if (!validation.email) return openAlert("이메일을 확인해주세요.");
+        if (!type) return openAlert("관리자 유형을 선택해주세요.");
+
+        // [추가된 요구사항] 마케팅 수신 '거부' 체크 시 차단
+        if (marketing === 'none') {
+            return openAlert("SMS / 이메일 필수 1개 필수 입니다.");
+        }
+        
+        // 최종 성공
+        openAlert("등록이 성공적으로 완료되었습니다!", 'success');
+        console.log("제출 완료 데이터:", { id: document.getElementById('adminId').value, name, type, marketing });
+    });
+</script>
+</body>
+</html>
