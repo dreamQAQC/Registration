@@ -28,6 +28,7 @@ WebUI.setText(findTestObject('Object Repository/my/Page_-/input_ID ( )_adminId')
 
 WebUI.setEncryptedText(findTestObject('Object Repository/my/Page_-/input__password'), '0j7gx7IaHoqVvtnDzehB9w==')
 
+
 WebUI.setEncryptedText(findTestObject('Object Repository/my/Page_-/input__passwordConfirm'), '0j7gx7IaHoqVvtnDzehB9w==')
 
 WebUI.setText(findTestObject('Object Repository/my/Page_-/input__adminName'), '정민호')
