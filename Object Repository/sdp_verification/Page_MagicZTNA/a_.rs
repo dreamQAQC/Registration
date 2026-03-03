@@ -6,12 +6,12 @@
    <elementGuidId>343368b4-6078-4a0d-a8fa-0af46ad04537</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//div[@id='__next']/div/div/div/ul/li/a</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>a.nav-link</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='__next']/div/div/div/ul/li/a</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>fb0c0349-6813-4635-97ad-875c60949dea</webElementGuid>
+      <webElementGuid>f7c6055f-ec9f-4554-a368-9abbe4bbed27</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -31,7 +31,7 @@
       <name>href</name>
       <type>Main</type>
       <value>#</value>
-      <webElementGuid>0e365136-a0af-4a6b-a671-7ecdc9ecc5b3</webElementGuid>
+      <webElementGuid>aeb11a4a-1a7e-4b10-b12d-a05ba2db429d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -39,7 +39,7 @@
       <name>class</name>
       <type>Main</type>
       <value>nav-link</value>
-      <webElementGuid>82e6ac8c-49f5-411d-9d29-82d042cff85a</webElementGuid>
+      <webElementGuid>b7fd1006-da9f-425e-86e8-dd998a30bc6b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -47,7 +47,7 @@
       <name>text</name>
       <type>Main</type>
       <value> 정책</value>
-      <webElementGuid>c948f943-6453-4a80-80dd-47dbd78a7515</webElementGuid>
+      <webElementGuid>34e8e941-9221-4b11-8715-8213aa3124be</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -55,7 +55,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;__next&quot;)/div[@class=&quot;wrap&quot;]/div[@class=&quot;container&quot;]/div[@class=&quot;sidebar&quot;]/ul[@class=&quot;sidebar-nav&quot;]/li[@class=&quot;nav-item parent-item collapsed&quot;]/a[@class=&quot;nav-link&quot;]</value>
-      <webElementGuid>c162601f-d923-40b0-8597-f40c9035bcc7</webElementGuid>
+      <webElementGuid>d4676078-e466-4760-815b-6d0bc9b59d50</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -63,7 +63,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='__next']/div/div/div/ul/li/a</value>
-      <webElementGuid>dcccb9d7-29ae-4d16-8520-f4e8c68f6241</webElementGuid>
+      <webElementGuid>b23183f6-0856-4d19-ab39-31790e5eb7b1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -71,7 +71,7 @@
       <name>xpath:link</name>
       <type>Main</type>
       <value>//a[contains(text(),'정책')]</value>
-      <webElementGuid>8bdc0598-b88c-462a-8402-06bcc558d1a3</webElementGuid>
+      <webElementGuid>e35874b1-9a43-4f8b-a8ef-5e41348c7bb3</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -79,7 +79,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='사용자'])[1]/preceding::a[5]</value>
-      <webElementGuid>4aeb5232-3418-466d-ad47-51b508e68c28</webElementGuid>
+      <webElementGuid>3147c1e2-180a-441d-bc18-890328e26c71</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -87,7 +87,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='정책 허용'])[1]/preceding::a[5]</value>
-      <webElementGuid>4a90e270-e888-49b3-b396-a15ed0a4a36f</webElementGuid>
+      <webElementGuid>2e59ba1e-d65f-4fc5-bfe6-f90347175df7</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -95,7 +95,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='정책']/parent::*</value>
-      <webElementGuid>dda9f77b-c8dd-478d-a1cf-739c40085f5d</webElementGuid>
+      <webElementGuid>fcd165d3-7662-4bee-8545-a586ed036de4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -103,7 +103,7 @@
       <name>xpath:href</name>
       <type>Main</type>
       <value>(//a[contains(@href, '#')])[2]</value>
-      <webElementGuid>f67d760e-01ea-4fd3-848f-044a852bcd93</webElementGuid>
+      <webElementGuid>dd8e8085-d854-472e-be1a-e8742327c751</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -111,7 +111,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//li/a</value>
-      <webElementGuid>31453d57-43a9-4c1b-838b-597220761923</webElementGuid>
+      <webElementGuid>d900caaa-d73f-4623-99b2-5cdfd35317d9</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -119,6 +119,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//a[@href = '#' and (text() = ' 정책' or . = ' 정책')]</value>
-      <webElementGuid>b2535251-3f92-4a6d-864f-d2feea556c82</webElementGuid>
+      <webElementGuid>c287110f-c5e5-4ecf-80a8-83d4380bc7d6</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

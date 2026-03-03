@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>input_LOGIN_manager_id</name>
+   <name>input_ID_manager_id</name>
    <tag></tag>
-   <elementGuidId>855858b3-1ed1-4102-be2f-9e2e5f4f0104</elementGuidId>
+   <elementGuidId>200eff10-e8d1-43a4-90c5-b78962ee5d69</elementGuidId>
    <selectorCollection>
       <entry>
          <key>CSS</key>
-         <value>input[name=&quot;manager_id&quot;]</value>
+         <value>div.input-wrap > div.input-box > input[name=&quot;manager_id&quot;]</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//input[@name='manager_id']</value>
+         <value>(//input[@name='manager_id'])[2]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>1496aeb2-3b0c-4a4d-842b-5437d9547c3f</webElementGuid>
+      <webElementGuid>626e65e3-d376-402f-a327-d01449bf150e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -31,15 +31,7 @@
       <name>name</name>
       <type>Main</type>
       <value>manager_id</value>
-      <webElementGuid>5a8eaaab-fb9f-4df6-ba8b-e643f7e782e2</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>class</name>
-      <type>Main</type>
-      <value>login-id</value>
-      <webElementGuid>48d87246-b813-404d-9628-fbcb08241712</webElementGuid>
+      <webElementGuid>7cde2e53-a624-411e-9167-513aecaf398c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -47,62 +39,54 @@
       <name>type</name>
       <type>Main</type>
       <value>text</value>
-      <webElementGuid>7728015a-58b6-4115-8cbf-4e411e33cebd</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>placeholder</name>
-      <type>Main</type>
-      <value>Id</value>
-      <webElementGuid>d55f7a19-883b-4c97-8882-ca190b4364d3</webElementGuid>
+      <webElementGuid>9548d49a-09fe-4f1f-914c-3b23d28ce103</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>data-check</name>
+      <name>class</name>
       <type>Main</type>
-      <value>required</value>
-      <webElementGuid>302b027d-27f3-46a9-a614-0b476130f6ea</webElementGuid>
+      <value>input</value>
+      <webElementGuid>5c882cce-fc7c-475e-b11b-0bed9043728f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;__next&quot;)/div[@class=&quot;login-page&quot;]/div[@class=&quot;login-box&quot;]/div[@class=&quot;login-02&quot;]/form[1]/div[@class=&quot;login-input&quot;]/input[@class=&quot;login-id&quot;]</value>
-      <webElementGuid>a5a7aa80-1a73-4b66-ad55-f4775a39baef</webElementGuid>
+      <value>id(&quot;__next&quot;)/div[@class=&quot;wrap&quot;]/div[@class=&quot;container&quot;]/div[@class=&quot;content scrollBar&quot;]/div[@class=&quot;cont&quot;]/form[1]/div[1]/div[@class=&quot;modal-wrap&quot;]/div[@class=&quot;modal&quot;]/div[@class=&quot;modal-body&quot;]/div[@class=&quot;modal-inner&quot;]/div[@class=&quot;input-wrap&quot;]/div[@class=&quot;input-box&quot;]/input[@class=&quot;input&quot;]</value>
+      <webElementGuid>2585722a-9eb6-4657-b8c9-fa49c326b469</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@name='manager_id']</value>
-      <webElementGuid>3bce80f9-60c3-4f23-84c5-686c8fb2f354</webElementGuid>
+      <value>(//input[@name='manager_id'])[2]</value>
+      <webElementGuid>ba00d50d-af8b-4ef6-b6eb-f0113707e800</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//div[@id='__next']/div/div/div[2]/form/div/input</value>
-      <webElementGuid>fd14797a-c6e6-4cf3-a140-7a22caaeda93</webElementGuid>
+      <value>//div[@id='__next']/div/div/div[2]/div/form/div/div/div/div[2]/div/div/div/input</value>
+      <webElementGuid>d5aff4db-be89-4a07-8c69-ae508ae3c8cb</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//input</value>
-      <webElementGuid>0b0c3e34-2d93-4614-bbdb-ace671497235</webElementGuid>
+      <value>//div[2]/div/div/div/input</value>
+      <webElementGuid>873a30f9-5a2f-4a22-8998-9eaec2fa82f2</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//input[@name = 'manager_id' and @type = 'text' and @placeholder = 'Id']</value>
-      <webElementGuid>8e9f7765-c2eb-48d8-88eb-7e0861d909d2</webElementGuid>
+      <value>//input[@name = 'manager_id' and @type = 'text']</value>
+      <webElementGuid>900456e5-fc8f-40ad-a9c1-f3e0f1fd808c</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

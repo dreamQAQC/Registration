@@ -19,17 +19,28 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser('')
 
-WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/Registration.html')
+WebUI.navigateToUrl('http://10.20.110.62:22005/login/?yn_reissue_token=N')
 
-WebUI.setText(findTestObject('Object Repository/my/Page_/input_ID_adminId'), 'ssr0128')
+WebUI.setText(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/input_LOGIN_manager_id'), 'ssr0128')
 
-WebUI.setEncryptedText(findTestObject('Object Repository/my/Page_/input__password'), 'qaNhnf8Nmg4=')
+WebUI.setEncryptedText(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/input_LOGIN_manager_pw'), '0j7gx7IaHoqVvtnDzehB9w==')
 
-WebUI.setEncryptedText(findTestObject('Object Repository/my/Page_/input__passwordConfirm'), 'qaNhnf8Nmg4=')
+WebUI.click(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/button_LOGIN'))
 
-WebUI.setText(findTestObject('Object Repository/my/Page_/input__adminName'), '정민호')
+WebUI.click(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/a_'))
 
-WebUI.selectOptionByValue(findTestObject('Object Repository/my/Page_/select_QA'), 'super', true)
+WebUI.click(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/a__1'))
 
+WebUI.click(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/button_'))
 
-CustomKeywords.'words.ResultHelper.verify'('등록검증시작')
+WebUI.setText(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/input_ID_manager_id'), 'ssr0122')
+
+WebUI.setEncryptedText(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/input_LOGIN_manager_pw'), '0j7gx7IaHoqVvtnDzehB9w==')
+
+WebUI.setEncryptedText(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/input__check_manager_pw'), '0j7gx7IaHoqVvtnDzehB9w==')
+
+WebUI.setText(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/input__manager_name'), '정민호')
+
+WebUI.selectOptionByValue(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/select_'), '10', true)
+
+CustomKeywords.'words.RegExceptionHelper.runAll'()

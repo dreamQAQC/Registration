@@ -6,12 +6,12 @@
    <elementGuidId>4fe03ad6-6a57-46de-9766-7a596f41c9ac</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//input[@name='manager_pw']</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>input[name=&quot;manager_pw&quot;]</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//input[@name='manager_pw']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>88474d39-b40a-43cb-bf77-7e3fa614e777</webElementGuid>
+      <webElementGuid>382278a2-f791-4215-9b07-9fff6fe5896f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -31,7 +31,7 @@
       <name>name</name>
       <type>Main</type>
       <value>manager_pw</value>
-      <webElementGuid>92ce4b01-b50b-4878-906e-f31224c8236e</webElementGuid>
+      <webElementGuid>dbbbe140-226c-4225-9151-6c6bfe352438</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -39,7 +39,7 @@
       <name>type</name>
       <type>Main</type>
       <value>password</value>
-      <webElementGuid>2c014a0b-c603-47b5-bcbe-920be5c82fea</webElementGuid>
+      <webElementGuid>4f0fb209-e68d-4d52-8197-d39053076480</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -47,7 +47,7 @@
       <name>class</name>
       <type>Main</type>
       <value>login-pw</value>
-      <webElementGuid>fb5f1e67-dd78-4752-89a1-84a32f1ac97c</webElementGuid>
+      <webElementGuid>785f0b7f-92ca-4274-9c5a-4f67b02710cc</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -55,7 +55,7 @@
       <name>placeholder</name>
       <type>Main</type>
       <value>Password</value>
-      <webElementGuid>6357423f-a43a-471a-b117-1a15351fb462</webElementGuid>
+      <webElementGuid>7e3adc6d-ae1d-4d60-a653-a429862893da</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -63,7 +63,7 @@
       <name>data-check</name>
       <type>Main</type>
       <value>required</value>
-      <webElementGuid>99f1d236-1d47-42ea-b492-b206e90eeb1f</webElementGuid>
+      <webElementGuid>375be3cc-0278-48d0-a2b2-2eef69edc9a4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -71,7 +71,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;__next&quot;)/div[@class=&quot;login-page&quot;]/div[@class=&quot;login-box&quot;]/div[@class=&quot;login-02&quot;]/form[1]/div[@class=&quot;login-input&quot;]/div[@class=&quot;password-wrapper&quot;]/input[@class=&quot;login-pw&quot;]</value>
-      <webElementGuid>6437becc-0fc1-4bc7-814a-506d80ee184d</webElementGuid>
+      <webElementGuid>22dffc60-dfe1-4fc0-a0ab-657becebbeff</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -79,7 +79,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@name='manager_pw']</value>
-      <webElementGuid>b6fcb0bb-f604-43c8-b94e-9b5c70ddc258</webElementGuid>
+      <webElementGuid>4f28a1a6-9cb7-4c0a-90dd-2feae5e75c20</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -87,7 +87,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='__next']/div/div/div[2]/form/div/div/input</value>
-      <webElementGuid>a40ad1de-c30f-4943-9d3c-10bd51f4d3e1</webElementGuid>
+      <webElementGuid>b4274286-3667-426b-896d-946496a0a56e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -95,7 +95,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div/div/input</value>
-      <webElementGuid>235ace03-2b4b-442f-b49c-1606d8d30db9</webElementGuid>
+      <webElementGuid>df63da6d-b443-4faf-9757-add9a0938ad3</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -103,6 +103,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@name = 'manager_pw' and @type = 'password' and @placeholder = 'Password']</value>
-      <webElementGuid>b2ef687e-7288-47e0-95f1-7facd33b84c9</webElementGuid>
+      <webElementGuid>e28205cc-0e81-4f32-9758-1c99557ce862</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>회원가입2</description>
+   <name>join2</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>df0ec526-e93f-4ada-b646-0ee85794648c</testCaseGuid>
+</TestCaseEntity>

@@ -6,12 +6,12 @@
    <elementGuidId>a3fad4e2-0879-4b1e-9be7-1b6545661807</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>(//button[@type='button'])[2]</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>button.save-btn</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>(//button[@type='button'])[2]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>484b97e0-9adc-4dd6-902e-006da4366a9c</webElementGuid>
+      <webElementGuid>3d58334d-ab92-4d81-9592-8c4105b03eaf</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -31,7 +31,7 @@
       <name>type</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>3bdea33a-3dcc-4d59-bf84-08d66d9069fe</webElementGuid>
+      <webElementGuid>6d14e931-03f3-4771-8904-db5769ce022d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -39,7 +39,7 @@
       <name>class</name>
       <type>Main</type>
       <value>save-btn</value>
-      <webElementGuid>cea521bf-f740-417f-8308-037b7e8266c3</webElementGuid>
+      <webElementGuid>807e2b04-413c-44c1-ad58-0d79a96918bc</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -47,7 +47,7 @@
       <name>text</name>
       <type>Main</type>
       <value>관리자 등록</value>
-      <webElementGuid>c874596c-9c3b-4e25-bcfe-1b826889e187</webElementGuid>
+      <webElementGuid>ab55d57b-0107-4988-b3fa-491e54808158</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -55,7 +55,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;__next&quot;)/div[@class=&quot;wrap&quot;]/div[@class=&quot;container&quot;]/div[@class=&quot;content scrollBar&quot;]/div[@class=&quot;cont&quot;]/div[@class=&quot;list-info&quot;]/div[@class=&quot;table-toolbar&quot;]/button[@class=&quot;save-btn&quot;]</value>
-      <webElementGuid>24ac1c5b-cca0-4c9a-88fa-0fc0748182f7</webElementGuid>
+      <webElementGuid>25825df7-9142-40d0-880e-086c523346fc</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -63,7 +63,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>(//button[@type='button'])[2]</value>
-      <webElementGuid>3b7743ed-afa6-4245-ba86-55b27da6b31e</webElementGuid>
+      <webElementGuid>d86748db-42b0-4f73-a9d8-d47c0bcbb85d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -71,7 +71,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='__next']/div/div/div[2]/div/div/div[2]/button</value>
-      <webElementGuid>158c6fbc-f211-4f1f-a41e-9724777af83c</webElementGuid>
+      <webElementGuid>caa51562-499b-40a5-bbf1-82c7b69a820f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -79,7 +79,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='관리자 관리'])[2]/following::button[3]</value>
-      <webElementGuid>eab4c54e-b734-4ffd-b872-889f89765ef1</webElementGuid>
+      <webElementGuid>94795e91-5386-45f8-b824-a6175289da71</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -87,7 +87,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='방화벽 관리'])[1]/following::button[3]</value>
-      <webElementGuid>4c28c079-526f-4a86-afdc-0c20d99a24ad</webElementGuid>
+      <webElementGuid>afabf5af-88f9-4a88-9c0a-c6d5b461ff94</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -95,7 +95,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='관리자 이름'])[1]/preceding::button[1]</value>
-      <webElementGuid>a9416dc9-9b33-4882-a6d9-ccf83d7e9b1b</webElementGuid>
+      <webElementGuid>49c0cd30-c47c-47f0-bcd3-d2513659fbb5</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -103,7 +103,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='관리자 ID'])[1]/preceding::button[1]</value>
-      <webElementGuid>44758ca1-6bf0-46a0-8de5-18a78a2b4252</webElementGuid>
+      <webElementGuid>b16b802c-4b8f-44fa-a4b5-9d04456afcae</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -111,7 +111,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='관리자 등록']/parent::*</value>
-      <webElementGuid>89087ab4-0197-4b0d-b9ee-8d51049d2015</webElementGuid>
+      <webElementGuid>b8df97d0-8d0f-49c7-a92c-63c2437e798b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -119,7 +119,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[2]/button</value>
-      <webElementGuid>a5539c02-511e-4897-9058-8346775c5517</webElementGuid>
+      <webElementGuid>d7205758-70e5-4c87-a8da-c1d3b42f3b2d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -127,6 +127,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//button[@type = 'button' and (text() = '관리자 등록' or . = '관리자 등록')]</value>
-      <webElementGuid>7cff615a-e0b4-49c0-9092-a460e3f2d0ff</webElementGuid>
+      <webElementGuid>f84bea66-07a2-474f-b5fe-0a5c3907ae1f</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

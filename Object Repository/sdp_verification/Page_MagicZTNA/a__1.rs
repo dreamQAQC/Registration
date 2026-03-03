@@ -6,12 +6,12 @@
    <elementGuidId>a92f036b-b2e5-408b-9812-0a3116798ddd</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//div[@id='__next']/div/div/div/ul/li/ul/li/a</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>li.nav-item.parent-item.collapsed > ul > li.nav-item > a.nav-link</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='__next']/div/div/div/ul/li/ul/li/a</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>ea9ce05f-5fe5-4c12-8a51-8e43514bedc0</webElementGuid>
+      <webElementGuid>485eac08-2eeb-4a50-837b-14db4554589b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -31,7 +31,7 @@
       <name>class</name>
       <type>Main</type>
       <value>nav-link</value>
-      <webElementGuid>13ad722a-b89a-4ac7-8041-504cc4cb0242</webElementGuid>
+      <webElementGuid>edde1b88-bfb8-48d1-8eec-88cec61c6177</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -39,7 +39,7 @@
       <name>href</name>
       <type>Main</type>
       <value>/managers/</value>
-      <webElementGuid>6a4a2b26-acc3-4c6d-ae55-5aa83904dffe</webElementGuid>
+      <webElementGuid>f678a39e-355f-470a-a092-f642211a3f4a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -47,7 +47,7 @@
       <name>text</name>
       <type>Main</type>
       <value>관리자 관리</value>
-      <webElementGuid>60ec919c-87fb-4ff3-8af5-751c0a258c58</webElementGuid>
+      <webElementGuid>e3347485-80ca-424c-b040-c06939dc202f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -55,7 +55,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;__next&quot;)/div[@class=&quot;wrap&quot;]/div[@class=&quot;container&quot;]/div[@class=&quot;sidebar&quot;]/ul[@class=&quot;sidebar-nav&quot;]/li[@class=&quot;nav-item parent-item collapsed&quot;]/ul[1]/li[@class=&quot;nav-item&quot;]/a[@class=&quot;nav-link&quot;]</value>
-      <webElementGuid>b6387f65-a800-484f-b877-90e295908b8c</webElementGuid>
+      <webElementGuid>e8b03aef-350d-4190-8d2f-b12b8e8128a2</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -63,7 +63,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='__next']/div/div/div/ul/li/ul/li/a</value>
-      <webElementGuid>fedced43-1f87-4255-b990-0b6f221ebc89</webElementGuid>
+      <webElementGuid>3821a12e-de01-4a30-bb80-9d85042e2229</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -71,7 +71,7 @@
       <name>xpath:link</name>
       <type>Main</type>
       <value>//a[contains(text(),'관리자 관리')]</value>
-      <webElementGuid>fff5c894-d195-460f-9a29-90c10beee077</webElementGuid>
+      <webElementGuid>20263215-fe09-4912-ac34-cd3e58ba8577</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -79,7 +79,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='사용자 관리'])[1]/preceding::a[1]</value>
-      <webElementGuid>a10542fa-a5a1-45cb-b31b-81029c80fd0a</webElementGuid>
+      <webElementGuid>88fe8c11-64ad-4073-a9e0-606864e9696a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -87,7 +87,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='클라이언트 관리'])[1]/preceding::a[2]</value>
-      <webElementGuid>9f9999a8-7ec9-463e-9deb-8e252500d0aa</webElementGuid>
+      <webElementGuid>decf34a4-1a88-4cb1-a634-e8feabd12d48</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -95,7 +95,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='관리자 관리']/parent::*</value>
-      <webElementGuid>6c9be4dc-edec-4cae-b2b6-594baa668e56</webElementGuid>
+      <webElementGuid>f15a3ac8-f34c-4628-8a44-29de5da96b25</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -103,7 +103,7 @@
       <name>xpath:href</name>
       <type>Main</type>
       <value>//a[contains(@href, '/managers/')]</value>
-      <webElementGuid>7fb27c6e-be48-4cec-b944-29d1f9953276</webElementGuid>
+      <webElementGuid>4f10fd5f-de9d-455f-add1-1547208dce94</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -111,7 +111,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//li/ul/li/a</value>
-      <webElementGuid>3652ad20-da9b-4868-9fcc-b0feea88480d</webElementGuid>
+      <webElementGuid>045a6e52-5346-400a-acde-58c880b38582</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -119,6 +119,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//a[@href = '/managers/' and (text() = '관리자 관리' or . = '관리자 관리')]</value>
-      <webElementGuid>e52bcaab-a80f-4179-b610-d1584bf18ded</webElementGuid>
+      <webElementGuid>f8f0196e-2fe8-4c5a-ab50-4736dc9f6f54</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
