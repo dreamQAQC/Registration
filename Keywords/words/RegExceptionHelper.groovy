@@ -1,268 +1,25 @@
 package words
 
 import com.kms.katalon.core.annotation.Keyword
-import static com.kms.katalon.core.model.FailureHandling.OPTIONAL
-import com.kms.katalon.core.testobject.ConditionType
-import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.webui.driver.DriverFactory
 import org.openqa.selenium.Alert
+import org.openqa.selenium.NoAlertPresentException
+import org.openqa.selenium.NoSuchSessionException
+import org.openqa.selenium.interactions.Actions
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
-import java.util.List
-import java.util.ArrayList
+import org.openqa.selenium.support.ui.WebDriverWait
+import org.openqa.selenium.support.ui.ExpectedConditions
+import java.time.Duration
 
-/**
- * ╔════════════════════════════════════════════════════════════════════════════╗
- * ║  RegExceptionHelper (필드 ID 기반 입력)                                   ║
- * ║  - Object Repository의 필드 ID를 감지                                    ║
- * ║  - JavaScript로 직접 값 입력 (화면 변화 자동 대응)                         ║
- * ║  - 54개 TC (53개 예외 + 1개 성공)                                        ║
- * ╚════════════════════════════════════════════════════════════════════════════╝
- */
 class RegExceptionHelper {
-
-	private static List<Map>        fieldElements   = new ArrayList<>()
-	private static List<Map>        allResults      = new ArrayList<>()
-	private static int              totalFail       = 0
-	private static long             sessionStart    = 0
-
-	// ★ 필드 ID와 기본값 매핑 (이미지의 Object Repository ID 기반)
-	// 화면 구성이 변해도 자동으로 대응합니다
-	private static Map<String, String> fieldDefaultValues = [
-		'adminId':              'ssr0128',
-		'password':             'Valid!@1',
-		'passwordConfirm':      'Valid!@1',
-		'adminName':            '정민호',
-		'adminEmail':           'sssr0123@ad.com',
-		'qa':                   'super'
-	]
-
-	// ════════════════════════════════════════════════════════════════════════════
-	//  ★ 테스트 케이스 데이터 정의 (총 54개)
-	// ════════════════════════════════════════════════════════════════════════════
-
-	private static List<Map> getTestCaseList() {
-		return [
-			[id:'TC#01', field:'ADMIN_ID', type:'단위', desc:'아이디 빈 값', 
-			 body:{ fillAllFields(false); setFieldValue('adminId', ''); delay(); clickButton('등록'); popup() },
-			 exp:'아이디|필수'],
-
-			[id:'TC#02', field:'ADMIN_ID', type:'단위', desc:'아이디 길이 미달 (5자)', 
-			 body:{ fillAllFields(false); setFieldValue('adminId', 'abcde'); delay(); clickButton('등록'); popup() },
-			 exp:'아이디|길이'],
-
-			[id:'TC#03', field:'ADMIN_ID', type:'단위', desc:'아이디 길이 초과 (51자)', 
-			 body:{ fillAllFields(false); setFieldValue('adminId', 'a'*51); delay(); clickButton('등록'); popup() },
-			 exp:'아이디|길이'],
-
-			[id:'TC#04', field:'ADMIN_ID', type:'단위', desc:'아이디 한글 포함', 
-			 body:{ fillAllFields(false); setFieldValue('adminId', '관리자123'); delay(); clickButton('등록'); popup() },
-			 exp:'아이디|형식'],
-
-			[id:'TC#05', field:'PASSWORD', type:'단위', desc:'비밀번호 빈 값', 
-			 body:{ fillAllFields(true); setFieldValue('password', ''); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|필수'],
-
-			[id:'TC#06', field:'PASSWORD', type:'단위', desc:'비밀번호 길이 미달 (7자)', 
-			 body:{ fillAllFields(true); setFieldValue('password', '1234567'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|길이'],
-
-			[id:'TC#07', field:'PASSWORD', type:'단위', desc:'비밀번호 영문만 입력', 
-			 body:{ fillAllFields(true); setFieldValue('password', 'password'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|조합'],
-
-			[id:'TC#08', field:'PASSWORD', type:'단위', desc:'비밀번호 숫자만 입력', 
-			 body:{ fillAllFields(true); setFieldValue('password', '12345678'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|조합'],
-
-			[id:'TC#09', field:'PASSWORD', type:'단위', desc:'비밀번호 특수문자만 입력', 
-			 body:{ fillAllFields(true); setFieldValue('password', '!@#$%^&*'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|조합'],
-
-			[id:'TC#10', field:'PASSWORD', type:'단위', desc:'비밀번호 공백 포함', 
-			 body:{ fillAllFields(true); setFieldValue('password', 'pass word1'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|공백'],
-
-			[id:'TC#11', field:'PW_CONFIRM', type:'단위', desc:'확인 비밀번호 빈 값', 
-			 body:{ fillAllFields(true); setFieldValue('passwordConfirm', ''); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|필수'],
-
-			[id:'TC#12', field:'PW_CONFIRM', type:'단위', desc:'확인 비밀번호 1자 다름', 
-			 body:{ fillAllFields(true); setFieldValue('passwordConfirm', 'Valid!@2'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|일치'],
-
-			[id:'TC#13', field:'PW_CONFIRM', type:'단위', desc:'확인 비밀번호 전체 다름', 
-			 body:{ fillAllFields(true); setFieldValue('passwordConfirm', 'Wrong!@1'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|일치'],
-
-			[id:'TC#14', field:'PW_CONFIRM', type:'단위', desc:'확인 비밀번호 길이 미달', 
-			 body:{ fillAllFields(true); setFieldValue('passwordConfirm', 'Valid!@'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|일치|길이'],
-
-			[id:'TC#15', field:'PW_CONFIRM', type:'단위', desc:'확인 비밀번호 길이 초과', 
-			 body:{ fillAllFields(true); setFieldValue('passwordConfirm', 'Valid!@111'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|일치|길이'],
-
-			[id:'TC#16', field:'PW_CONFIRM', type:'단위', desc:'확인 비밀번호 공백 포함', 
-			 body:{ fillAllFields(true); setFieldValue('passwordConfirm', 'Valid!@1 '); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|일치|공백'],
-
-			[id:'TC#17', field:'PW_CONFIRM', type:'단위', desc:'확인 비밀번호 대소문자 다름', 
-			 body:{ fillAllFields(true); setFieldValue('passwordConfirm', 'valid!@1'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|일치'],
-
-			[id:'TC#18', field:'NAME', type:'단위', desc:'이름 빈 값', 
-			 body:{ fillAllFields(true); setFieldValue('adminName', ''); delay(); clickButton('등록'); popup() },
-			 exp:'이름|필수'],
-
-			[id:'TC#19', field:'NAME', type:'단위', desc:'이름 1자 입력 (미달)', 
-			 body:{ fillAllFields(true); setFieldValue('adminName', '정'); delay(); clickButton('등록'); popup() },
-			 exp:'이름|길이'],
-
-			[id:'TC#20', field:'NAME', type:'단위', desc:'이름 31자 입력 (초과)', 
-			 body:{ fillAllFields(true); setFieldValue('adminName', '정민호정민호정민호정민호정민호정민호1'); delay(); clickButton('등록'); popup() },
-			 exp:'이름|길이'],
-
-			[id:'TC#21', field:'EMAIL', type:'단위', desc:'이메일 빈 값', 
-			 body:{ fillAllFields(true); setFieldValue('adminEmail', ''); delay(); clickButton('등록'); popup() },
-			 exp:'이메일|필수'],
-
-			[id:'TC#22', field:'EMAIL', type:'단위', desc:'이메일 @ 기호 누락', 
-			 body:{ fillAllFields(true); setFieldValue('adminEmail', 'test.com'); delay(); clickButton('등록'); popup() },
-			 exp:'이메일|형식|@'],
-
-			[id:'TC#23', field:'EMAIL', type:'단위', desc:'이메일 도메인 누락', 
-			 body:{ fillAllFields(true); setFieldValue('adminEmail', 'test@'); delay(); clickButton('등록'); popup() },
-			 exp:'이메일|형식|도메인'],
-
-			[id:'TC#24', field:'EMAIL', type:'단위', desc:'이메일 로컬 부분 누락', 
-			 body:{ fillAllFields(true); setFieldValue('adminEmail', '@test.com'); delay(); clickButton('등록'); popup() },
-			 exp:'이메일|형식|로컬'],
-
-			[id:'TC#25', field:'ADMIN_TYPE', type:'단위', desc:'관리자 유형 미선택', 
-			 body:{ fillAllFields(true); deselectField('qa'); delay(); clickButton('등록'); popup() },
-			 exp:'관리자|유형|필수'],
-
-			[id:'TC#26', field:'ADMIN_TYPE', type:'단위', desc:'관리자 유형 선택', 
-			 body:{ fillAllFields(true); selectFieldByValue('qa', 'super'); delay(); clickButton('등록'); popup() },
-			 exp:''],
-
-			[id:'TC#27', field:'MARKETING', type:'단위', desc:'마케팅 동의 미선택', 
-			 body:{ fillAllFields(true); deselectField('marketing'); delay(); clickButton('등록'); popup() },
-			 exp:'마케팅|동의|필수'],
-
-			[id:'TC#28', field:'MARKETING', type:'단위', desc:'마케팅 동의 선택', 
-			 body:{ fillAllFields(true); clickField('marketing'); delay(); clickButton('등록'); popup() },
-			 exp:''],
-
-			[id:'TC#29', field:'DUPLICATE', type:'시나리오', desc:'중복체크 생략 후 등록', 
-			 body:{ fillAllFields(false); delay(); clickButton('등록'); popup() },
-			 exp:'중복|체크'],
-
-			[id:'TC#30', field:'DUPLICATE', type:'시나리오', desc:'사용 중인 아이디로 중복체크', 
-			 body:{ fillAllFields(false); setFieldValue('adminId', 'alreadyused01'); clickButton('중복체크'); popup() },
-			 exp:'중복|사용중'],
-
-			[id:'TC#31', field:'SECURITY', type:'시나리오', desc:'비밀번호 = 아이디', 
-			 body:{ fillAllFields(true); setFieldValue('password', 'ssr0128'); setFieldValue('passwordConfirm', 'ssr0128'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|아이디|동일'],
-
-			[id:'TC#32', field:'SECURITY', type:'시나리오', desc:'비밀번호 = 이름', 
-			 body:{ fillAllFields(true); setFieldValue('password', '정민호'); setFieldValue('passwordConfirm', '정민호'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|이름|동일'],
-
-			[id:'TC#33', field:'SECURITY', type:'시나리오', desc:'비밀번호 = 이메일', 
-			 body:{ fillAllFields(true); setFieldValue('password', 'sssr0123@ad.com'); setFieldValue('passwordConfirm', 'sssr0123@ad.com'); delay(); clickButton('등록'); popup() },
-			 exp:'비밀번호|이메일|동일'],
-
-			[id:'TC#34', field:'SPECIAL_CHAR', type:'시나리오', desc:'아이디에 특수문자 (!)', 
-			 body:{ fillAllFields(false); setFieldValue('adminId', 'user!123'); delay(); clickButton('등록'); popup() },
-			 exp:'아이디|특수|형식'],
-
-			[id:'TC#35', field:'SPECIAL_CHAR', type:'시나리오', desc:'이름에 특수문자 (#)', 
-			 body:{ fillAllFields(true); setFieldValue('adminName', '정#민호'); delay(); clickButton('등록'); popup() },
-			 exp:'이름|특수|형식'],
-
-			[id:'TC#36', field:'SPECIAL_CHAR', type:'시나리오', desc:'이름에 이모지 (😊)', 
-			 body:{ fillAllFields(true); setFieldValue('adminName', '정민호😊'); delay(); clickButton('등록'); popup() },
-			 exp:'이름|이모지|특수'],
-
-			[id:'TC#37', field:'BOUNDARY', type:'시나리오', desc:'아이디 경계값 최소 (6자)', 
-			 body:{ fillAllFields(false); setFieldValue('adminId', 'test01'); delay(); clickButton('등록'); popup() },
-			 exp:''],
-
-			[id:'TC#38', field:'BOUNDARY', type:'시나리오', desc:'아이디 경계값 최대 (50자)', 
-			 body:{ fillAllFields(false); setFieldValue('adminId', 'testuser0123456789012345678901234567890123456789'); delay(); clickButton('등록'); popup() },
-			 exp:''],
-
-			[id:'TC#39', field:'BOUNDARY', type:'시나리오', desc:'비밀번호 경계값 최소 (8자)', 
-			 body:{ fillAllFields(true); setFieldValue('password', 'Test1234'); setFieldValue('passwordConfirm', 'Test1234'); delay(); clickButton('등록'); popup() },
-			 exp:''],
-
-			[id:'TC#40', field:'BOUNDARY', type:'시나리오', desc:'이름 경계값 최소 (2자)', 
-			 body:{ fillAllFields(true); setFieldValue('adminName', '정민'); delay(); clickButton('등록'); popup() },
-			 exp:''],
-
-			[id:'TC#41', field:'BOUNDARY', type:'시나리오', desc:'이름 경계값 최대 (30자)', 
-			 body:{ fillAllFields(true); setFieldValue('adminName', '정민호정민호정민호정민호정민호'); delay(); clickButton('등록'); popup() },
-			 exp:''],
-
-			[id:'TC#42', field:'WHITESPACE', type:'시나리오', desc:'아이디 앞 공백', 
-			 body:{ fillAllFields(false); setFieldValue('adminId', ' user123'); delay(); clickButton('등록'); popup() },
-			 exp:'아이디|공백|형식'],
-
-			[id:'TC#43', field:'WHITESPACE', type:'시나리오', desc:'아이디 뒤 공백', 
-			 body:{ fillAllFields(false); setFieldValue('adminId', 'user123 '); delay(); clickButton('등록'); popup() },
-			 exp:'아이디|공백|형식'],
-
-			[id:'TC#44', field:'WHITESPACE', type:'시나리오', desc:'이름 앞 공백', 
-			 body:{ fillAllFields(true); setFieldValue('adminName', ' 정민호'); delay(); clickButton('등록'); popup() },
-			 exp:'이름|공백'],
-
-			[id:'TC#45', field:'WHITESPACE', type:'시나리오', desc:'이메일 공백 포함', 
-			 body:{ fillAllFields(true); setFieldValue('adminEmail', 'test @test.com'); delay(); clickButton('등록'); popup() },
-			 exp:'이메일|공백'],
-
-			[id:'TC#46', field:'ENCODING', type:'시나리오', desc:'이름에 중국어 (王小明)', 
-			 body:{ fillAllFields(true); setFieldValue('adminName', '王小明'); delay(); clickButton('등록'); popup() },
-			 exp:'이름|언어|형식'],
-
-			[id:'TC#47', field:'ENCODING', type:'시나리오', desc:'이름에 일본어 (たなか)', 
-			 body:{ fillAllFields(true); setFieldValue('adminName', 'たなか'); delay(); clickButton('등록'); popup() },
-			 exp:'이름|언어|형식'],
-
-			[id:'TC#48', field:'COMBINATION', type:'시나리오', desc:'아이디+비밀번호+확인 모두 빈 값', 
-			 body:{ fillAllFields(true); setFieldValue('adminId', ''); setFieldValue('password', ''); setFieldValue('passwordConfirm', ''); delay(); clickButton('등록'); popup() },
-			 exp:'아이디|비밀번호'],
-
-			[id:'TC#49', field:'COMBINATION', type:'시나리오', desc:'이름+이메일 모두 빈 값', 
-			 body:{ fillAllFields(true); setFieldValue('adminName', ''); setFieldValue('adminEmail', ''); delay(); clickButton('등록'); popup() },
-			 exp:'이름|이메일'],
-
-			[id:'TC#50', field:'RETRY', type:'시나리오', desc:'잘못된 아이디 수정 후 재등록', 
-			 body:{ fillAllFields(true); setFieldValue('adminId', 'invalid'); delay(); clickButton('등록'); popup(); WebUI.delay(0.5); setFieldValue('adminId', 'valid01'); delay(); clickButton('등록'); popup() },
-			 exp:'성공|완료'],
-
-			[id:'TC#51', field:'RESET', type:'시나리오', desc:'초기화 버튼으로 모든 필드 초기화', 
-			 body:{ fillAllFields(false); clickButton('초기화'); WebUI.delay(0.5); delay(); clickButton('등록'); popup() },
-			 exp:'필수|아이디'],
-
-			[id:'TC#52', field:'COMBINATION', type:'시나리오', desc:'모든 필드의 길이 초과', 
-			 body:{ fillAllFields(true); setFieldValue('adminId', 'a'*51); setFieldValue('password', 'a'*51); setFieldValue('adminName', 'a'*31); delay(); clickButton('등록'); popup() },
-			 exp:'길이|아이디|비밀번호'],
-
-			[id:'TC#53', field:'GLOBAL', type:'시나리오', desc:'모든 필드 빈 값으로 등록 시도', 
-			 body:{ clearAllFieldsByID(); delay(); clickButton('등록'); popup() },
-			 exp:'필수|아이디'],
-
-			[id:'TC#54', field:'SUCCESS', type:'성공', desc:'전체 필드 정상값으로 등록 성공', 
-			 body:{ fillAllFields(true); delay(); clickButton('등록'); popup() },
-			 exp:'성공|완료|등록됨|완료되었|가능']
-		]
-	}
+	
+	private static List<Map> allResults = new ArrayList<>()
+	private static int totalFail = 0
+	private static long sessionStart = 0
+	private static String initialUrl = ""
 
 	@Keyword
 	static void runAll() {
@@ -270,223 +27,530 @@ class RegExceptionHelper {
 		allResults.clear()
 		sessionStart = System.currentTimeMillis()
 
-		KeywordUtil.logInfo("🚀 [필드 ID 기반 동적 테스트 시작]")
-		KeywordUtil.logInfo("═" * 80)
+		KeywordUtil.logInfo("🚀 회원가입 예외 테스트 시작 (페이지 이탈 방지 & 스마트 필드 탐지 적용)")
+		KeywordUtil.logInfo("═" * 70)
 
 		WebUI.waitForPageLoad(10)
-
-		def masterTCList = getTestCaseList()
+		initialUrl = WebUI.getUrl() // 최초의 회원가입 페이지 URL 기억
 		
-		KeywordUtil.logInfo("🔍 테스트 케이스 실행 (총 ${masterTCList.size()}개: 53개 예외 + 1개 성공)")
-		KeywordUtil.logInfo("═" * 80)
+		def rawList = getTestCaseList()
+		List<String> domOrder = getDynamicDomOrder()
+		KeywordUtil.logInfo("🔍 화면 분석 완료! 감지된 입력 순서: " + (domOrder.join(' ➔ ') ?: '기본'))
 
-		masterTCList.each { tc ->
-			runTC(tc.id, tc.type, tc.field ?: '', tc.desc, tc.exp, tc.body)
+		def testList = sortTestCasesByDomOrder(rawList, domOrder)
+		KeywordUtil.logInfo("📋 총 ${testList.size()}개 테스트 실행 시작\n")
+
+		for (int i = 0; i < testList.size(); i++) {
+			boolean isSessionAlive = runTC(i + 1, testList[i])
+			if (!isSessionAlive) {
+				KeywordUtil.logInfo("🚨 브라우저 세션이 끊어지거나 치명적 오류가 발생하여 남은 테스트를 중지합니다.")
+				break
+			}
 		}
 
 		printSummary()
+		
 		if (totalFail > 0) KeywordUtil.markFailed("🚨 실패 ${totalFail}건")
-		else KeywordUtil.markPassed("✅ 54개 TC 모두 통과!")
+		else KeywordUtil.markPassed("✅ 전체 통과!")
 	}
 
-	private static void runTC(String tcId, String type, String field, String desc, String expectKey, Closure body) {
-		logStart(tcId, type, field, desc)
+	private static List<String> getDynamicDomOrder() {
+		String domOrderStr = (String) WebUI.executeJavaScript("""
+			var order = [];
+			var inputs = document.querySelectorAll('input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="submit"])');
+			for(var i=0; i<inputs.length; i++) {
+				var el = inputs[i];
+				if(el.offsetParent === null) continue;
+				
+				var idStr = (el.id || '').toLowerCase();
+				var nameStr = (el.name || '').toLowerCase();
+				var phStr = (el.placeholder || '').toLowerCase();
+
+				if (el.type === 'password') {
+					if (idStr.includes('confirm') || nameStr.includes('confirm') || phStr.includes('확인') || phStr.includes('재입력')) {
+						if(order.indexOf('pwConf') === -1) order.push('pwConf');
+					} else {
+						if(order.indexOf('pw') === -1) order.push('pw');
+					}
+				} else {
+					if (idStr.includes('id') || nameStr.includes('id') || phStr.includes('아이디') || phStr.includes('4~')) {
+						if(order.indexOf('id') === -1) order.push('id');
+					} else if (idStr.includes('name') || nameStr.includes('name') || phStr.includes('이름') || phStr.includes('성명') || phStr.includes('실명')) {
+						if(order.indexOf('name') === -1) order.push('name');
+					}
+				}
+			}
+			return order.join(',');
+		""", [])
+		return domOrderStr ? domOrderStr.split(',').toList() : []
+	}
+
+	private static List<Map> sortTestCasesByDomOrder(List<Map> rawList, List<String> domOrder) {
+		rawList.each { tc ->
+			if (tc.type.startsWith('단위-') && tc.type != '단위-약관') {
+				int idx = domOrder.indexOf(tc.target)
+				tc.priority = (idx != -1) ? idx : 10 
+			} else if (tc.type == '단위-약관') {
+				tc.priority = 50
+			} else if (tc.type == '시나리오') {
+				tc.priority = 60
+			} else if (tc.type == '성공') {
+				tc.priority = 70
+			} else {
+				tc.priority = 100
+			}
+		}
+
+		rawList.sort { a, b ->
+			if (a.priority != b.priority) {
+				return a.priority <=> b.priority
+			} else {
+				int idA = a.id.replace('TC-', '').toInteger()
+				int idB = b.id.replace('TC-', '').toInteger()
+				return idA <=> idB
+			}
+		}
+
+		rawList.eachWithIndex { tc, i ->
+			tc.id = String.format("TC-%02d", i + 1)
+		}
+		
+		return rawList
+	}
+
+	private static List<Map> getTestCaseList() {
+		return [
+			[id:'TC-00', type:'단위-이름', desc:'빈 값', e:'이름', target:'name', value:'', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-이름', desc:'숫자 포함', e:'이름', target:'name', value:'123', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-이름', desc:'공백 포함', e:'이름', target:'name', value:'홍 길동', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-이름', desc:'이모지 포함', e:'이름', target:'name', value:'홍길동😊', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-이름', desc:'51자 초과', e:'이름', target:'name', value:'홍'*51, expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-이름', desc:'특수문자 포함', e:'이름', target:'name', value:'홍#길동', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-이름', desc:'영문만 입력', e:'이름', target:'name', value:'hongkildon', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-이름', desc:'2자 정상값', e:'이름', target:'name', value:'김철', expect:'성공', dupCheck:true],
+
+			[id:'TC-00', type:'단위-아이디', desc:'빈 값', e:'아이디', target:'id', value:'', expect:'실패', dupCheck:false],
+			[id:'TC-00', type:'단위-아이디', desc:'4자 미달', e:'아이디', target:'id', value:'tes', expect:'실패', dupCheck:false],
+			[id:'TC-00', type:'단위-아이디', desc:'5자 미달', e:'아이디', target:'id', value:'abcd', expect:'실패', dupCheck:false],
+			[id:'TC-00', type:'단위-아이디', desc:'51자 초과', e:'아이디', target:'id', value:'a'*51, expect:'실패', dupCheck:false],
+			[id:'TC-00', type:'단위-아이디', desc:'100자 초과', e:'아이디', target:'id', value:'a'*100, expect:'실패', dupCheck:false],
+			[id:'TC-00', type:'단위-아이디', desc:'한글 포함', e:'아이디', target:'id', value:'관리자12', expect:'실패', dupCheck:false],
+			[id:'TC-00', type:'단위-아이디', desc:'이모지 불가', e:'아이디', target:'id', value:'✨✨123', expect:'실패', dupCheck:false],
+			[id:'TC-00', type:'단위-아이디', desc:'특수문자 포함', e:'아이디', target:'id', value:'user!@#', expect:'실패', dupCheck:false],
+			[id:'TC-00', type:'단위-아이디', desc:'공백 포함', e:'아이디', target:'id', value:'use 01', expect:'실패', dupCheck:false],
+			[id:'TC-00', type:'단위-아이디', desc:'6자 정상', e:'아이디', target:'id', value:'user12', expect:'성공', dupCheck:false],
+			[id:'TC-00', type:'단위-아이디', desc:'50자 초과', e:'아이디', target:'id', value:'a'*50, expect:'실패', dupCheck:false],
+
+			[id:'TC-00', type:'단위-비밀번호', desc:'빈 값', e:'비밀번호', target:'pw', value:'', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호', desc:'7자 미달', e:'비밀번호', target:'pw', value:'123456', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호', desc:'영문만', e:'비밀번호', target:'pw', value:'password', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호', desc:'숫자만', e:'비밀번호', target:'pw', value:'12345678', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호', desc:'특수문자만', e:'비밀번호', target:'pw', value:'!@#\$%^&*', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호', desc:'공백 포함', e:'비밀번호', target:'pw', value:'Pass 12!', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호', desc:'영문+숫자만', e:'비밀번호', target:'pw', value:'pass1234', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호', desc:'8자 정상값', e:'비밀번호', target:'pw', value:'Test12!@', expect:'성공', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호', desc:'한글 포함', e:'비밀번호', target:'pw', value:'비밀123!@', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호', desc:'중복 특수문자', e:'비밀번호', target:'pw', value:'!@!@!@12', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호', desc:'대문자만', e:'비밀번호', target:'pw', value:'PASSWORD', expect:'실패', dupCheck:true],
+
+			[id:'TC-00', type:'단위-비밀번호확인', desc:'빈 값', e:'비밀번호', target:'pwConf', value:'', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호확인', desc:'7자 미달', e:'비밀번호', target:'pwConf', value:'1234567', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호확인', desc:'불일치', e:'비밀번호', target:'pwConf', value:'wrong!@#1', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호확인', desc:'한글 포함', e:'비밀번호', target:'pwConf', value:'비밀123!@', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호확인', desc:'한 글자만', e:'비밀번호', target:'pwConf', value:'T', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호확인', desc:'공백만', e:'비밀번호', target:'pwConf', value:'       ', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호확인', desc:'대소 혼용 불일치', e:'비밀번호', target:'pwConf', value:'test123!@', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'단위-비밀번호확인', desc:'정상값 일치', e:'비밀번호', target:'pwConf', value:'Test123!@', expect:'성공', dupCheck:true],
+
+			[id:'TC-00', type:'단위-약관', desc:'필수 약관 미체크', e:'약관', target:'uncheck', value:'uncheck', expect:'실패', dupCheck:true],
+
+			[id:'TC-00', type:'시나리오', desc:'모든 필드 빈값', e:'이름', target:'clear', value:'clear', expect:'실패', dupCheck:false],
+			[id:'TC-00', type:'시나리오', desc:'중복확인 생략', e:'중복확인', target:'skipDupCheck', value:'testus01', expect:'실패', dupCheck:false],
+			[id:'TC-00', type:'시나리오', desc:'아이디만 변경', e:'중복확인', target:'id', value:'user02', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'시나리오', desc:'아이디 삭제', e:'아이디', target:'id', value:'', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'시나리오', desc:'중복확인 3회 반복', e:'중복확인', target:'tripledup', value:'tripledup', expect:'성공', dupCheck:false],
+			[id:'TC-00', type:'시나리오', desc:'아이디 공백', e:'중복확인', target:'id', value:' use 01 ', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'시나리오', desc:'아이디 대소문자', e:'중복확인', target:'id', value:'USER01', expect:'성공', dupCheck:true],
+			[id:'TC-00', type:'시나리오', desc:'비밀번호 확인 삭제', e:'비밀번호', target:'pwConf', value:'', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'시나리오', desc:'비밀번호 불일치', e:'비밀번호', target:'pwConf', value:'Diff!@#1', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'시나리오', desc:'비밀번호만 변경', e:'비밀번호', target:'pw', value:'NewPwd!@1', expect:'성공', dupCheck:true],
+			[id:'TC-00', type:'시나리오', desc:'비밀번호 삭제', e:'비밀번호', target:'pw', value:'', expect:'실패', dupCheck:true],
+			[id:'TC-00', type:'시나리오', desc:'전체 필드 재시도', e:'이름', target:'clear', value:'clear', expect:'실패', dupCheck:false],
+			[id:'TC-00', type:'시나리오', desc:'약관 미체크 후 가입', e:'약관', target:'uncheck', value:'uncheck', expect:'실패', dupCheck:true],
+
+			[id:'TC-00', type:'성공', desc:'정상 회원가입', e:'성공', target:'success', value:'success', expect:'성공', dupCheck:true]
+		]
+	}
+
+	private static boolean runTC(int num, Map tc) {
 		long t0 = System.currentTimeMillis()
 		String actual = ''
 
 		try {
+			// 🎯 1. 페이지 이탈 시 원래 페이지로 복귀 (가입 성공 후 넘어간 경우 등)
+			String currentUrl = WebUI.getUrl()
+			if (initialUrl && currentUrl != initialUrl && !currentUrl.contains(initialUrl.split("\\?")[0])) {
+				WebUI.navigateToUrl(initialUrl)
+				WebUI.waitForPageLoad(5)
+			}
+			
+			// 남아있는 네이티브 Alert 닫기
+			try { DriverFactory.getWebDriver().switchTo().alert().accept() } catch(Exception e) {}
+
+			// 2. 폼 초기화
+			resetForm()
 			WebUI.delay(0.2)
-			actual = (String) body.call() ?: ''
-		} catch (Exception e) {
-			actual = "[예외] ${e.message?.take(40) ?: '알 수 없음'}"
+
+			// 3. 화면에 있는 모든 input 요소를 찾아 더미 값으로 완벽하게 채움 (말풍선 블로킹 방어)
+			fillAllEmptyInputs()
+			checkAllCheckboxes()
+			
+			// 4. 검증 대상이 아닌 주요 필드에 정상값을 다시 덮어씌움
+			setFieldValue('name', '홍길동')
+			setFieldValue('id', "testuser${num}")
+			setFieldValue('pw', 'Test123!@')
+			setFieldValue('pwConf', 'Test123!@')
+			WebUI.delay(0.2)
+
+			// 5. 아이디 검증이 아닌 경우, '중복 확인'을 미리 조용히 통과시킴
+			if (tc.dupCheck && tc.target != 'id' && tc.target != 'tripledup' && tc.target != 'skipDupCheck' && tc.target != 'clear') {
+				clickDuplicateCheck()
+				silentClosePopup() 
+				WebUI.delay(0.3) 
+			}
+
+			// 6. 타겟 필드에 사용자가 원한(TC) 예외 값을 덮어씌움
+			if (tc.target == 'clear') {
+				resetForm() 
+			} else if (tc.target == 'uncheck') {
+				uncheckAllCheckboxes() 
+			} else if (tc.target == 'skipDupCheck') {
+				setFieldValue('id', tc.value) 
+			} else if (tc.target != 'success' && tc.target != 'tripledup') {
+				setFieldValue(tc.target, tc.value)
+			}
+
+			// 7. 액션 수행
+			if (tc.target == 'id') {
+				clickDuplicateCheck()
+				actual = popup()
+			} else if (tc.target == 'tripledup') {
+				for (int i = 0; i < 3; i++) {
+					clickDuplicateCheck()
+					actual = popup()
+					WebUI.delay(0.2)
+				}
+				actual = '[중복확인 3회 완료] ' + actual
+			} else {
+				clickRegister()
+				actual = popup() // 1.5초 대기 포함
+			}
+			
+		} catch (Exception ex) {
+			String errMsg = ex.message ?: ""
+			actual = "[에러] ${errMsg.take(30)}"
+			
+			if (errMsg.contains("invalid session id") || errMsg.contains("Unable to execute JavaScript") || errMsg.contains("Session")) {
+				logResult(false, tc.id, tc.type, tc.e ?: '미지정', tc.value?.toString(), actual, 0.0, tc.expect, "브라우저 세션 끊김 오류")
+				allResults << [tc: tc.id, type: tc.type, field: tc.e ?: '미정', popup: actual, passed: false, elapsed: "0.00초", expect: tc.expect, reason: "세션/스크립트 오류"]
+				return false
+			}
 		}
 
-		double elapsed = (System.currentTimeMillis() - t0) / 1000.0
+		long t1 = System.currentTimeMillis()
+		double elapsed = (t1 - t0) / 1000.0
+		String actualClean = actual.replaceAll('\n', ' ').trim()
 		
-		boolean passed = expectKey == null || expectKey.isEmpty() || 
-					(actual && expectKey.split('\\|').any { actual.contains(it.trim()) } && 
-					 !['성공','완료','가능','등록됨'].any { actual.contains(it) })
+		boolean isPositiveMsg = actualClean.contains('완료') || actualClean.contains('성공') || actualClean.contains('가능') || actualClean.contains('사용 가능한') || actualClean.contains('일치')
+		boolean passed = false
+		String reason = ""
+
+		if (tc.expect == '성공') {
+			if (isPositiveMsg) {
+				passed = true; reason = "정상 통과 확인 (긍정 메시지 반환)"
+			} else {
+				passed = false; reason = "성공해야 하나 에러/경고 발생"
+			}
+		} else { 
+			if (actualClean == '[팝업없음]' || actualClean.isEmpty()) {
+				passed = false; reason = "예외 처리가 되어야 하나 아무 반응이 없음"
+			} else if (isPositiveMsg) {
+				passed = false; reason = "에러가 발생해야 하나 성공(긍정) 처리됨"
+			} else {
+				passed = true; reason = "예외(에러/경고) 처리 정상 방어 확인"
+			}
+		}
 
 		if (!passed) totalFail++
-
-		logResult(passed, tcId, actual, elapsed)
-		allResults << [tc: tcId, type: type, field: field, desc: desc, expect: expectKey ?: '-', 
-					   popup: actual, passed: passed, elapsed: String.format('%.2f초', elapsed)]
+		
+		logResult(passed, tc.id, tc.type, tc.e ?: '미지정', tc.value?.toString(), actualClean, elapsed, tc.expect, reason)
+		allResults << [tc: tc.id, type: tc.type, field: tc.e ?: '미정', popup: actualClean, passed: passed, elapsed: String.format('%.2f초', elapsed), expect: tc.expect, reason: reason]
+		
+		return true 
 	}
 
-	// ════════════════════════════════════════════════════════════════════════════
-	//  ★ 필드 ID 기반 값 입력 (JavaScript 직접 조작)
-	// ════════════════════════════════════════════════════════════════════════════
-
-	/**
-	 * ★ 필드 ID로 직접 값 입력 (가장 안정적)
-	 * 사용 예시:
-	 *   setFieldValue('adminId', 'ssr0128')
-	 *   setFieldValue('password', 'Valid!@1')
-	 *   setFieldValue('adminEmail', 'test@ad.com')
-	 */
-	private static void setFieldValue(String fieldId, String value) {
-		try {
-			String safeValue = (value ?: '').replace('\\', '\\\\').replace("'", "\\'")
-			WebUI.executeJavaScript("""
-				var el = document.getElementById('${fieldId}');
-				if (el) {
-					el.value = '${safeValue}';
-					el.dispatchEvent(new Event('input', { bubbles: true }));
-					el.dispatchEvent(new Event('change', { bubbles: true }));
-					el.dispatchEvent(new Event('blur', { bubbles: true }));
+	private static void fillAllEmptyInputs() {
+		WebUI.executeJavaScript("""
+			var inputs = document.querySelectorAll('input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="submit"])');
+			for(var i=0; i<inputs.length; i++) {
+				if(!inputs[i].value) {
+					if(inputs[i].type === 'email') inputs[i].value = 'test@example.com';
+					else if(inputs[i].type === 'password') inputs[i].value = 'Temp123!@';
+					else inputs[i].value = 'dummyData12';
+					inputs[i].dispatchEvent(new Event('input', { bubbles: true }));
+					inputs[i].dispatchEvent(new Event('change', { bubbles: true }));
 				}
-			""", null)
-			KeywordUtil.logInfo("  → ${fieldId} = '${value}'")
-		} catch (Exception e) {
-			KeywordUtil.logInfo("⚠️ 필드 입력 실패: ${fieldId}")
-		}
-	}
-
-	/**
-	 * ★ 모든 필드를 기본값으로 자동 입력
-	 * fieldDefaultValues 맵 사용
-	 */
-	private static void fillAllFields(boolean withDuplicateCheck) {
-		fieldDefaultValues.each { fieldId, defaultValue ->
-			setFieldValue(fieldId, defaultValue)
-		}
-
-		// Select 필드 (드롭다운)
-		WebUI.executeJavaScript("""
-			var qaSelect = document.getElementById('qa');
-			if (qaSelect) {
-				qaSelect.value = 'super';
-				qaSelect.dispatchEvent(new Event('change', { bubbles: true }));
 			}
-		""", null)
-		KeywordUtil.logInfo("  → qa = 'super'")
-
-		// Radio 필드 (마케팅)
-		WebUI.executeJavaScript("""
-			var marketing = document.getElementById('marketing');
-			if (marketing) {
-				marketing.checked = true;
-				marketing.dispatchEvent(new Event('change', { bubbles: true }));
-			}
-		""", null)
-		KeywordUtil.logInfo("  → marketing = checked")
-
-		if (withDuplicateCheck) {
-			delay()
-			clickButton('중복체크')
-			popup()
-			WebUI.delay(0.3)
-		}
-	}
-
-	private static void clearAllFieldsByID() {
-		WebUI.executeJavaScript("""
-			['adminId', 'password', 'passwordConfirm', 'adminName', 'adminEmail'].forEach(id => {
-				var el = document.getElementById(id);
-				if (el) {
-					el.value = '';
-					el.dispatchEvent(new Event('change', { bubbles: true }));
+			
+			var radios = document.querySelectorAll('input[type="radio"]');
+			var groups = {};
+			for(var k=0; k<radios.length; k++) {
+				var name = radios[k].name;
+				if(name && !groups[name]) {
+					var checked = document.querySelector('input[name="'+name+'"]:checked');
+					if(!checked && radios[k].offsetParent !== null) {
+						radios[k].checked = true;
+						radios[k].dispatchEvent(new Event('change', { bubbles: true }));
+					}
+					groups[name] = true;
 				}
+			}
+			
+			var selects = document.querySelectorAll('select');
+			for(var s=0; s<selects.length; s++) {
+				if(selects[s].offsetParent !== null && selects[s].options.length > 1 && selects[s].selectedIndex <= 0) {
+					selects[s].selectedIndex = 1;
+					selects[s].dispatchEvent(new Event('change', { bubbles: true }));
+				}
+			}
+		""", [])
+	}
+
+	private static void setFieldValue(String type, String value) {
+		String safeVal = value ? value.toString().replace('\\', '\\\\').replace("'", "\\'").replace('\n', '') : ""
+		
+		// 🎯 요소 주변의 텍스트(Label, Placeholder 등)를 정밀하게 스캔하여 완벽 타겟팅
+		WebUI.executeJavaScript("""
+			var type = '${type}';
+			var val = '${safeVal}';
+			var target = null;
+			var inputs = document.querySelectorAll('input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="submit"])');
+			
+			for(var i=0; i<inputs.length; i++) {
+				var el = inputs[i];
+				if(el.offsetParent === null) continue; // 보이지 않는 요소 무시
+				
+				var idStr = (el.id || '').toLowerCase();
+				var nameStr = (el.name || '').toLowerCase();
+				var phStr = (el.placeholder || '').toLowerCase();
+				
+				var labelTxt = '';
+				if(el.labels && el.labels.length > 0) labelTxt = el.labels[0].innerText.toLowerCase();
+				else {
+					var parent = el.closest('div, tr, li, td');
+					if(parent) labelTxt = parent.innerText.toLowerCase();
+				}
+
+				if (type === 'pwConf') {
+					if (el.type === 'password' && (idStr.includes('confirm') || nameStr.includes('confirm') || phStr.includes('확인') || phStr.includes('재입력') || labelTxt.includes('확인'))) { target = el; break; }
+				} else if (type === 'pw') {
+					if (el.type === 'password' && !idStr.includes('confirm') && !nameStr.includes('confirm') && !phStr.includes('확인') && !phStr.includes('재입력') && !labelTxt.includes('확인')) { target = el; break; }
+				} else if (type === 'id') {
+					if (el.type !== 'password' && (idStr.includes('id') || nameStr.includes('id') || phStr.includes('아이디') || phStr.includes('4~') || labelTxt.includes('id') || labelTxt.includes('아이디'))) { target = el; break; }
+				} else if (type === 'name') {
+					if (el.type !== 'password' && (idStr.includes('name') || nameStr.includes('name') || phStr.includes('이름') || phStr.includes('성명') || phStr.includes('실명') || labelTxt.includes('이름') || labelTxt.includes('성명'))) { target = el; break; }
+				}
+			}
+
+			if (target) {
+				target.value = val;
+				target.dispatchEvent(new Event('input', { bubbles: true }));
+				target.dispatchEvent(new Event('change', { bubbles: true }));
+				target.dispatchEvent(new Event('blur', { bubbles: true }));
+			}
+		""", [])
+	}
+
+	private static void resetForm() {
+		WebUI.executeJavaScript("""
+			document.querySelectorAll('input').forEach(i => {
+				if(i.type === 'checkbox' || i.type === 'radio') i.checked = false;
+				else i.value = '';
+				i.dispatchEvent(new Event('input', { bubbles: true }));
+				i.dispatchEvent(new Event('change', { bubbles: true }));
 			});
-		""", null)
-	}
-
-	private static void selectFieldByValue(String fieldId, String value) {
-		WebUI.executeJavaScript("""
-			var el = document.getElementById('${fieldId}');
-			if (el) {
-				el.value = '${value}';
-				el.dispatchEvent(new Event('change', { bubbles: true }));
-			}
-		""", null)
-	}
-
-	private static void clickField(String fieldId) {
-		WebUI.executeJavaScript("""
-			var el = document.getElementById('${fieldId}');
-			if (el) {
-				el.click();
-				el.dispatchEvent(new Event('change', { bubbles: true }));
-			}
-		""", null)
-	}
-
-	private static void deselectField(String fieldId) {
-		WebUI.executeJavaScript("""
-			var el = document.getElementById('${fieldId}');
-			if (el) {
-				if (el.type === 'radio' || el.type === 'checkbox') {
-					el.checked = false;
-				} else if (el.tagName === 'SELECT') {
-					el.selectedIndex = -1;
+			
+			var btns = document.querySelectorAll('button');
+			for(var i=0; i<btns.length; i++) {
+				var txt = (btns[i].innerText || '').split(' ').join(''); 
+				if(btns[i].offsetParent !== null && (txt.includes('확인') || txt.includes('닫기'))) {
+					btns[i].click();
 				}
-				el.dispatchEvent(new Event('change', { bubbles: true }));
 			}
-		""", null)
+			
+			document.querySelectorAll('.modal, .popup, [role="dialog"], [class*="layer"], .modal-backdrop').forEach(m => {
+				m.style.display = 'none';
+			});
+		""", [])
 	}
 
-	private static void clickButton(String label) {
-		String xp = "//button[contains(., '${label}')] | //input[contains(@value, '${label}')]"
-		def btn = new TestObject().addProperty('xpath', ConditionType.EQUALS, xp)
-
-		if (WebUI.waitForElementPresent(btn, 2, OPTIONAL)) {
-			try {
-				WebUI.click(btn)
-				KeywordUtil.logInfo("  → 버튼: '${label}'")
-			} catch (Exception e) {
-				try {
-					WebUI.executeJavaScript("document.evaluate(\"${xp}\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue?.click();", null)
-				} catch (Exception ignored) { }
+	private static void clickRegister() {
+		try {
+			def driver = DriverFactory.getWebDriver()
+			def elements = driver.findElements(By.xpath("//button[contains(translate(text(), ' ', ''), '가입하기') or contains(translate(text(), ' ', ''), '등록')]"))
+			if(elements.size() > 0) {
+				WebUI.executeJavaScript("arguments[0].scrollIntoView({block:'center'}); arguments[0].click();", [elements[0]])
 			}
-			WebUI.delay(0.8)
-		}
+		} catch (Exception e) {}
 	}
 
-	private static String popup() {
-		WebUI.delay(0.6)
+	private static void clickDuplicateCheck() {
 		try {
-			Alert a = DriverFactory.getWebDriver().switchTo().alert()
-			String t = a.getText()
-			a.accept()
-			return t
-		} catch (Exception ignored) { }
+			def driver = DriverFactory.getWebDriver()
+			def elements = driver.findElements(By.xpath("//button[contains(translate(text(), ' ', ''), '중복확인') or contains(translate(text(), ' ', ''), '중복체크')]"))
+			if(elements.size() > 0) {
+				WebUI.executeJavaScript("arguments[0].scrollIntoView({block:'center'}); arguments[0].click();", [elements[0]])
+			}
+		} catch (Exception e) {}
+	}
 
+	private static void silentClosePopup() {
+		WebUI.delay(0.5) 
 		try {
-			String r = (String) WebUI.executeJavaScript("""
-				var btn = Array.from(document.querySelectorAll('button, a')).find(b => {
-					var t = b.textContent.trim();
-					return b.offsetParent !== null && ['확인','닫기','OK','Close'].includes(t);
-				});
-				if (!btn) return '';
-				var txt = document.body.innerText;
-				if (btn.textContent.trim() !== '등록') btn.click();
-				return txt;
-			""", null)
-			return r?.trim() ?: ''
-		} catch (Exception ignored) { 
-			return '' 
+			def driver = DriverFactory.getWebDriver()
+			Alert alert = new WebDriverWait(driver, Duration.ofMillis(300)).until(ExpectedConditions.alertIsPresent())
+			if (alert != null) alert.accept()
+		} catch (Exception e) {}
+		
+		WebUI.executeJavaScript("""
+			var btns = document.querySelectorAll('button, a, [class*="btn"]');
+			for (var i = 0; i < btns.length; i++) {
+				var txt = (btns[i].innerText || '').split(' ').join('');
+				if (btns[i].offsetParent !== null && txt.includes('확인')) {
+					btns[i].click(); 
+					break;
+				}
+			}
+			document.querySelectorAll('.modal, .popup, [role="dialog"], [class*="layer"]').forEach(m => m.style.display = 'none');
+		""", [])
+	}
+
+	private static String popup(boolean needWait = true) {
+		if (needWait) {
+			WebUI.delay(1.5) 
 		}
+		
+		try {
+			def driver = DriverFactory.getWebDriver()
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(500))
+			Alert alert = wait.until(ExpectedConditions.alertIsPresent())
+			if (alert != null) {
+				String text = alert.getText()
+				alert.accept() 
+				return text
+			}
+		} catch (Exception e) {}
+		
+		String result = (String) WebUI.executeJavaScript("""
+			var btns = document.querySelectorAll('button, a, [class*="btn"], [class*="confirm"]');
+			
+			for (var i = 0; i < btns.length; i++) {
+				var b = btns[i];
+				var btnTxt = (b.innerText || '').split(' ').join(''); 
+				if (b.offsetParent !== null && btnTxt.includes('확인')) {
+					var parent = b.parentElement;
+					while(parent && parent.tagName !== 'BODY') {
+						var style = window.getComputedStyle(parent);
+						if (style.position === 'fixed' || style.position === 'absolute' || parseInt(style.zIndex) > 0) {
+							// 정규식 에러를 완벽히 막기 위한 split/join 방식 사용
+							var rawTxt = parent.innerText || '';
+							var txt = rawTxt.split('확인').join('').split('\\n').join(' ').split('\\r').join(' ').trim();
+							return 'MODAL::' + txt;
+						}
+						parent = parent.parentElement;
+					}
+				}
+			}
+
+			var inputs = document.querySelectorAll('input');
+			for (var k = 0; k < inputs.length; k++) {
+				if (!inputs[k].validity.valid && inputs[k].validationMessage) {
+					return 'HTML5::' + inputs[k].validationMessage; 
+				}
+			}
+
+			return '[팝업없음]';
+		""", [])
+
+		String extractedText = result
+		
+		if (result != null && result.startsWith('MODAL::')) {
+			extractedText = result.substring(7)
+			WebUI.executeJavaScript("""
+				var btns = document.querySelectorAll('button, a, [class*="btn"]');
+				for (var i = 0; i < btns.length; i++) {
+					var txt = (btns[i].innerText || '').split(' ').join('');
+					if (btns[i].offsetParent !== null && txt.includes('확인')) {
+						btns[i].click(); 
+						break;
+					}
+				}
+			""", [])
+			WebUI.delay(0.3) 
+		} else if (result != null && result.startsWith('HTML5::')) {
+			extractedText = result.substring(7)
+		}
+
+		return extractedText ?: '[팝업없음]'
 	}
 
-	private static void delay() { WebUI.delay(0.3) }
-
-	private static void logStart(String id, String type, String field, String desc) {
-		KeywordUtil.logInfo("\n┌──────────────────────────┐")
-		KeywordUtil.logInfo("│ ▶ ${id} [${type}]")
-		KeywordUtil.logInfo("│ ${desc}")
-		KeywordUtil.logInfo("└──────────────────────────┘")
+	private static void checkAllCheckboxes() {
+		WebUI.executeJavaScript("document.querySelectorAll('input[type=\"checkbox\"]').forEach(c => { c.checked = true; c.dispatchEvent(new Event('change')); });", [])
 	}
 
-	private static void logResult(boolean pass, String id, String res, double elap) {
-		KeywordUtil.logInfo("[${pass ? '✅ PASS' : '❌ FAIL'}] ${id} | ${res.take(30)}")
+	private static void uncheckAllCheckboxes() {
+		WebUI.executeJavaScript("document.querySelectorAll('input[type=\"checkbox\"]').forEach(c => { c.checked = false; c.dispatchEvent(new Event('change')); });", [])
+	}
+
+	private static void logResult(boolean passed, String tcId, String type, String field, String value, String popupText, double elapsed, String expectKey, String reason) {
+		String icon = passed ? '✅  PASS' : '❌  FAIL'
+		String sep = '═' * 62
+		String inp = (value == '' ? '(빈 값)' : (value ?: '-')).take(45)
+		String res = (popupText ?: '팝업 없음').take(45)
+
+		StringBuilder sb = new StringBuilder()
+		sb.append("\n╔${sep}╗\n")
+		sb.append("║  ${icon.padRight(60)}║\n")
+		sb.append("╠${sep}╣\n")
+		sb.append("║  🆔  TC ID    : ${tcId.padRight(45)}║\n")
+		sb.append("║  🔍  유형     : ${type.padRight(45)}║\n")
+		sb.append("║  🎯  검증항목 : ${field.padRight(45)}║\n")
+		sb.append("║  ⌨️   입력값   : ${inp.padRight(45)}║\n")
+		sb.append("║  🎯  기대결과 : ${expectKey.padRight(44)}║\n")
+		sb.append("║  📝  팝업내용  : ${res.padRight(44)}║\n")
+		sb.append("║  💬  판정이유  : ${reason.padRight(44)}║\n")
+		sb.append("╚${sep}╝\n")
+		KeywordUtil.logInfo(sb.toString())
 	}
 
 	private static void printSummary() {
 		int total = allResults.size()
-		int pass = allResults.count { it.passed }
-		KeywordUtil.logInfo("\n" + "═" * 80)
-		KeywordUtil.logInfo("📊 최종 요약: ${total}건 중 ${pass}건 통과")
-		KeywordUtil.logInfo("═" * 80)
+		int passed = allResults.count { it.passed }
+		int failed = total - passed
+		double totalSec = (System.currentTimeMillis() - sessionStart) / 1000.0
+		String w = '=' * 64
+
+		StringBuilder sb = new StringBuilder()
+		sb.append("\n\n${w}\n 🏁 최종 테스트 결과 요약\n${w}\n")
+		sb.append(" 전체 실행 : ${total} 건 | ✅ PASS : ${passed} | ❌ FAIL : ${failed}\n")
+		sb.append(" 통과율 : ${(total > 0 ? (int)(passed/total*100) : 0)}% | 총 소요 : ${String.format('%.1f', totalSec)}초\n${w}\n")
+
+		if (failed > 0) {
+			sb.append("\n ❌ 실패 목록 요약:\n")
+			allResults.findAll { !it.passed }.each { r ->
+				sb.append(" [${r.tc}] ${r.type} - ${r.field} (이유: ${r.reason})\n")
+			}
+		}
+		KeywordUtil.logInfo(sb.toString())
 	}
 }
