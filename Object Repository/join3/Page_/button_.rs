@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_</name>
+   <tag></tag>
+   <elementGuidId>47decdc9-816c-486b-a9af-b4e6c4b319f1</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>(//button[@type='button'])[3]</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value></value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+      <webElementGuid>8c2d4ccd-cff2-41b6-83fb-e7ac67d52a58</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>button</value>
+      <webElementGuid>410391d8-edf7-4637-ac6c-ca6eeaad9ad7</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>onclick</name>
+      <type>Main</type>
+      <value>sample4_execDaumPostcode()</value>
+      <webElementGuid>9ab0ff2a-c7b2-47e7-87b3-c893ef76d0ba</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>bg-slate-700 text-white px-5 py-3 rounded-xl font-bold hover:bg-slate-800 transition-colors</value>
+      <webElementGuid>39494db9-f417-4dc8-993b-4ba8e048411c</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>
+                        주소 검색
+                    </value>
+      <webElementGuid>9948d3cb-55cb-4c92-9ade-ed9a129cf9ea</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;signupForm&quot;)/div[@class=&quot;space-y-2&quot;]/div[@class=&quot;flex space-x-2&quot;]/button[@class=&quot;bg-slate-700 text-white px-5 py-3 rounded-xl font-bold hover:bg-slate-800 transition-colors&quot;]</value>
+      <webElementGuid>9c334a7a-5340-4c2b-bb8c-47ea2d49bbde</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>(//button[@type='button'])[3]</value>
+      <webElementGuid>43becebf-e671-4219-9c02-17643ec994f9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='signupForm']/div[6]/div/button</value>
+      <webElementGuid>e5714ad3-5dce-4f1b-af4c-24ac89bd93db</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='*'])[6]/following::button[1]</value>
+      <webElementGuid>a067ad93-f7d9-4965-aaad-3431509a1d0a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='통신사'])[1]/preceding::button[1]</value>
+      <webElementGuid>e24f4a4a-bc5b-401f-85b0-2e27e9a515eb</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='이메일 도메인'])[1]/preceding::button[1]</value>
+      <webElementGuid>a3c562c9-d36c-48cd-ac9f-95265ebe78f9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='주소 검색']/parent::*</value>
+      <webElementGuid>b781b57d-6405-4fe0-a2cb-309ef12ee678</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[6]/div/button</value>
+      <webElementGuid>01cbcd60-f950-4534-9928-bdcd4d01dda1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//button[@type = 'button' and (text() = '
+                        주소 검색
+                    ' or . = '
+                        주소 검색
+                    ')]</value>
+      <webElementGuid>629bd845-3096-468e-b617-63871d0c1905</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

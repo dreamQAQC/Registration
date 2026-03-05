@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>span_</name>
+   <tag></tag>
+   <elementGuidId>a6b866a4-f98f-41c4-ab0c-2a32db37b377</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//form[@id='signupForm']/div[8]/label/span</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>span.font-bold.text-gray-800</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>span</value>
+      <webElementGuid>d6a71edc-2095-4a12-9993-97fd47ef2f00</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>font-bold text-gray-800</value>
+      <webElementGuid>f32b0ced-6190-452b-b15c-1088567d7e2e</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>전체 약관에 동의합니다.</value>
+      <webElementGuid>f653beb1-db84-4429-b00d-cfba97a06223</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;signupForm&quot;)/div[@class=&quot;bg-gray-50 p-5 rounded-2xl border border-gray-200&quot;]/label[@class=&quot;flex items-center space-x-3 mb-4 border-b pb-4 cursor-pointer&quot;]/span[@class=&quot;font-bold text-gray-800&quot;]</value>
+      <webElementGuid>7f09a515-5b66-462e-9fa8-2c6e110bd90f</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='signupForm']/div[8]/label/span</value>
+      <webElementGuid>4177f516-b112-4368-8411-58cae94239a3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='직업'])[1]/following::span[1]</value>
+      <webElementGuid>04545798-8f28-4be7-b3d5-8583903cb04e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='이메일 도메인'])[1]/following::span[1]</value>
+      <webElementGuid>51b72749-2f53-477a-9fac-61cd3eb3f69f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='[필수] 서비스 이용약관 동의'])[1]/preceding::span[1]</value>
+      <webElementGuid>b57715cb-7194-4bbb-8534-90e40465f818</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='[필수] 개인정보 수집 및 이용 동의'])[1]/preceding::span[2]</value>
+      <webElementGuid>295cc245-bfc0-45c7-896a-1da6cf611385</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='전체 약관에 동의합니다.']/parent::*</value>
+      <webElementGuid>b8f66a50-2cc8-4f90-a0bf-eeb14c3caec5</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[8]/label/span</value>
+      <webElementGuid>b012ee65-a093-4f7d-93e0-112dd6cb4273</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//span[(text() = '전체 약관에 동의합니다.' or . = '전체 약관에 동의합니다.')]</value>
+      <webElementGuid>9ee77887-f20a-430f-af23-5c62c4132948</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

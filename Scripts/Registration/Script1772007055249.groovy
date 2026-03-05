@@ -37,4 +37,3 @@ WebUI.click(findTestObject('Object Repository/my/Page_-/input_SMS_marketing'))
 CustomKeywords.'words.RegExceptionHelper.runAll'()
 
 
-

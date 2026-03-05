@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>p_</name>
+   <tag></tag>
+   <elementGuidId>204fb63c-e7ad-4b50-9d36-d5ecfa96a334</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='filePlaceholder']/p</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>p.text-sm.text-gray-500</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>p</value>
+      <webElementGuid>db70bb87-15ed-4eb8-b62c-733bea63f5f8</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>text-sm text-gray-500</value>
+      <webElementGuid>d109a02d-ba12-40fd-a162-43a3bbad8b77</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>이미지를 선택하거나 드래그하세요</value>
+      <webElementGuid>30a4edec-6c62-407b-99c7-b5511f0cef04</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;filePlaceholder&quot;)/p[@class=&quot;text-sm text-gray-500&quot;]</value>
+      <webElementGuid>103ac31f-ba2a-4630-b2e2-73312dfbf309</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='filePlaceholder']/p</value>
+      <webElementGuid>ca6d2a2a-42e7-4ba0-966b-a260154c4ca8</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='프로필 이미지 업로드'])[1]/following::p[1]</value>
+      <webElementGuid>651f830b-7cb1-42df-8c71-981f1315bbe9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='선택안함'])[1]/following::p[1]</value>
+      <webElementGuid>186a2264-7c76-4012-8354-5bdf5557179f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='*'])[6]/preceding::p[1]</value>
+      <webElementGuid>4a28af44-024f-488c-97cc-e1d95c6468e1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='이미지를 선택하거나 드래그하세요']/parent::*</value>
+      <webElementGuid>d0a2ea71-c823-43a9-be63-06e99728f093</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[5]/div/div/p</value>
+      <webElementGuid>1bae75a0-10ee-4c22-bf27-dc5a8ca91a95</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//p[(text() = '이미지를 선택하거나 드래그하세요' or . = '이미지를 선택하거나 드래그하세요')]</value>
+      <webElementGuid>3d16373e-2ffb-4979-ae04-49a512cad8b7</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>
