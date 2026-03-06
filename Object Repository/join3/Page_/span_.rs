@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
-      <webElementGuid>d6a71edc-2095-4a12-9993-97fd47ef2f00</webElementGuid>
+      <webElementGuid>0060cc8b-fc75-4282-849c-7d8f9af708f0</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -31,7 +31,7 @@
       <name>class</name>
       <type>Main</type>
       <value>font-bold text-gray-800</value>
-      <webElementGuid>f32b0ced-6190-452b-b15c-1088567d7e2e</webElementGuid>
+      <webElementGuid>450d9e9f-bb53-4a07-bf5d-c48d5bbe450f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -39,7 +39,7 @@
       <name>text</name>
       <type>Main</type>
       <value>전체 약관에 동의합니다.</value>
-      <webElementGuid>f653beb1-db84-4429-b00d-cfba97a06223</webElementGuid>
+      <webElementGuid>8310f895-e5e0-4174-9ad8-0849bf8e2b2e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -47,7 +47,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;signupForm&quot;)/div[@class=&quot;bg-gray-50 p-5 rounded-2xl border border-gray-200&quot;]/label[@class=&quot;flex items-center space-x-3 mb-4 border-b pb-4 cursor-pointer&quot;]/span[@class=&quot;font-bold text-gray-800&quot;]</value>
-      <webElementGuid>7f09a515-5b66-462e-9fa8-2c6e110bd90f</webElementGuid>
+      <webElementGuid>757ba0f2-4794-4edd-ba5e-39a97b91cb70</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -55,7 +55,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='signupForm']/div[8]/label/span</value>
-      <webElementGuid>4177f516-b112-4368-8411-58cae94239a3</webElementGuid>
+      <webElementGuid>3e3f6ba0-0d8a-4f18-9146-d4b1ac3bae1d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -63,7 +63,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='직업'])[1]/following::span[1]</value>
-      <webElementGuid>04545798-8f28-4be7-b3d5-8583903cb04e</webElementGuid>
+      <webElementGuid>8e7dd833-88e4-4e8a-b863-1b16792772b5</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -71,7 +71,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='이메일 도메인'])[1]/following::span[1]</value>
-      <webElementGuid>51b72749-2f53-477a-9fac-61cd3eb3f69f</webElementGuid>
+      <webElementGuid>f02302fc-11e9-45fa-8970-7a381eb573f7</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -79,7 +79,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='[필수] 서비스 이용약관 동의'])[1]/preceding::span[1]</value>
-      <webElementGuid>b57715cb-7194-4bbb-8534-90e40465f818</webElementGuid>
+      <webElementGuid>c17e19f7-585d-4859-8bb6-9052fd2ec613</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -87,7 +87,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='[필수] 개인정보 수집 및 이용 동의'])[1]/preceding::span[2]</value>
-      <webElementGuid>295cc245-bfc0-45c7-896a-1da6cf611385</webElementGuid>
+      <webElementGuid>19801eda-dcd1-42db-a236-1de5d23bd571</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -95,7 +95,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='전체 약관에 동의합니다.']/parent::*</value>
-      <webElementGuid>b8f66a50-2cc8-4f90-a0bf-eeb14c3caec5</webElementGuid>
+      <webElementGuid>15307f60-15b7-4bb5-9a0e-fdd3fba0c4ab</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -103,7 +103,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[8]/label/span</value>
-      <webElementGuid>b012ee65-a093-4f7d-93e0-112dd6cb4273</webElementGuid>
+      <webElementGuid>3db1aab7-51d6-47b1-915e-b8ca67d01531</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -111,6 +111,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//span[(text() = '전체 약관에 동의합니다.' or . = '전체 약관에 동의합니다.')]</value>
-      <webElementGuid>9ee77887-f20a-430f-af23-5c62c4132948</webElementGuid>
+      <webElementGuid>2ab9bc12-7680-417e-997d-c84df82c74df</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

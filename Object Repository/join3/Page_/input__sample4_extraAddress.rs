@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>input__userName</name>
+   <name>input__sample4_extraAddress</name>
    <tag></tag>
-   <elementGuidId>d6722292-4b19-4578-b69d-e3ee6c3efcf7</elementGuidId>
+   <elementGuidId>cd8ee56d-fe64-470f-aaa3-c85eebdd4709</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//input[@id='userName']</value>
+         <value>//input[@id='sample4_extraAddress']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#userName</value>
+         <value>#sample4_extraAddress</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>a90493b0-6ee9-4582-bc61-274ff87af689</webElementGuid>
+      <webElementGuid>71f92e62-28cf-4944-bdc7-b6fd2959221c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -31,70 +31,70 @@
       <name>type</name>
       <type>Main</type>
       <value>text</value>
-      <webElementGuid>267d02cf-d1b0-46b5-b739-6b6865c65ac5</webElementGuid>
+      <webElementGuid>d1681296-a07a-42d2-a269-edaae1dad68f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>id</name>
       <type>Main</type>
-      <value>userName</value>
-      <webElementGuid>f5618a41-b2ef-4241-9c25-fc0173c8981d</webElementGuid>
+      <value>sample4_extraAddress</value>
+      <webElementGuid>f5c06a3f-4f3e-456e-89ef-2d0b2cfd6ffb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>placeholder</name>
       <type>Main</type>
-      <value>성함을 입력하세요</value>
-      <webElementGuid>bde8eae6-c9d9-4cbd-a7c6-187300e252f1</webElementGuid>
+      <value>참고항목</value>
+      <webElementGuid>1759fd6e-786b-4af8-8e6a-5fde7bbefa47</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>input-transition w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none</value>
-      <webElementGuid>580a47e0-19a4-444e-83f3-8f647766716f</webElementGuid>
+      <value>input-transition w-full px-4 py-3 rounded-xl border border-gray-300 bg-gray-50 outline-none</value>
+      <webElementGuid>a900c8d6-87a7-488d-89ca-191b9aa7253a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;userName&quot;)</value>
-      <webElementGuid>c6dd9308-f414-40bd-a259-7ae99749308a</webElementGuid>
+      <value>id(&quot;sample4_extraAddress&quot;)</value>
+      <webElementGuid>1df357b3-48b0-4a9b-8ed9-16329a7f73ff</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@id='userName']</value>
-      <webElementGuid>617bd291-8117-4c03-bb16-78ba1c9e213d</webElementGuid>
+      <value>//input[@id='sample4_extraAddress']</value>
+      <webElementGuid>277a428a-2867-44b0-8d1a-866d560f8fd2</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='signupForm']/div[3]/input</value>
-      <webElementGuid>57760b8d-97b0-4157-bd5e-ba98c546bf2e</webElementGuid>
+      <value>//form[@id='signupForm']/div[6]/input[4]</value>
+      <webElementGuid>fd110c94-a3e2-479d-b97d-061090b89a7b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[3]/input</value>
-      <webElementGuid>c477eb48-cc5b-440f-b569-3b2465a55a3a</webElementGuid>
+      <value>//input[4]</value>
+      <webElementGuid>ba97cc64-edd0-43b8-b0ae-0719d65e9ae8</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//input[@type = 'text' and @id = 'userName' and @placeholder = '성함을 입력하세요']</value>
-      <webElementGuid>051aea64-97f5-40c3-9516-5dc90d930a2b</webElementGuid>
+      <value>//input[@type = 'text' and @id = 'sample4_extraAddress' and @placeholder = '참고항목']</value>
+      <webElementGuid>eec3c868-895f-4de0-b324-bc33db3c3985</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

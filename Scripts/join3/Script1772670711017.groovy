@@ -45,16 +45,6 @@ WebUI.uploadFile(fileInput, 'C:\\Users\\ssr0128\\테스트용이미지.png')
 // 기존처럼 ObjectRepository로 postcode 창 title/결과 클릭 하지 말고,
 // Helper의 "범용" 처리 1줄로 끝냅니다.
 
-boolean addrOk = CustomKeywords.'words.RegExceptionHelper.openAndPickAddress'('a')
-if (!addrOk) {
-    // 필요하면 fail 처리
-    WebUI.comment('❌ 우편번호 검색/선택 실패')
-    // WebUI.takeScreenshot()
-    // WebUI.closeBrowser()
-    assert false
-}
-// =========================
-
 
 // 상세 주소 및 나머지 입력
 WebUI.setText(findTestObject('Object Repository/join3/Page_/input_(        286)_sample4_detailAddress'), 'aaaa')

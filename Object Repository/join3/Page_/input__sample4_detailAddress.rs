@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>487d8efa-ce24-411b-8347-7ef46bc748f0</webElementGuid>
+      <webElementGuid>b997a1ac-4251-4114-be24-90c9a4d14218</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -31,7 +31,7 @@
       <name>type</name>
       <type>Main</type>
       <value>text</value>
-      <webElementGuid>d56872b7-db10-4840-a9a6-5b888451f002</webElementGuid>
+      <webElementGuid>895d69cf-38e9-4548-8d31-c207cd5d9626</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -39,7 +39,7 @@
       <name>id</name>
       <type>Main</type>
       <value>sample4_detailAddress</value>
-      <webElementGuid>6a554dd1-65b4-497a-afe8-44c4b2607b89</webElementGuid>
+      <webElementGuid>26290d94-886c-4b86-97f5-90acd3128dfd</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -47,7 +47,7 @@
       <name>placeholder</name>
       <type>Main</type>
       <value>상세주소를 입력해주세요</value>
-      <webElementGuid>d47c4c2b-7deb-4e94-9b66-b34cc4645c1b</webElementGuid>
+      <webElementGuid>a354c760-db7d-42ce-ba9e-f8f6c4ae1204</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -55,7 +55,7 @@
       <name>class</name>
       <type>Main</type>
       <value>input-transition w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none</value>
-      <webElementGuid>17159a14-c12b-41a4-ae80-3d2c9c233dbe</webElementGuid>
+      <webElementGuid>16fa744f-7c2c-499b-9506-178ff0b670ed</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -63,7 +63,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;sample4_detailAddress&quot;)</value>
-      <webElementGuid>c1bb6647-11c7-458b-9ce8-58341f1bf22c</webElementGuid>
+      <webElementGuid>4eed3fc8-9f85-4dc2-ab52-ae553a944bde</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -71,7 +71,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@id='sample4_detailAddress']</value>
-      <webElementGuid>c2cc7508-a91e-4d47-b053-0b891209570b</webElementGuid>
+      <webElementGuid>d2fc5a1e-e7dc-42af-83b8-c2a1b4e956f0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -79,7 +79,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='signupForm']/div[6]/input[3]</value>
-      <webElementGuid>f5e566bb-ab3f-4708-b39d-37d0413fcd01</webElementGuid>
+      <webElementGuid>a7ca2ccb-ced5-4a14-9660-a216345471b7</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -87,7 +87,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//input[3]</value>
-      <webElementGuid>92464c51-b12a-4e44-a1b8-5d7026e39ba0</webElementGuid>
+      <webElementGuid>ddfcc52b-339a-4bf0-aadd-4f31c99c18dc</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -95,6 +95,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@type = 'text' and @id = 'sample4_detailAddress' and @placeholder = '상세주소를 입력해주세요']</value>
-      <webElementGuid>79bd1bad-5b1d-4bb6-8897-4ecff1980bcd</webElementGuid>
+      <webElementGuid>100a1b24-52ec-45a8-bc26-da54ca3cdbc9</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

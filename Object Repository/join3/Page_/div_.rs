@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
-      <webElementGuid>2ab5f780-6e0a-4ef3-a0c4-a11210308f59</webElementGuid>
+      <webElementGuid>7407377c-1f64-40a8-aeac-417885e7a828</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -31,7 +31,7 @@
       <name>class</name>
       <type>Main</type>
       <value>text-center px-4 py-3 border border-gray-300 rounded-xl text-gray-600 font-medium transition-colors hover:bg-gray-50</value>
-      <webElementGuid>163990d8-0448-412b-99c3-7642fe3e1cba</webElementGuid>
+      <webElementGuid>17349a48-3083-427b-ae4b-d27bf24c2d9d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -39,7 +39,7 @@
       <name>text</name>
       <type>Main</type>
       <value>남성</value>
-      <webElementGuid>71274e50-9137-4619-94c1-cae62b6e7a66</webElementGuid>
+      <webElementGuid>25bc27db-b63b-4b0f-9ac1-094d1a1f788c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -47,7 +47,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;signupForm&quot;)/div[4]/div[@class=&quot;grid grid-cols-3 gap-4&quot;]/label[@class=&quot;cursor-pointer relative&quot;]/div[@class=&quot;text-center px-4 py-3 border border-gray-300 rounded-xl text-gray-600 font-medium transition-colors hover:bg-gray-50&quot;]</value>
-      <webElementGuid>d9dd9ccb-efbe-45e9-a0ca-9879c5b8e8ed</webElementGuid>
+      <webElementGuid>7773d0aa-920d-43f5-b506-48d5dae69f50</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -55,7 +55,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='signupForm']/div[4]/div/label/div</value>
-      <webElementGuid>0937f643-b4fb-4dfc-ba78-dfacd73d0a38</webElementGuid>
+      <webElementGuid>932fc8e5-e009-45c0-a975-839e8647e619</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -63,7 +63,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='*'])[5]/following::div[2]</value>
-      <webElementGuid>7e769f58-0405-4817-b4b1-afb042357664</webElementGuid>
+      <webElementGuid>79c23a59-11db-494a-8d1d-5200261ebede</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -71,7 +71,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='여성'])[1]/preceding::div[1]</value>
-      <webElementGuid>640a5d47-81b4-4bc9-97eb-04371da89ad8</webElementGuid>
+      <webElementGuid>9cc97690-6255-4bfc-b65e-328765340bc1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -79,7 +79,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='선택안함'])[1]/preceding::div[2]</value>
-      <webElementGuid>bc40bc34-7c49-4a56-b2df-61e83cf02504</webElementGuid>
+      <webElementGuid>b89a3735-3b36-49f4-86af-613edd8f387d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -87,7 +87,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='남성']/parent::*</value>
-      <webElementGuid>a78cfaef-ab0f-4819-bab4-64e4b9c91b65</webElementGuid>
+      <webElementGuid>17350a86-6ec4-41ca-adc0-533cd5cec5c9</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -95,7 +95,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//label/div</value>
-      <webElementGuid>628c2929-b21b-4c38-ace2-71b703810c28</webElementGuid>
+      <webElementGuid>31e546d4-47b4-4aee-aefe-1df29adb0b2c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -103,6 +103,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//div[(text() = '남성' or . = '남성')]</value>
-      <webElementGuid>f1219be4-4a87-4281-a2c8-a438027dc370</webElementGuid>
+      <webElementGuid>9430f073-d3a6-41a5-afba-04781c7bf84f</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
