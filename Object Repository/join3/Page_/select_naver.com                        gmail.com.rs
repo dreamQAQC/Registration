@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>select_naver.com                        gmail.com</name>
+   <tag></tag>
+   <elementGuidId>6cef74b9-8440-492f-900f-d4c956f1a517</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>div:nth-of-type(2) > select.input-transition.w-full.px-4.py-3.rounded-xl.border.border-gray-300.outline-none.bg-white</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//form[@id='signupForm']/div[6]/div[2]/select</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>select</value>
+      <webElementGuid>533094c2-dd92-4eea-adf7-e1897c6e55ed</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>input-transition w-full px-4 py-3 rounded-xl border border-gray-300 outline-none bg-white</value>
+      <webElementGuid>36019257-0868-400d-96af-0b90e0070e0f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>
+                        선택
+                        naver.com
+                        gmail.com
+                    </value>
+      <webElementGuid>1a09b41a-4f58-4481-935a-1b2e055db5e2</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;signupForm&quot;)/div[@class=&quot;grid grid-cols-1 md:grid-cols-3 gap-4&quot;]/div[2]/select[@class=&quot;input-transition w-full px-4 py-3 rounded-xl border border-gray-300 outline-none bg-white&quot;]</value>
+      <webElementGuid>1cc4244d-887d-4d1c-bb8e-9f0bafb89eef</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='signupForm']/div[6]/div[2]/select</value>
+      <webElementGuid>05d4f095-785c-44e0-a306-3c633850b15b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='이메일'])[1]/following::select[1]</value>
+      <webElementGuid>ed2158d8-506b-4ae8-bb7b-5b6810ed2770</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='통신사'])[1]/following::select[2]</value>
+      <webElementGuid>5aae4bc2-fbbc-4fb3-af34-0fd51980218e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='직업'])[1]/preceding::select[1]</value>
+      <webElementGuid>128f9c78-eb14-42ba-b249-9899c0ab3a01</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='전체 약관 동의'])[1]/preceding::select[2]</value>
+      <webElementGuid>473b2d72-ee9d-408c-8dec-dd9c62fb2036</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/select</value>
+      <webElementGuid>f37dac87-3693-4eb5-b63e-b568d2248582</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//select[(text() = '
+                        선택
+                        naver.com
+                        gmail.com
+                    ' or . = '
+                        선택
+                        naver.com
+                        gmail.com
+                    ')]</value>
+      <webElementGuid>ed6f030e-54ea-455f-b184-51e177f09a7a</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

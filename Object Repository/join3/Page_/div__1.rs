@@ -6,12 +6,12 @@
    <elementGuidId>e2d84f2e-2fe3-4a60-9a8e-dea764d5eb1c</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//div[@id='filePlaceholder']</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>#filePlaceholder</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='filePlaceholder']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
-      <webElementGuid>a59601e1-e52b-4ca1-8c2a-1061959a0270</webElementGuid>
+      <webElementGuid>cbb6dbc6-183a-414d-80b3-e465f077a81c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -50,7 +50,7 @@
                         
                         이미지를 선택하거나 드래그하세요
                     </value>
-      <webElementGuid>af036803-4fa3-427a-bb7c-f6bb789c6af3</webElementGuid>
+      <webElementGuid>6af9c950-dfcb-4ef7-a003-c83cb4191e8d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -58,7 +58,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;filePlaceholder&quot;)</value>
-      <webElementGuid>f626abe2-c1bd-4023-906f-1aa7603dc044</webElementGuid>
+      <webElementGuid>9a10891a-3c29-45ce-9d68-d45d56ce8e6a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -66,7 +66,7 @@
       <name>id</name>
       <type>Main</type>
       <value>filePlaceholder</value>
-      <webElementGuid>1acdbe5d-9bbb-4fd8-9662-35a68e198870</webElementGuid>
+      <webElementGuid>569c7356-79dc-4712-b429-794cf1e380fc</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -74,7 +74,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//div[@id='filePlaceholder']</value>
-      <webElementGuid>763d3fa5-6fc9-4707-b3a2-99329433dc6d</webElementGuid>
+      <webElementGuid>97a692ce-f848-4a7b-97a0-211c8a67e50b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -82,7 +82,61 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='signupForm']/div[5]/div/div</value>
-      <webElementGuid>5e5a6172-3b12-4583-b91a-8a35f9a3d7d5</webElementGuid>
+      <webElementGuid>86daff50-892a-4d88-8f28-e96a6350ed6e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='프로필 이미지'])[1]/following::div[2]</value>
+      <webElementGuid>81a18b58-7c54-4e99-9658-c1685434a684</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='선택안함'])[1]/following::div[3]</value>
+      <webElementGuid>721971d0-8c31-4753-9159-914e7634da69</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='통신사'])[1]/preceding::div[2]</value>
+      <webElementGuid>9201ba66-0e2d-4b67-abad-de64024afd74</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='이메일'])[1]/preceding::div[3]</value>
+      <webElementGuid>25f86dba-b695-4a36-95b6-5d73206f2c12</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[5]/div/div</value>
+      <webElementGuid>139245a4-224a-4e99-9548-b68485b833f3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//div[@id = 'filePlaceholder' and (text() = '
+                        
+                        이미지를 선택하거나 드래그하세요
+                    ' or . = '
+                        
+                        이미지를 선택하거나 드래그하세요
+                    ')]</value>
+      <webElementGuid>00cb88c7-8e5d-4a7e-b796-4969b986f7f1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -97,38 +151,8 @@
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='선택안함'])[1]/following::div[3]</value>
-      <webElementGuid>09e1f002-3d89-4cd1-93f7-e6c2ce00bb78</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='*'])[6]/preceding::div[2]</value>
       <webElementGuid>9f6ce9c1-d5dd-4ceb-a958-c0536fa4c8f3</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[5]/div/div</value>
-      <webElementGuid>61752800-0cf4-4c66-969c-68405086701b</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//div[@id = 'filePlaceholder' and (text() = '
-                        
-                        이미지를 선택하거나 드래그하세요
-                    ' or . = '
-                        
-                        이미지를 선택하거나 드래그하세요
-                    ')]</value>
-      <webElementGuid>77c7baa6-bd23-4d25-ba16-2d47f56ff0bb</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>

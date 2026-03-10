@@ -6,12 +6,12 @@
    <elementGuidId>c3e700a7-afb7-481f-99ca-1c9e0c209f62</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//input[@id='userId']</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>#userId</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>b5b8797f-26e9-4452-adf8-954cd3d8eda7</webElementGuid>
+      <webElementGuid>7bf4434f-261c-43cc-97d7-c295c708f107</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -31,7 +31,7 @@
       <name>type</name>
       <type>Main</type>
       <value>text</value>
-      <webElementGuid>d59c8624-696b-4008-a677-f93362e504d2</webElementGuid>
+      <webElementGuid>8c78c6a6-deb8-4d23-ac16-cdbe46c03ce4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -39,23 +39,23 @@
       <name>id</name>
       <type>Main</type>
       <value>userId</value>
-      <webElementGuid>4535bd05-26a9-4dba-b43a-481c3000dcbf</webElementGuid>
+      <webElementGuid>70d06b53-b75e-4eeb-8dae-83fe414aefda</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>placeholder</name>
       <type>Main</type>
-      <value>아이디 입력</value>
-      <webElementGuid>6aaf56a6-4b85-445c-898a-1fa694370bad</webElementGuid>
+      <value>이름 선택 또는 직접 입력</value>
+      <webElementGuid>1980a645-5b3b-4c19-bfd8-334e1490a267</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>input-transition w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none</value>
-      <webElementGuid>566fdb6e-3419-4aae-a879-d89fcd3e85d1</webElementGuid>
+      <value>input-base flex-1</value>
+      <webElementGuid>9d093dde-6141-473a-a92c-2a7cf6f0f7ff</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -63,7 +63,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;userId&quot;)</value>
-      <webElementGuid>725a5f03-bad7-467e-875e-816e56ca98ae</webElementGuid>
+      <webElementGuid>bd472748-b0f9-42c9-a9a8-a97f42f067fe</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -71,7 +71,31 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@id='userId']</value>
-      <webElementGuid>9e0e65d9-6cba-457e-b870-37de8eca9523</webElementGuid>
+      <webElementGuid>b34827f2-989d-4a2f-892f-7ab1dcea2873</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='signupForm']/div[2]/div/input</value>
+      <webElementGuid>51515928-9827-4727-bd05-cf7770bf178d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/div/input</value>
+      <webElementGuid>b7f39546-799a-41ea-a031-f2197bde42ce</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@type = 'text' and @id = 'userId' and @placeholder = '이름 선택 또는 직접 입력']</value>
+      <webElementGuid>6cc32e16-9f55-4a4e-842a-dd7c56e52050</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -79,7 +103,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='signupForm']/div/div/input</value>
-      <webElementGuid>2530ee3f-0605-45fd-9732-f9c5377628bd</webElementGuid>
+      <webElementGuid>5b22fe8e-8532-41fc-aa99-10a8a47071b7</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -87,7 +111,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//input</value>
-      <webElementGuid>856c48cd-41af-41a1-a20f-9fa384583bbc</webElementGuid>
+      <webElementGuid>4e47b903-70dd-4af7-900f-ee074c44fab1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -95,6 +119,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@type = 'text' and @id = 'userId' and @placeholder = '아이디 입력']</value>
-      <webElementGuid>6e768ca4-6eff-425b-8c0b-6900f4f606d0</webElementGuid>
+      <webElementGuid>2f64f68e-7c8a-4623-8b42-ad0ca4fdde53</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

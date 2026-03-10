@@ -6,12 +6,12 @@
    <elementGuidId>eee5c47e-2426-4ec4-9e91-d066546d2eba</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//select[@id='job']</value>
+         <key>CSS</key>
+         <value>div:nth-of-type(3) > select.input-transition.w-full.px-4.py-3.rounded-xl.border.border-gray-300.outline-none.bg-white</value>
       </entry>
       <entry>
-         <key>CSS</key>
-         <value>#job</value>
+         <key>XPATH</key>
+         <value>//form[@id='signupForm']/div[6]/div[3]/select</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>select</value>
-      <webElementGuid>73c7dc07-b1d8-4083-9001-edb532bd6279</webElementGuid>
+      <webElementGuid>263f4614-d970-4cb9-b017-b13dbddf362e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -38,8 +38,8 @@
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>input-transition w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary outline-none bg-white</value>
-      <webElementGuid>3c339fee-8fd1-4f8b-a872-a70db0591177</webElementGuid>
+      <value>input-transition w-full px-4 py-3 rounded-xl border border-gray-300 outline-none bg-white</value>
+      <webElementGuid>5d8875ab-004e-4b7d-a91f-ea7986cff7e3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -48,22 +48,85 @@
       <type>Main</type>
       <value>
                         선택
-                        학생
                         직장인
-                        프리랜서
+                        학생
                     </value>
-      <webElementGuid>054353d3-5885-4427-84e8-9281fef10056</webElementGuid>
+      <webElementGuid>6e108be9-2dd7-49a3-ae89-588dcaff2201</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;job&quot;)</value>
-      <webElementGuid>267d4b32-2493-4a67-8e72-317f936e5f0a</webElementGuid>
+      <value>id(&quot;signupForm&quot;)/div[@class=&quot;grid grid-cols-1 md:grid-cols-3 gap-4&quot;]/div[3]/select[@class=&quot;input-transition w-full px-4 py-3 rounded-xl border border-gray-300 outline-none bg-white&quot;]</value>
+      <webElementGuid>c4c1d906-0aac-4cae-84c9-d3fce9b90b33</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='signupForm']/div[6]/div[3]/select</value>
+      <webElementGuid>a5ba2149-0e63-4163-a47f-c405e5b08c9d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='직업'])[1]/following::select[1]</value>
+      <webElementGuid>be25719f-19d2-42a2-87c9-c125ec6a267b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='이메일'])[1]/following::select[2]</value>
+      <webElementGuid>2d95cf93-93e5-46d8-a904-8a1821bae371</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='전체 약관 동의'])[1]/preceding::select[1]</value>
+      <webElementGuid>1267ab2b-c8ac-4bbb-8794-93b5f102bb8f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='[필수] 서비스 이용약관 동의'])[1]/preceding::select[1]</value>
+      <webElementGuid>43d76cf4-3bf1-4efe-ad74-a5a030db2c34</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[3]/select</value>
+      <webElementGuid>368add8a-1f77-463a-be11-d8414ed2a1bb</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//select[(text() = '
+                        선택
+                        직장인
+                        학생
+                    ' or . = '
+                        선택
+                        직장인
+                        학생
+                    ')]</value>
+      <webElementGuid>00130f96-1708-4e69-b40f-00fd96f0e912</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
@@ -83,14 +146,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='직업'])[1]/following::select[1]</value>
-      <webElementGuid>e62a03a9-4fb9-4969-9639-428f2c01e77b</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='이메일 도메인'])[1]/following::select[2]</value>
       <webElementGuid>0fabe098-2cdb-4a19-973c-7b951df74398</webElementGuid>
    </webElementXpaths>
@@ -101,22 +156,6 @@
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='전체 약관에 동의합니다.'])[1]/preceding::select[1]</value>
       <webElementGuid>066d37dc-6644-41d1-bbbd-42cad41a032e</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='[필수] 서비스 이용약관 동의'])[1]/preceding::select[1]</value>
-      <webElementGuid>c6225956-52d0-4e02-a93d-d28a734b9725</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[3]/select</value>
-      <webElementGuid>4dabf5dd-4654-4ee2-a73a-d25a60b00e6d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>

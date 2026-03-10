@@ -6,12 +6,12 @@
    <elementGuidId>f4be781a-5927-4336-9f15-cbffbe48664d</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//select[@id='telecom']</value>
+         <key>CSS</key>
+         <value>select.input-transition.w-full.px-4.py-3.rounded-xl.border.border-gray-300.outline-none.bg-white</value>
       </entry>
       <entry>
-         <key>CSS</key>
-         <value>#telecom</value>
+         <key>XPATH</key>
+         <value>//form[@id='signupForm']/div[6]/div/select</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>select</value>
-      <webElementGuid>4804e1cf-3d06-41e2-9f29-8003843e96d7</webElementGuid>
+      <webElementGuid>40577b9e-3544-4173-930d-22c328d9c003</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -38,8 +38,8 @@
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>input-transition w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary outline-none bg-white</value>
-      <webElementGuid>b05fa7b3-c123-46be-b493-98c0ef2d6ddf</webElementGuid>
+      <value>input-transition w-full px-4 py-3 rounded-xl border border-gray-300 outline-none bg-white</value>
+      <webElementGuid>576127ed-a1d0-4beb-8856-fd49afb1b1d0</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -51,20 +51,85 @@
                         SKT
                         KT
                         LGU+
-                        알뜰폰
                     </value>
-      <webElementGuid>d206c2b9-a0be-4464-b948-8e513d90e359</webElementGuid>
+      <webElementGuid>00f08968-6900-4b92-9601-b2ac8438461c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;telecom&quot;)</value>
-      <webElementGuid>a6d72e80-92ae-4277-ba5d-23d57d21e9e5</webElementGuid>
+      <value>id(&quot;signupForm&quot;)/div[@class=&quot;grid grid-cols-1 md:grid-cols-3 gap-4&quot;]/div[1]/select[@class=&quot;input-transition w-full px-4 py-3 rounded-xl border border-gray-300 outline-none bg-white&quot;]</value>
+      <webElementGuid>f4a52a0c-a549-4121-866a-b95b17485da4</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='signupForm']/div[6]/div/select</value>
+      <webElementGuid>46c147cf-a557-4fe6-bac3-2fbb719b7460</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='통신사'])[1]/following::select[1]</value>
+      <webElementGuid>1a2e83ad-4f83-4863-939a-7e9431dbfb50</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='테스트용이미지.png'])[1]/following::select[1]</value>
+      <webElementGuid>fbdef9c5-bbeb-445d-9c7a-27dc7a940f94</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='이메일'])[1]/preceding::select[1]</value>
+      <webElementGuid>a0dcecd0-2486-4bbf-ad29-dae8f84c371e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='직업'])[1]/preceding::select[2]</value>
+      <webElementGuid>baa0c413-7d8b-48f2-aac0-8330bf894e59</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//select</value>
+      <webElementGuid>f23a1296-4df3-46f4-a439-1214c304d71e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//select[(text() = '
+                        선택
+                        SKT
+                        KT
+                        LGU+
+                    ' or . = '
+                        선택
+                        SKT
+                        KT
+                        LGU+
+                    ')]</value>
+      <webElementGuid>9a3242fc-6925-4ae8-ad58-23279ae9bb81</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
@@ -84,14 +149,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='통신사'])[1]/following::select[1]</value>
-      <webElementGuid>b51b06d4-d874-44b2-a259-5aab6d6e0895</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='(예상 지번 주소 : 경기 가평군 가평읍 대곡리 286)'])[1]/following::select[1]</value>
       <webElementGuid>1bc931d8-8c27-4006-aaad-5710bb428ca0</webElementGuid>
    </webElementXpaths>
@@ -102,22 +159,6 @@
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='이메일 도메인'])[1]/preceding::select[1]</value>
       <webElementGuid>e8ecb0df-f0e7-4660-a9b0-5881cd7c3ae7</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='직업'])[1]/preceding::select[2]</value>
-      <webElementGuid>99d085c2-84e6-4011-babc-2822807d6833</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//select</value>
-      <webElementGuid>953cfa10-9353-4a40-8b1b-2b92e6f358b4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>

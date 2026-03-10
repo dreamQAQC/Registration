@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>input__checkAll</name>
+   <name>button_LOGIN</name>
    <tag></tag>
-   <elementGuidId>aab0d7cb-53f0-471e-af3e-ee0bbd369aca</elementGuidId>
+   <elementGuidId>4f14a9e0-c7f5-417a-90f1-0a6a85f110d4</elementGuidId>
    <selectorCollection>
       <entry>
          <key>CSS</key>
-         <value>#checkAll</value>
+         <value>#btnLogin</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//input[@id='checkAll']</value>
+         <value>//button[@id='btnLogin']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -22,95 +22,95 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>input</value>
-      <webElementGuid>23ddb564-3c9b-4538-a842-a2fc412c3e3e</webElementGuid>
+      <value>button</value>
+      <webElementGuid>dc509486-2a0e-4850-bccf-cd6be232c41d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>type</name>
       <type>Main</type>
-      <value>checkbox</value>
-      <webElementGuid>b67f1307-ba81-4550-9633-53a761c715f4</webElementGuid>
+      <value>submit</value>
+      <webElementGuid>a686fef3-c319-4b03-8a5f-58f6645fd1de</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>id</name>
       <type>Main</type>
-      <value>checkAll</value>
-      <webElementGuid>8fa0ff89-f48f-489e-ac8b-0278eef68c3c</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>onchange</name>
-      <type>Main</type>
-      <value>toggleAll(this)</value>
-      <webElementGuid>2c02b91b-604c-434b-ba85-fb3f2650c390</webElementGuid>
+      <value>btnLogin</value>
+      <webElementGuid>67deaaaf-77ef-4411-acd7-45ddfd4e07fd</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>w-5 h-5 accent-primary</value>
-      <webElementGuid>445482fe-c66d-44b8-9989-d12f073cf6ad</webElementGuid>
+      <value>btn-login on</value>
+      <webElementGuid>fa724a6a-46dd-42b9-bdcc-70395065f33b</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>LOGIN</value>
+      <webElementGuid>6ed7cad3-da82-4cf6-bb13-640544e0a55c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;checkAll&quot;)</value>
-      <webElementGuid>42365485-fcb2-4a29-8089-bdb0054dcdcf</webElementGuid>
+      <value>id(&quot;btnLogin&quot;)</value>
+      <webElementGuid>a30f840d-9fa8-47a4-bdd3-b9f484e6ddb6</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@id='checkAll']</value>
-      <webElementGuid>7b6ed1fa-4288-43ee-b610-db617e480323</webElementGuid>
+      <value>//button[@id='btnLogin']</value>
+      <webElementGuid>f7e0b0d2-9ba7-42f5-9f28-6c06a41771c8</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='signupForm']/div[6]/label/input</value>
-      <webElementGuid>160e7200-60f7-45e1-b0a1-ed9f531e61cb</webElementGuid>
+      <value>//div[@id='__next']/div/div/div[2]/form/div/button</value>
+      <webElementGuid>75cf6acf-cf0f-4cad-846d-941956136e64</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='COPYRIGHT (c) DREAMSECURITY co.,ltd ALL RIGHTS RESERVED'])[1]/preceding::button[1]</value>
+      <webElementGuid>48b62fce-dcab-400a-9dbd-35b3605b6c40</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='LOGIN']/parent::*</value>
+      <webElementGuid>68553d47-e9b0-4dfa-bfbc-15ca98346925</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[6]/label/input</value>
-      <webElementGuid>1853e3b5-e3a5-4d9e-868d-3244a6e7904e</webElementGuid>
+      <value>//div/button</value>
+      <webElementGuid>0e6b570b-308e-43bb-bec9-dacd4d00d5d4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//input[@type = 'checkbox' and @id = 'checkAll']</value>
-      <webElementGuid>48864240-b9af-43fe-8134-e879fa38d505</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
-      <type>Main</type>
-      <value>//form[@id='signupForm']/div[8]/label/input</value>
-      <webElementGuid>801f5754-b06d-40dd-9935-f38a708c99d6</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[8]/label/input</value>
-      <webElementGuid>0692d56a-9b1b-4318-b612-b0b60e86267a</webElementGuid>
+      <value>//button[@type = 'submit' and @id = 'btnLogin' and (text() = 'LOGIN' or . = 'LOGIN')]</value>
+      <webElementGuid>f4558839-300a-4540-9ec5-dc9cfcc21176</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

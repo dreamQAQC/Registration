@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>div__absolute inset-0 bg-slate-90060 backdr_d7bc05</name>
+   <tag></tag>
+   <elementGuidId>b4d21f6d-5a67-4ffb-9e22-f3d5667f20df</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@onclick='closeNameModal()']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+      <webElementGuid>d18c3540-e45e-4b61-9958-4540b7169384</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>absolute inset-0 bg-slate-900/60 backdrop-blur-md</value>
+      <webElementGuid>853e3711-0679-4b42-a048-7fd51578fd57</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>onclick</name>
+      <type>Main</type>
+      <value>closeNameModal()</value>
+      <webElementGuid>090b2094-1b66-40bb-b1b3-f95d88bce160</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;nameModal&quot;)/div[@class=&quot;absolute inset-0 bg-slate-900/60 backdrop-blur-md&quot;]</value>
+      <webElementGuid>4218961c-d46f-46a7-8783-1e148a96198e</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//div[@onclick='closeNameModal()']</value>
+      <webElementGuid>49a28a36-28d6-4eb8-bfa1-cb1dcff15bec</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='nameModal']/div</value>
+      <webElementGuid>bb0dfbe8-8620-4ef9-bb95-42789e2e2617</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/div</value>
+      <webElementGuid>dead5543-d54b-44b5-8f77-a4545aa355f2</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

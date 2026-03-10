@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>input__checkAll</name>
+   <name>input_LOGIN_manager_id</name>
    <tag></tag>
-   <elementGuidId>aab0d7cb-53f0-471e-af3e-ee0bbd369aca</elementGuidId>
+   <elementGuidId>dcac4ee1-aa00-4b05-ac30-5e02313e2b57</elementGuidId>
    <selectorCollection>
       <entry>
          <key>CSS</key>
-         <value>#checkAll</value>
+         <value>input[name=&quot;manager_id&quot;]</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//input[@id='checkAll']</value>
+         <value>//input[@name='manager_id']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,94 +23,86 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>23ddb564-3c9b-4538-a842-a2fc412c3e3e</webElementGuid>
+      <webElementGuid>44cf2b53-5cbc-40ea-988b-c7ed0a899aeb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>type</name>
+      <name>name</name>
       <type>Main</type>
-      <value>checkbox</value>
-      <webElementGuid>b67f1307-ba81-4550-9633-53a761c715f4</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>id</name>
-      <type>Main</type>
-      <value>checkAll</value>
-      <webElementGuid>8fa0ff89-f48f-489e-ac8b-0278eef68c3c</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>onchange</name>
-      <type>Main</type>
-      <value>toggleAll(this)</value>
-      <webElementGuid>2c02b91b-604c-434b-ba85-fb3f2650c390</webElementGuid>
+      <value>manager_id</value>
+      <webElementGuid>d5c11752-e462-4eeb-8dfb-f0abbee18d9c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>w-5 h-5 accent-primary</value>
-      <webElementGuid>445482fe-c66d-44b8-9989-d12f073cf6ad</webElementGuid>
+      <value>login-id</value>
+      <webElementGuid>2a06b324-2a58-4f65-97d2-88a5a132630f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>text</value>
+      <webElementGuid>e4ea344d-d8b6-4047-80f7-65ba0dfd28ef</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>placeholder</name>
+      <type>Main</type>
+      <value>Id</value>
+      <webElementGuid>b9d8ecf5-0f85-4c5b-b7e1-4cf7095c3425</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-check</name>
+      <type>Main</type>
+      <value>required</value>
+      <webElementGuid>1bbba1f3-a952-423a-89c3-2a6d0732e84f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;checkAll&quot;)</value>
-      <webElementGuid>42365485-fcb2-4a29-8089-bdb0054dcdcf</webElementGuid>
+      <value>id(&quot;__next&quot;)/div[@class=&quot;login-page&quot;]/div[@class=&quot;login-box&quot;]/div[@class=&quot;login-02&quot;]/form[1]/div[@class=&quot;login-input&quot;]/input[@class=&quot;login-id&quot;]</value>
+      <webElementGuid>b0c6e172-c546-4139-aea9-c0114f67ecce</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@id='checkAll']</value>
-      <webElementGuid>7b6ed1fa-4288-43ee-b610-db617e480323</webElementGuid>
+      <value>//input[@name='manager_id']</value>
+      <webElementGuid>805ff83a-5004-4fd0-bdc7-bc6b4aa5f0e2</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='signupForm']/div[6]/label/input</value>
-      <webElementGuid>160e7200-60f7-45e1-b0a1-ed9f531e61cb</webElementGuid>
+      <value>//div[@id='__next']/div/div/div[2]/form/div/input</value>
+      <webElementGuid>09882431-1db7-4e22-8829-010a3716f07c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[6]/label/input</value>
-      <webElementGuid>1853e3b5-e3a5-4d9e-868d-3244a6e7904e</webElementGuid>
+      <value>//input</value>
+      <webElementGuid>04a0625c-7971-42cb-a601-2581cebc7dcf</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//input[@type = 'checkbox' and @id = 'checkAll']</value>
-      <webElementGuid>48864240-b9af-43fe-8134-e879fa38d505</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
-      <type>Main</type>
-      <value>//form[@id='signupForm']/div[8]/label/input</value>
-      <webElementGuid>801f5754-b06d-40dd-9935-f38a708c99d6</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[8]/label/input</value>
-      <webElementGuid>0692d56a-9b1b-4318-b612-b0b60e86267a</webElementGuid>
+      <value>//input[@name = 'manager_id' and @type = 'text' and @placeholder = 'Id']</value>
+      <webElementGuid>e69d1595-c115-4705-b07c-d6d4ced6a231</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

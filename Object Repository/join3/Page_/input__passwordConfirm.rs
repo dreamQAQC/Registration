@@ -6,12 +6,12 @@
    <elementGuidId>954e1ccd-f4e0-4d44-9c63-10c6f621c919</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//input[@id='passwordConfirm']</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>#passwordConfirm</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//input[@id='passwordConfirm']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>b3f5a932-b54b-41ac-9396-baa2b2e5686e</webElementGuid>
+      <webElementGuid>2abf313b-cde3-4d80-94b0-330f4d6fdade</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -31,7 +31,7 @@
       <name>type</name>
       <type>Main</type>
       <value>password</value>
-      <webElementGuid>97bcd9d9-b1ad-4877-987d-d5f577c7157a</webElementGuid>
+      <webElementGuid>329a2e15-18ee-49cd-aadf-a73330399aa2</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -39,23 +39,23 @@
       <name>id</name>
       <type>Main</type>
       <value>passwordConfirm</value>
-      <webElementGuid>95239b92-5055-4ab0-bbfd-c34834cef592</webElementGuid>
+      <webElementGuid>c78346b8-5664-4806-bb47-f04bf9a3b0ba</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>placeholder</name>
       <type>Main</type>
-      <value>비밀번호 재입력</value>
-      <webElementGuid>11695cdb-4434-4db4-bbed-18d1f99e93c4</webElementGuid>
+      <value>다시 입력</value>
+      <webElementGuid>514d8992-a12f-4d57-965a-e1ff6ba961ab</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>input-transition w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none</value>
-      <webElementGuid>41432551-cab7-409d-9e9c-0a50a4c70f0b</webElementGuid>
+      <value>input-base</value>
+      <webElementGuid>17776f10-43e4-4959-acad-6eb53b70c582</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -63,7 +63,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;passwordConfirm&quot;)</value>
-      <webElementGuid>ce1ea56c-8bc1-4a09-8e77-4e78db68bbda</webElementGuid>
+      <webElementGuid>c61f72ef-c2ff-43e8-bc25-363ba1cab18e</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -71,15 +71,15 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@id='passwordConfirm']</value>
-      <webElementGuid>b51612e4-43f9-4ca3-82c4-e2560153f0bc</webElementGuid>
+      <webElementGuid>0d1747a2-6187-4b9e-b798-e8a973724869</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='signupForm']/div[2]/div[2]/input</value>
-      <webElementGuid>875aff2e-5443-4778-8291-e5af1e041291</webElementGuid>
+      <value>//form[@id='signupForm']/div[3]/div[2]/input</value>
+      <webElementGuid>76bdde91-9e5c-4eaf-ba56-b22792e76b52</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -87,7 +87,23 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[2]/input</value>
-      <webElementGuid>634d772a-17ee-4577-93be-4d8ec079d41f</webElementGuid>
+      <webElementGuid>6c8571cf-fdd4-48fe-a47d-642a8ab72870</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@type = 'password' and @id = 'passwordConfirm' and @placeholder = '다시 입력']</value>
+      <webElementGuid>9af0f73d-a80b-48e1-a0da-bab32137aa2b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='signupForm']/div[2]/div[2]/input</value>
+      <webElementGuid>18080e7a-cb0f-4b0b-865a-93f3a34a2861</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -95,6 +111,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@type = 'password' and @id = 'passwordConfirm' and @placeholder = '비밀번호 재입력']</value>
-      <webElementGuid>a8f5a67b-7561-478a-88fb-307772a53127</webElementGuid>
+      <webElementGuid>c5c2c315-9303-4d97-ba54-387821c57328</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

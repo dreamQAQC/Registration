@@ -6,12 +6,12 @@
    <elementGuidId>c89b45c0-a062-4f56-9c38-37fa6a624d95</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//form[@id='signupForm']/div[4]/div/label/div</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//form[@id='signupForm']/div[5]/div/div/label/div</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,71 +23,79 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
-      <webElementGuid>7407377c-1f64-40a8-aeac-417885e7a828</webElementGuid>
+      <webElementGuid>a9a53d80-3a24-48d2-94c2-d98f6144f69f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>text-center px-4 py-3 border border-gray-300 rounded-xl text-gray-600 font-medium transition-colors hover:bg-gray-50</value>
-      <webElementGuid>17349a48-3083-427b-ae4b-d27bf24c2d9d</webElementGuid>
+      <value>text-center py-3 border border-slate-200 rounded-xl text-sm peer-checked:bg-primary peer-checked:text-white transition-all</value>
+      <webElementGuid>5e3436ed-561f-434e-8ee1-28b320031eb1</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>남성</value>
-      <webElementGuid>25bc27db-b63b-4b0f-9ac1-094d1a1f788c</webElementGuid>
+      <value>남</value>
+      <webElementGuid>7d7d6bf5-a5c0-4c57-9b75-1f874b18dc65</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;signupForm&quot;)/div[4]/div[@class=&quot;grid grid-cols-3 gap-4&quot;]/label[@class=&quot;cursor-pointer relative&quot;]/div[@class=&quot;text-center px-4 py-3 border border-gray-300 rounded-xl text-gray-600 font-medium transition-colors hover:bg-gray-50&quot;]</value>
-      <webElementGuid>7773d0aa-920d-43f5-b506-48d5dae69f50</webElementGuid>
+      <value>id(&quot;signupForm&quot;)/div[@class=&quot;grid grid-cols-1 md:grid-cols-2 gap-6&quot;]/div[@class=&quot;space-y-2&quot;]/div[@class=&quot;grid grid-cols-3 gap-2&quot;]/label[@class=&quot;cursor-pointer&quot;]/div[@class=&quot;text-center py-3 border border-slate-200 rounded-xl text-sm peer-checked:bg-primary peer-checked:text-white transition-all&quot;]</value>
+      <webElementGuid>ff346a99-8caf-400f-8805-ec6b51a26a6d</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='signupForm']/div[4]/div/label/div</value>
-      <webElementGuid>932fc8e5-e009-45c0-a975-839e8647e619</webElementGuid>
+      <value>//form[@id='signupForm']/div[5]/div/div/label/div</value>
+      <webElementGuid>d2d4d749-2b00-4d5e-97d7-fb834f42f079</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='*'])[5]/following::div[2]</value>
-      <webElementGuid>79c23a59-11db-494a-8d1d-5200261ebede</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='성별'])[1]/following::div[2]</value>
+      <webElementGuid>328dfbae-e0bb-4d3d-b0e2-a5558c9e9e37</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='여성'])[1]/preceding::div[1]</value>
-      <webElementGuid>9cc97690-6255-4bfc-b65e-328765340bc1</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='번호 찾기'])[1]/following::div[4]</value>
+      <webElementGuid>02e7d2ad-fc33-4580-82eb-207ed883e5c4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='선택안함'])[1]/preceding::div[2]</value>
-      <webElementGuid>b89a3735-3b36-49f4-86af-613edd8f387d</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='여'])[1]/preceding::div[1]</value>
+      <webElementGuid>2118078e-8044-41c5-b557-aa336699df7a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='남성']/parent::*</value>
-      <webElementGuid>17350a86-6ec4-41ca-adc0-533cd5cec5c9</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='무관'])[1]/preceding::div[2]</value>
+      <webElementGuid>3d6c154d-23fc-4c96-b2c0-cb51ffdf8e33</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='남']/parent::*</value>
+      <webElementGuid>9a88a30d-09f7-4638-b2bb-aa7595277741</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -95,7 +103,55 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//label/div</value>
-      <webElementGuid>31e546d4-47b4-4aee-aefe-1df29adb0b2c</webElementGuid>
+      <webElementGuid>18d612fa-049d-4a2b-af51-a7c07bd9eb72</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//div[(text() = '남' or . = '남')]</value>
+      <webElementGuid>2514e529-d700-4fb4-bec9-855faa318232</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='signupForm']/div[4]/div/label/div</value>
+      <webElementGuid>04089c9c-337c-4ed7-9307-f62f200634a9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='*'])[5]/following::div[2]</value>
+      <webElementGuid>edd7d793-70e3-49fd-b0de-1c61dfdc4d3e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='여성'])[1]/preceding::div[1]</value>
+      <webElementGuid>a46d0061-13fa-4b16-8a67-e4b2582c751c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='선택안함'])[1]/preceding::div[2]</value>
+      <webElementGuid>831755d5-6d5d-4793-a001-e0f2de24522e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='남성']/parent::*</value>
+      <webElementGuid>88c553c8-01cc-46f2-a916-d976e25a0665</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -103,6 +159,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//div[(text() = '남성' or . = '남성')]</value>
-      <webElementGuid>9430f073-d3a6-41a5-afba-04781c7bf84f</webElementGuid>
+      <webElementGuid>d3d3e4e2-7b99-40e5-9f0e-756aa7b1dffb</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

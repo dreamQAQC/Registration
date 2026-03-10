@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>select_</name>
+   <tag></tag>
+   <elementGuidId>d20f0821-40c8-40cc-8603-c032cb3a4fc9</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>div.modal-inner > div.select-wrap > div.select-box > select[name=&quot;manager_type_code&quot;]</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>(//select[@name='manager_type_code'])[2]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>select</value>
+      <webElementGuid>83a13ea0-9cdc-4087-9bd9-7397feac8939</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>manager_type_code</value>
+      <webElementGuid>718162b8-a3ac-430b-9980-9c31149fec3d</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>선택최고관리자중간관리자</value>
+      <webElementGuid>7c048508-4624-46b7-b2a9-c814c50e9e85</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;__next&quot;)/div[@class=&quot;wrap&quot;]/div[@class=&quot;container&quot;]/div[@class=&quot;content scrollBar&quot;]/div[@class=&quot;cont&quot;]/form[1]/div[1]/div[@class=&quot;modal-wrap&quot;]/div[@class=&quot;modal&quot;]/div[@class=&quot;modal-body&quot;]/div[@class=&quot;modal-inner&quot;]/div[@class=&quot;select-wrap&quot;]/div[@class=&quot;select-box&quot;]/select[1]</value>
+      <webElementGuid>200b1d0f-5e35-4c5a-bb2e-6eb92475c285</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>(//select[@name='manager_type_code'])[2]</value>
+      <webElementGuid>d6feeb12-1be3-4304-9d3b-4a325e88f136</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='__next']/div/div/div[2]/div/form/div/div/div/div[2]/div/div[5]/div/select</value>
+      <webElementGuid>dcda736c-61fa-4484-b360-9766063b6655</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='관리자 유형 *'])[1]/following::select[1]</value>
+      <webElementGuid>1bf4b6a9-1196-4d77-a733-98c420ab9463</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='관리자 이름 *'])[1]/following::select[1]</value>
+      <webElementGuid>b05eeade-6ba9-4a82-be1e-a1d576e96aae</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='초기화'])[1]/preceding::select[1]</value>
+      <webElementGuid>e74fab78-ea5b-42a7-b9cc-339ae2d87005</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='등록'])[1]/preceding::select[1]</value>
+      <webElementGuid>3ec647ac-42ef-49e5-ade1-e0a36f89c94b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[5]/div/select</value>
+      <webElementGuid>193ec55a-0ca2-4770-87ee-b58b145ca17a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//select[@name = 'manager_type_code' and (text() = '선택최고관리자중간관리자' or . = '선택최고관리자중간관리자')]</value>
+      <webElementGuid>28ff683d-170f-40e8-8d41-4a4740f0af52</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

@@ -17,30 +17,38 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+
+
+
 WebUI.openBrowser('')
 
 WebUI.navigateToUrl('http://10.20.110.62:22005/login/?yn_reissue_token=N')
 
-WebUI.setText(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/input_LOGIN_manager_id'), 'ssr0128')
+WebUI.setText(findTestObject('Object Repository/magicline/Page_MagicSDP/input_LOGIN_manager_id'), 'ssr0128')
 
-WebUI.setEncryptedText(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/input_LOGIN_manager_pw'), '0j7gx7IaHoqVvtnDzehB9w==')
+WebUI.setEncryptedText(findTestObject('Object Repository/magicline/Page_MagicSDP/input_LOGIN_manager_pw'), 'OagwboPXUBtM27vZRPFNnw==')
 
-WebUI.click(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/button_LOGIN'))
+WebUI.click(findTestObject('Object Repository/magicline/Page_MagicSDP/button_LOGIN'))
 
-WebUI.click(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/a_'))
+WebUI.click(findTestObject('Object Repository/magicline/Page_MagicSDP/div_'))
 
-WebUI.click(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/a__1'))
+WebUI.click(findTestObject('Object Repository/magicline/Page_MagicSDP/button_'))
 
-WebUI.click(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/button_'))
+WebUI.setEncryptedText(findTestObject('Object Repository/magicline/Page_MagicSDP/input_LOGIN_manager_pw'), '0j7gx7IaHoqVvtnDzehB9w==')
 
-WebUI.setText(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/input_ID_manager_id'), 'ssr0122')
+WebUI.click(findTestObject('Object Repository/magicline/Page_MagicSDP/button_LOGIN'))
 
-WebUI.setEncryptedText(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/input_LOGIN_manager_pw'), '0j7gx7IaHoqVvtnDzehB9w==')
+WebUI.click(findTestObject('Object Repository/magicline/Page_MagicSDP/a_'))
 
-WebUI.setEncryptedText(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/input__check_manager_pw'), '0j7gx7IaHoqVvtnDzehB9w==')
+WebUI.click(findTestObject('Object Repository/magicline/Page_MagicSDP/button__1'))
 
-WebUI.setText(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/input__manager_name'), '정민호')
+WebUI.setText(findTestObject('Object Repository/magicline/Page_MagicSDP/input_ID_manager_id'), 'ssr0123123')
 
-WebUI.selectOptionByValue(findTestObject('Object Repository/sdp_verification/Page_MagicZTNA/select_'), '10', true)
+WebUI.setEncryptedText(findTestObject('Object Repository/magicline/Page_MagicSDP/input_LOGIN_manager_pw'), '0j7gx7IaHoqVvtnDzehB9w==')
 
-CustomKeywords.'words.RegExceptionHelper.runAll'()
+WebUI.setEncryptedText(findTestObject('Object Repository/magicline/Page_MagicSDP/input__check_manager_pw'), '0j7gx7IaHoqVvtnDzehB9w==')
+
+WebUI.setText(findTestObject('Object Repository/magicline/Page_MagicSDP/input__manager_name'), '정민호')
+
+WebUI.selectOptionByValue(findTestObject('Object Repository/magicline/Page_MagicSDP/select_'), '10', true)
+

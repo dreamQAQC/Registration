@@ -6,12 +6,12 @@
    <elementGuidId>d6722292-4b19-4578-b69d-e3ee6c3efcf7</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//input[@id='userName']</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>#userName</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//input[@id='userName']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,7 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>a90493b0-6ee9-4582-bc61-274ff87af689</webElementGuid>
+      <webElementGuid>aae9bd80-cdf7-46a4-a8fe-70cd39282e53</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -31,7 +31,7 @@
       <name>type</name>
       <type>Main</type>
       <value>text</value>
-      <webElementGuid>267d02cf-d1b0-46b5-b739-6b6865c65ac5</webElementGuid>
+      <webElementGuid>e108086a-0289-4bca-b1ce-81a9cda04761</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -39,23 +39,23 @@
       <name>id</name>
       <type>Main</type>
       <value>userName</value>
-      <webElementGuid>f5618a41-b2ef-4241-9c25-fc0173c8981d</webElementGuid>
+      <webElementGuid>54266383-e7e5-45c8-a42a-e366f84fd55b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>placeholder</name>
       <type>Main</type>
-      <value>성함을 입력하세요</value>
-      <webElementGuid>bde8eae6-c9d9-4cbd-a7c6-187300e252f1</webElementGuid>
+      <value>이름을 선택해주세요</value>
+      <webElementGuid>edfd76a9-997e-4b07-8c3f-109494980fdb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>input-transition w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none</value>
-      <webElementGuid>580a47e0-19a4-444e-83f3-8f647766716f</webElementGuid>
+      <value>input-base pr-12 cursor-pointer group-hover:border-primary/50</value>
+      <webElementGuid>cd893f6d-5e6e-47dd-811e-e75dc8069b49</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -63,7 +63,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;userName&quot;)</value>
-      <webElementGuid>c6dd9308-f414-40bd-a259-7ae99749308a</webElementGuid>
+      <webElementGuid>aedd2ec3-4887-4271-851f-07fb9735a9c2</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -71,7 +71,31 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@id='userName']</value>
-      <webElementGuid>617bd291-8117-4c03-bb16-78ba1c9e213d</webElementGuid>
+      <webElementGuid>3e4ed71f-abc8-4879-bd1e-0e7faa1b564e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='signupForm']/div/div/input</value>
+      <webElementGuid>705d4d59-8cda-41f0-af6d-b3c3af396183</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//input</value>
+      <webElementGuid>8fccb45f-c678-48e6-a998-df8cf8998705</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@type = 'text' and @id = 'userName' and @placeholder = '이름을 선택해주세요']</value>
+      <webElementGuid>6d14a407-9032-45da-be8f-349a464307c7</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -79,7 +103,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='signupForm']/div[3]/input</value>
-      <webElementGuid>57760b8d-97b0-4157-bd5e-ba98c546bf2e</webElementGuid>
+      <webElementGuid>b5bbbbf1-bded-411b-84f9-eb52e8fbba03</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -87,7 +111,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[3]/input</value>
-      <webElementGuid>c477eb48-cc5b-440f-b569-3b2465a55a3a</webElementGuid>
+      <webElementGuid>7859dcc2-07db-4a43-ac93-06b7692cda8c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -95,6 +119,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@type = 'text' and @id = 'userName' and @placeholder = '성함을 입력하세요']</value>
-      <webElementGuid>051aea64-97f5-40c3-9516-5dc90d930a2b</webElementGuid>
+      <webElementGuid>3773838c-9069-4aab-a31b-41877b9104a6</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
