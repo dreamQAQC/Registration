@@ -21,7 +21,13 @@ import com.kms.katalon.core.testobject.ConditionType as ConditionType
 
 WebUI.openBrowser('')
 
-WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join3.html')
+//WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join3.html')
+//WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join3.html')
+//WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join3.html')
+//WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join3.html')
+//WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join3.html')
+//WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join6.html')
+WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join7.html')
 
 CustomKeywords.'RegExceptionHelper.runAll'()
 
