@@ -185,16 +185,6 @@ class RegExceptionHelper extends RegExceptionHelperBase {
 		}
 	}
 
-
-	private static void ensureDuplicateCheckReadyForNonIdCase() {
-		if (!existsDuplicateCheckButton()) return
-		try {
-			clickDuplicateCheckButton()
-			String msg = collectPopupMessage("id", true)
-			if (!isBlankPopup(msg)) logLine("사전 ID 조회 결과: " + msg)
-		} catch (Exception ignore) {}
-	}
-
 	// =========================================================
 	// [N] 단일 TC 실행
 	// =========================================================
@@ -219,8 +209,6 @@ class RegExceptionHelper extends RegExceptionHelperBase {
 			setFormFieldValue("id",     RegExceptionHelperBase.FIXED_VALID_ID)
 			setFormFieldValue("pw",     "Test123!@")
 			setFormFieldValue("pwConf", "Test123!@")
-			boolean needsDupReady = !(target in ["id", "tripledup", "skipDupCheck"]) && !isNamePopupTc
-			if (needsDupReady) ensureDuplicateCheckReadyForNonIdCase()
 
 			// 이름 필드 세팅 (팝업 여부에 따라 분기)
 			if (!isNamePopupTc) {
@@ -240,10 +228,14 @@ class RegExceptionHelper extends RegExceptionHelperBase {
 							''')
 						} catch (Exception ignored) {}
 					}
-					// nameFieldDone=false: namePopupScenario TC 아직 실행 전 → 이름 필드 비워둠
 				} else {
 					setFormFieldValue("name", "홍길동")
 				}
+			}
+
+			// 공통 조회(중복확인) 버튼 클릭
+			if (!isNamePopupTc && target != "id" && target != "skipDupCheck" && target != "tripledup" && target != "success") {
+				if (existsDuplicateCheckButton()) { clickDuplicateCheckButton(); dismissGeneralPopups() }
 			}
 
 			// 액션 맵
@@ -343,7 +335,9 @@ class RegExceptionHelper extends RegExceptionHelperBase {
 					if (!fileInputEls || fileIdx >= fileInputEls.size()) {
 						actual = "[input[type=file] 없음]"
 					} else if (fileAction == "fileEmpty") {
-						// 파일 미첨부 → 그냥 제출
+						// 파일 미첨부 TC → 폼 리셋 후 제출
+						try { runJs("document.querySelectorAll('form').forEach(function(f){ try{ f.reset(); }catch(e){} });") } catch (Exception ignore) {}
+						waitSec(0.3)
 						closeGeneralModalIfExists()
 						clickRegisterButton()
 						actual = collectPopupMessage("file")
@@ -363,6 +357,8 @@ class RegExceptionHelper extends RegExceptionHelperBase {
 					}
 				} catch (Exception fe) {
 					actual = "[파일TC오류] ${fe.message?.take(50) ?: ''}"
+				} finally {
+					try { if (RegExceptionHelperBase.startUrl) { driver().navigate().to(RegExceptionHelperBase.startUrl); waitSec(1.5) } } catch (Exception ignore) {}
 				}
 			} else if (target == "success") {
 				fillDummyAddress()
@@ -396,7 +392,7 @@ class RegExceptionHelper extends RegExceptionHelperBase {
 		if (!RegExceptionHelperBase.nameFieldDone) { try { closeNameSearchPopup() } catch (Exception ignored) {} }
 
 		double elapsed = (System.currentTimeMillis() - started) / 1000.0
-		String clean   = sanitizePopupText((actual ?: "").replace("\n", " ").trim())
+		String clean   = (actual ?: "").replace("\n", " ").trim()
 
 		Map judged = judgeTestResult(tc, clean)
 		if (!(judged.passed as boolean)) RegExceptionHelperBase.failCount++
@@ -464,7 +460,10 @@ class RegExceptionHelper extends RegExceptionHelperBase {
 			)
 		}
 
-		Map mainScan        = scanMainFormElements()
+		Map mainScan = scanMainFormElements()
+		// 이름 팝업 닫힌 후 DOM 안정화 대기 후 스캔
+		try { closeGeneralModalIfExists() } catch (Exception ignore) {}
+		waitSec(1.0)
 		List<String> domOrder = scanMainFormDomOrder()
 		logLine("감지 순서: " + (domOrder ? domOrder.join(" -> ") : "(감지 없음)"))
 
@@ -475,12 +474,8 @@ class RegExceptionHelper extends RegExceptionHelperBase {
 			logLine("파일첨부 필드: 없음")
 		}
 
-		List<Map> allTcs = []
-		allTcs.addAll(buildStaticTestCases())
-		allTcs.addAll(buildMainFormDynamicTestCases(mainScan))
-		if (RegExceptionHelperBase.isNameSearchPopupMode) allTcs.addAll(buildNamePopupDynamicTestCases(RegExceptionHelperBase.namePopupScan))
-
-		allTcs = sortTestCasesByDomOrder(allTcs, domOrder)
+		// domOrder 순서대로 TC 조립
+		List<Map> allTcs = buildAllTcsByDomOrder(domOrder, mainScan)
 		logLine("전체 TC 수: " + allTcs.size())
 
 		for (int i = 0; i < allTcs.size(); i++) {

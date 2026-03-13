@@ -105,29 +105,17 @@ class RegExceptionHelperBase {
 	// =========================================================
 	// [B] 공용 유틸
 	// =========================================================
-	static WebDriver driver() {
-		return DriverFactory.getWebDriver()
-	}
+	static WebDriver driver() { return DriverFactory.getWebDriver() }
 
-	static void waitSec(double sec) {
-		WebUI.delay(sec)
-	}
+	static void waitSec(double sec) { WebUI.delay(sec) }
 
-	static Object runJs(String script) {
-		return WebUI.executeJavaScript(script, null)
-	}
+	static Object runJs(String script) { return WebUI.executeJavaScript(script, null) }
 
-	static Object runJs(String script, List args) {
-		return WebUI.executeJavaScript(script, args)
-	}
+	static Object runJs(String script, List args) { return WebUI.executeJavaScript(script, args) }
 
-	static void logLine(String msg) {
-		KeywordUtil.logInfo(msg)
-	}
+	static void logLine(String msg) { KeywordUtil.logInfo(msg) }
 
-	static String normalizeText(String s) {
-		return (s ?: "").replaceAll("\\s+", " ").trim()
-	}
+	static String normalizeText(String s) { return (s ?: "").replaceAll("\\s+", " ").trim() }
 
 	static boolean isBlankPopup(String s) {
 		String t = (s ?: "").trim()
@@ -136,101 +124,18 @@ class RegExceptionHelperBase {
 
 	static String escapeJsString(String s) {
 		return (s ?: "")
-		.replace("\\", "\\\\")
-		.replace("'", "\\'")
-		.replace("\n", " ")
-		.replace("\r", " ")
-	}
-
-	static String sanitizePopupText(String s) {
-		String r = normalizeText(s)
-		r = r.replaceFirst(/(?i)^(System\s*Message|Validation\s*Error|Success|Warning|Error)\s*[✕:]?\s*/, "")
-		return r.trim()
-	}
-
-	static WebElement findLikelyIdInput() {
-		try {
-			List<WebElement> inputs = driver().findElements(By.cssSelector("input:not([type='hidden']):not([type='radio']):not([type='checkbox']):not([type='button']):not([type='submit']):not([type='file'])"))
-			for (WebElement e : inputs) {
-				if (!isElementVisible(e)) continue
-				String id = (e.getAttribute("id") ?: "").toLowerCase()
-				String nm = (e.getAttribute("name") ?: "").toLowerCase()
-				String ph = (e.getAttribute("placeholder") ?: "").toLowerCase()
-				String lb = ""
-				try {
-					Object t = runJs('''
-						var e=arguments[0], txt="";
-						if(e.labels&&e.labels.length) txt=(e.labels[0].innerText||"");
-						if(!txt){
-							var p=e.closest("div,td,tr,li,section,article");
-							if(p) txt=(p.innerText||"");
-						}
-						return txt;
-					''', [e])
-					lb = normalizeText(t?.toString()).toLowerCase()
-				} catch (Exception ignore) {}
-				boolean looksId = id.contains("id") || nm.contains("id") || ph.contains("아이디") || ph.contains("id") || lb.contains("계정 id") || lb.contains("계정id") || lb.contains("아이디")
-				boolean looksEmailOnly = (id.contains("email") || nm.contains("email") || ph.contains("이메일") || ph.contains("@")) && !lb.contains("계정 id") && !lb.contains("계정id")
-				if (looksId && !looksEmailOnly) return e
-			}
-		} catch (Exception ignore) {}
-		return null
-	}
-
-	static WebElement findDuplicateCheckButtonNearId() {
-		WebElement idInput = findLikelyIdInput()
-		try {
-			List<WebElement> buttons = driver().findElements(By.xpath("//button | //a | //input[@type='button'] | //input[@type='submit']"))
-			List<WebElement> visible = buttons.findAll {
-				isElementVisible(it)
-			}
-			if (idInput != null) {
-				Map rect = (Map) runJs('''
-					var r=arguments[0].getBoundingClientRect();
-					return {left:r.left, right:r.right, top:r.top, bottom:r.bottom, cy:(r.top+r.bottom)/2};
-				''', [idInput])
-				WebElement best = null
-				double bestScore = 1e12
-				for (WebElement b : visible) {
-					Map br = (Map) runJs('''
-						var r=arguments[0].getBoundingClientRect();
-						return {left:r.left, right:r.right, top:r.top, bottom:r.bottom, cy:(r.top+r.bottom)/2};
-					''', [b])
-					String txt = normalizeText((b.getText() ?: "") + " " + (b.getAttribute("value") ?: "") + " " + (b.getAttribute("title") ?: "")).replaceAll("\\s+","")
-					if (txt.contains("우편") || txt.contains("주소") || txt.contains("검색")) continue
-					double dx = (((Number) br.left).doubleValue() - ((Number) rect.right).doubleValue())
-					double dy = Math.abs(((Number) br.cy).doubleValue() - ((Number) rect.cy).doubleValue())
-					boolean plausibleText = txt.contains("조회") || txt.contains("확인") || txt.contains("중복")
-					if (dx < -50 || dx > 300 || dy > 80 || !plausibleText) continue
-					double score = Math.max(0, dx) + dy * 3
-					if (score < bestScore) {
-						bestScore = score; best = b
-					}
-				}
-				if (best != null) return best
-			}
-			for (WebElement b : visible) {
-				String txt = normalizeText((b.getText() ?: "") + " " + (b.getAttribute("value") ?: "") + " " + (b.getAttribute("title") ?: "")).replaceAll("\\s+","")
-				if ((txt.contains("중복") || txt == "조회" || txt == "확인") && !txt.contains("우편") && !txt.contains("주소")) return b
-			}
-		} catch (Exception ignore) {}
-		return null
+				.replace("\\", "\\\\")
+				.replace("'", "\\'")
+				.replace("\n", " ")
+				.replace("\r", " ")
 	}
 
 	static boolean isElementVisible(WebElement el) {
-		try {
-			return el != null && el.isDisplayed()
-		} catch (Exception e) {
-			return false
-		}
+		try { return el != null && el.isDisplayed() } catch (Exception e) { return false }
 	}
 
 	static boolean hasBrowserDriver() {
-		try {
-			return driver() != null
-		} catch (Exception e) {
-			return false
-		}
+		try { return driver() != null } catch (Exception e) { return false }
 	}
 
 	static Map makeTc(String type, String desc, String field, String target, String value, String expect) {
@@ -245,11 +150,7 @@ class RegExceptionHelperBase {
 		try {
 			runJs("arguments[0].scrollIntoView({block:'center'});", [el])
 			waitSec(0.2)
-			try {
-				el.click()
-			} catch (Exception e) {
-				runJs("arguments[0].click();", [el])
-			}
+			try { el.click() } catch (Exception e) { runJs("arguments[0].click();", [el]) }
 			waitSec(0.4)
 		} catch (Exception ignore) {}
 	}
@@ -277,24 +178,28 @@ class RegExceptionHelperBase {
 	}
 
 	static void clickDuplicateCheckButton() {
-		WebElement btn = findDuplicateCheckButtonNearId()
-		if (btn != null) {
-			logLine("ID 중복확인 버튼 클릭: " + normalizeText((btn.getText() ?: "") + " " + (btn.getAttribute("value") ?: "")))
-			safeClick(btn)
-			waitSec(0.4)
-			return
-		}
-		clickButtonByKeywords("중복확인", "중복체크", "중복", "조회", "확인")
+		clickButtonByKeywords("중복확인", "중복체크", "중복", "조회")
 	}
 
 	static boolean existsDuplicateCheckButton() {
-		return findDuplicateCheckButtonNearId() != null
+		try {
+			List<WebElement> buttons = driver().findElements(By.xpath("//button | //a | //input[@type='button']"))
+			for (WebElement el : buttons) {
+				if (!isElementVisible(el)) continue
+				boolean insideModal = (runJs("var e=arguments[0]; while(e){ var c=(e.className||''); if(c.indexOf('modal')>=0||c.indexOf('popup')>=0||c.indexOf('layer')>=0||c.indexOf('dialog')>=0) return true; e=e.parentElement; } return false;", [el]) as boolean)
+				if (insideModal) continue
+				String compact = normalizeText((el.getText() ?: "") + " " + (el.getAttribute("value") ?: "")).replaceAll("\\s+", "")
+				if (compact.contains("중복") || compact == "조회" || compact.contains("ID조회") || compact.contains("아이디조회")) return true
+			}
+			return false
+		} catch (Exception e) { return false }
 	}
 
+	// =========================================================
+	// [D] 공통 팝업 / 모달 처리
+	// =========================================================
 	static void closeBrowserAlertIfExists() {
-		try {
-			Alert a = driver().switchTo().alert(); a.accept(); waitSec(0.2)
-		} catch (Exception ignore) {}
+		try { Alert a = driver().switchTo().alert(); a.accept(); waitSec(0.2) } catch (Exception ignore) {}
 	}
 
 	static void closeGeneralModalIfExists() {
@@ -306,7 +211,7 @@ class RegExceptionHelperBase {
                 var bs = m.querySelectorAll("button,a,[class*=btn],input[type=button],input[type=submit]");
                 for(var i=0;i<bs.length;i++){
                     var t = (bs[i].innerText || bs[i].value || "").replace(/\\s+/g,"");
-                    if(t.indexOf("확인") >= 0 || t === "OK" || t.indexOf("닫기") >= 0){
+                    if(t.indexOf("확인") >= 0 || t === "OK" || t.indexOf("닫기") >= 0 || t.indexOf("완료") >= 0){
                         try{ bs[i].click(); }catch(e){} break;
                     }
                 }
@@ -321,16 +226,14 @@ class RegExceptionHelperBase {
 	static void dismissGeneralPopups() {
 		waitSec(1.0)
 		closeBrowserAlertIfExists()
-		try {
-			new Actions(driver()).sendKeys(Keys.ESCAPE).perform(); waitSec(0.1)
-		} catch (Exception ignore) {}
+		try { new Actions(driver()).sendKeys(Keys.ESCAPE).perform(); waitSec(0.1) } catch (Exception ignore) {}
 		runJs('''
             document.querySelectorAll("[role=dialog],[class*=modal],[class*=popup],[class*=layer]").forEach(function(md){
                 if(window.getComputedStyle(md).display === "none") return;
                 var bs = md.querySelectorAll("button,a,[class*=btn],input[type=button],input[type=submit]");
                 for(var i=0;i<bs.length;i++){
                     var t = (bs[i].innerText || bs[i].value || "").replace(/\\s+/g,"");
-                    if(t.indexOf("확인") >= 0 || t === "OK" || t.indexOf("닫기") >= 0){
+                    if(t.indexOf("확인") >= 0 || t === "OK" || t.indexOf("닫기") >= 0 || t.indexOf("완료") >= 0){
                         try{ bs[i].click(); }catch(e){} break;
                     }
                 }
@@ -341,42 +244,57 @@ class RegExceptionHelperBase {
 	}
 
 	static String collectPopupMessage(String hint, boolean waitPopup) {
-		if (waitPopup) waitSec(1.2)
+		if (waitPopup) waitSec(1.4)
+		try { new Actions(driver()).sendKeys(Keys.ESCAPE).perform(); waitSec(0.1) } catch (Exception ignore) {}
+
 		try {
 			Alert a = driver().switchTo().alert()
-			String msg = sanitizePopupText(a.getText())
-			a.accept()
-			waitSec(0.2)
+			String msg = a.getText(); a.accept()
+			if ((msg ?: "").contains("팝업") || (msg ?: "").contains("차단")) {
+				try { Alert a2 = driver().switchTo().alert(); String msg2 = a2.getText(); a2.accept(); return msg2 } catch (Exception ignore) {}
+			}
 			return msg
 		} catch (Exception ignore) {}
 
 		Object r = runJs('''
-			function vis(e){ if(!e) return false; var s=window.getComputedStyle(e); return e.offsetParent!==null&&s.visibility!=="hidden"&&s.display!=="none"; }
-			function txt(v){ return (v||"").replace(/\s+/g," ").trim(); }
-			var roots = Array.from(document.querySelectorAll("[role=dialog],[class*=modal],[class*=popup],[class*=layer],.swal2-popup,.toast,.Toastify,[class*=alert]")).filter(vis);
-			var out = [];
-			roots.forEach(function(root){
-				var t = txt(root.innerText || root.textContent || "");
-				if(t) out.push(t);
-				var btns = root.querySelectorAll("button,a,input[type=button],input[type=submit],[class*=btn]");
-				for(var i=0;i<btns.length;i++){
-					var bt = txt(btns[i].innerText || btns[i].value || btns[i].title || "");
-					if(bt.indexOf("확인")>=0 || bt.indexOf("닫기")>=0 || bt==="OK"){
-						try{ btns[i].click(); }catch(e){}
-						break;
-					}
-				}
-			});
-			if(out.length===0){
-				var inline = Array.from(document.querySelectorAll(".error,.invalid-feedback,.form-text,.help-block,[class*=error],[class*=message]")).filter(vis).map(function(e){ return txt(e.innerText||e.textContent||""); }).filter(Boolean);
-				if(inline.length) out = inline;
-			}
-			return out.join(" | ");
-		''')
-		closeGeneralModalIfExists()
-		return sanitizePopupText(r?.toString() ?: "[팝업없음]")
-	}
+            function vis(e){ var s=window.getComputedStyle(e); return e.offsetParent!==null&&s.visibility!=="hidden"&&s.display!=="none"; }
+            function text(v){ return (v||"").replace(/\\s+/g," ").trim(); }
+            var buttons=document.querySelectorAll("button,a,[class*=btn],input[type=button],input[type=submit]");
+            for(var i=0;i<buttons.length;i++){
+                var b=buttons[i]; var bt=text(b.innerText||b.value||"");
+                if(vis(b)&&(bt.indexOf("확인")>=0||bt==="OK")){
+                    var p=b.parentElement;
+                    while(p&&p.tagName!=="BODY"){
+                        var st=window.getComputedStyle(p);
+                        if(st.position==="fixed"||st.position==="absolute"||parseInt(st.zIndex)>0){
+                            var raw=text(p.innerText||""); var clean=raw.replace(/확인/g,"").trim();
+                            try{ b.click(); }catch(e){} return "M::"+clean;
+                        }
+                        p=p.parentElement;
+                    }
+                }
+            }
+            var ins=document.querySelectorAll("input,select,textarea");
+            for(var k=0;k<ins.length;k++){
+                if(ins[k].validity&&!ins[k].validity.valid&&ins[k].validationMessage)
+                    return "H::"+ins[k].validationMessage;
+            }
+            var keywords=["필수","선택","입력","확인","주소","아이디","비밀번호","이름","중복","오류","실패","동의"];
+            var nodes=Array.from(document.querySelectorAll(
+                "[role=alert],[aria-live],.error,.invalid,.tooltip,.toast,.message,.feedback,[class*=error],[class*=invalid],[class*=warn],[class*=message]"
+            )).filter(vis).map(function(e){ return text(e.innerText||""); }).filter(function(t){ return t.length>0&&t.length<=200; });
+            for(var n=0;n<nodes.length;n++){
+                for(var j=0;j<keywords.length;j++){
+                    if(nodes[n].indexOf(keywords[j])>=0) return "I::"+nodes[n];
+                }
+            }
+            return "[팝업없음]";
+        ''')
 
+		String result = r?.toString() ?: "[팝업없음]"
+		if (result.startsWith("M::") || result.startsWith("H::") || result.startsWith("I::")) result = result.substring(3)
+		return result
+	}
 
 	static String collectPopupMessage(String hint = "") { return collectPopupMessage(hint, true) }
 
@@ -415,56 +333,47 @@ class RegExceptionHelperBase {
 
 	static void fillVisibleEmptyFieldsWithDefault() {
 		runJs('''
-			document.querySelectorAll("input:not([type=hidden]):not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]):not([type=file])")
-				.forEach(function(e){
-					if(e.offsetParent===null) return;
-					var id=(e.id||"").toLowerCase();
-					var nm=(e.name||"").toLowerCase();
-					var ph=(e.placeholder||"").toLowerCase();
-					var lb="";
-					if(e.labels&&e.labels.length) lb=(e.labels[0].innerText||"").toLowerCase();
-					else{ var p=e.closest("div,tr,li,td,section"); if(p) lb=(p.innerText||"").toLowerCase(); }
-					if(id.indexOf("address")>=0||id.indexOf("post")>=0||nm.indexOf("address")>=0||ph.indexOf("주소")>=0||ph.indexOf("우편")>=0||lb.indexOf("주소")>=0) return;
-					if(id.indexOf("id")>=0||nm.indexOf("id")>=0||lb.indexOf("계정 id")>=0||lb.indexOf("계정id")>=0||ph.indexOf("아이디")>=0) return;
-					if(e.value&&e.value.length>0) return;
-					e.value=(e.type==="password")?"Temp123!@":"dummyData12";
-					e.dispatchEvent(new Event("input",{bubbles:true}));
-					e.dispatchEvent(new Event("change",{bubbles:true}));
-				});
-		''')
+            document.querySelectorAll("input:not([type=hidden]):not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]):not([type=file])")
+                .forEach(function(e){
+                    if(e.offsetParent===null) return;
+                    var id=(e.id||"").toLowerCase();
+                    if(id.indexOf("address")>=0||id.indexOf("post")>=0) return;
+                    if(e.value&&e.value.length>0) return;
+                    e.value=(e.type==="password")?"Temp123!@":"dummyData12";
+                    e.dispatchEvent(new Event("input",{bubbles:true}));
+                    e.dispatchEvent(new Event("change",{bubbles:true}));
+                });
+        ''')
 	}
 
 	static void setFormFieldValue(String fieldType, String value) {
 		String t = escapeJsString(fieldType)
 		String v = escapeJsString(value ?: "")
 		runJs("""
-			var t='${t}', v='${v}', target=null;
-			function labelText(e){
-				var lb="";
-				if(e.labels&&e.labels.length) lb=(e.labels[0].innerText||"").toLowerCase();
-				else{ var p=e.closest("div,tr,li,td,section,article"); if(p) lb=(p.innerText||"").toLowerCase(); }
-				return lb;
-			}
-			document.querySelectorAll("input:not([type=hidden]):not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]):not([type=file])")
-				.forEach(function(e){
-					if(target||e.offsetParent===null) return;
-					var id=(e.id||"").toLowerCase(), nm=(e.name||"").toLowerCase(), ph=(e.placeholder||"").toLowerCase(), lb=labelText(e);
-					var isAccountId = lb.indexOf("계정 id")>=0 || lb.indexOf("계정id")>=0 || lb.indexOf("아이디")>=0;
-					if(t==="pwConf"&&e.type==="password"&&(id.indexOf("confirm")>=0||nm.indexOf("confirm")>=0||ph.indexOf("확인")>=0||ph.indexOf("재입력")>=0)) target=e;
-					else if(t==="pw"&&e.type==="password"&&id.indexOf("confirm")<0&&nm.indexOf("confirm")<0&&ph.indexOf("확인")<0) target=e;
-					else if(t==="id"&&e.type!=="password"&&(isAccountId || id.indexOf("userid")>=0 || nm.indexOf("userid")>=0 || ((id.indexOf("id")>=0||nm.indexOf("id")>=0||ph.indexOf("아이디")>=0) && ph.indexOf("이메일")<0))) target=e;
-					else if(t==="name"&&e.type!=="password"&&(id.indexOf("name")>=0||nm.indexOf("name")>=0||ph.indexOf("이름")>=0||ph.indexOf("성명")>=0||lb.indexOf("이름")>=0||lb.indexOf("성명")>=0)) target=e;
-					else if(t==="email"&& !isAccountId && (id.indexOf("email")>=0||nm.indexOf("email")>=0||ph.indexOf("이메일")>=0||ph.indexOf("@")>=0)) target=e;
-					else if(t==="phone"&&(id.indexOf("phone")>=0||nm.indexOf("phone")>=0||ph.indexOf("전화")>=0||ph.indexOf("휴대")>=0)) target=e;
-				});
-			if(target){
-				var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype,'value').set;
-				setter.call(target, v);
-				["input","change","blur"].forEach(function(ev){ target.dispatchEvent(new Event(ev,{bubbles:true})); });
-			}
-		""")
+            var t='${t}', v='${v}', target=null;
+            document.querySelectorAll("input:not([type=hidden]):not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]):not([type=file])")
+                .forEach(function(e){
+                    if(target||e.offsetParent===null) return;
+                    var id=(e.id||"").toLowerCase(), nm=(e.name||"").toLowerCase(), ph=(e.placeholder||"").toLowerCase(), lb="";
+                    if(e.labels&&e.labels.length) lb=(e.labels[0].innerText||"").toLowerCase();
+                    else{ var p=e.closest("div,tr,li,td"); if(p) lb=(p.innerText||"").toLowerCase(); }
+                    if(t==="pwConf"&&e.type==="password"&&(id.indexOf("confirm")>=0||nm.indexOf("confirm")>=0||ph.indexOf("확인")>=0||ph.indexOf("재입력")>=0)) target=e;
+                    else if(t==="pw"&&e.type==="password"&&id.indexOf("confirm")<0&&nm.indexOf("confirm")<0&&ph.indexOf("확인")<0) target=e;
+                    else if(t==="id"&&e.type!=="password"&&(id.indexOf("id")>=0||nm.indexOf("id")>=0||ph.indexOf("아이디")>=0||lb.indexOf("아이디")>=0)) target=e;
+                    else if(t==="name"&&e.type!=="password"&&(id.indexOf("name")>=0||nm.indexOf("name")>=0||ph.indexOf("이름")>=0||ph.indexOf("성명")>=0||lb.indexOf("이름")>=0||lb.indexOf("성명")>=0)) target=e;
+                    else if(t==="email"&&(id.indexOf("email")>=0||nm.indexOf("email")>=0||ph.indexOf("이메일")>=0||ph.indexOf("@")>=0)) target=e;
+                    else if(t==="phone"&&(id.indexOf("phone")>=0||nm.indexOf("phone")>=0||ph.indexOf("전화")>=0||ph.indexOf("휴대")>=0)) target=e;
+                });
+            if(target){
+                target.value=v;
+                ["input","change","blur"].forEach(function(ev){ target.dispatchEvent(new Event(ev,{bubbles:true})); });
+            }
+        """)
 	}
 
+	// =========================================================
+	// [F] 이름 검색 팝업 탐색
+	// =========================================================
 	static boolean detectNameFieldUsesPopupSearch() {
 		Object result = runJs('''
             function isInsideModal(e){ return !!e.closest("[role=dialog],[class*=modal],[class*=popup],[class*=layer]"); }
@@ -635,11 +544,14 @@ class RegExceptionHelperBase {
                     var d=dialogs[i]; if(d.offsetParent===null) continue;
                     var txt=(d.innerText||'').replace(/\\s+/g,' ').trim();
                     if(txt.indexOf('사용자 정보 검색')>=0||txt.indexOf('회원 선택')>=0) continue;
-                    if(txt.indexOf('중복 확인이 완료되었습니다')>=0||txt.indexOf('중복 이 완료되었습니다')>=0||(txt.indexOf('완료')>=0&&txt.indexOf('중복')>=0)){
+                    var isComplete=txt.indexOf('완료')>=0||txt.indexOf('성공')>=0||
+                                   txt.indexOf('사용 가능')>=0||txt.indexOf('사용가능')>=0||
+                                   txt.indexOf('중복 확인')>=0||txt.indexOf('중복확인')>=0;
+                    if(isComplete){
                         var btns=d.querySelectorAll('button,[role=button],input[type=button],input[type=submit]');
                         for(var j=0;j<btns.length;j++){
                             var bt=(btns[j].innerText||btns[j].value||'').replace(/\\s+/g,'');
-                            if(bt.indexOf('확인')>=0||bt.indexOf('완료')>=0){ try{ btns[j].click(); }catch(e){} return; }
+                            if(bt.indexOf('확인')>=0||bt.indexOf('완료')>=0||bt==='OK'){ try{ btns[j].click(); }catch(e){} return; }
                         }
                     }
                 }
@@ -1282,6 +1194,22 @@ class RegExceptionHelperBase {
 		try { selectFirstRadioOrButtonGroup() } catch (Exception ignore) {}
 		try { fillDummyAddress() } catch (Exception ignore) {}
 		try { autoSelectMainFormDropdowns() } catch (Exception ignore) {}
+		try { attachDefaultFileIfExists() } catch (Exception ignore) {}
+	}
+
+	static void attachDefaultFileIfExists() {
+		List<org.openqa.selenium.WebElement> fileInputs = driver().findElements(
+			By.cssSelector("input[type=file]")
+		).findAll { it != null }
+		if (!fileInputs) return
+		fileInputs.eachWithIndex { org.openqa.selenium.WebElement fi, int idx ->
+			try {
+				List<String> exts = detectFileAcceptExtensions(fi)
+				String ext = exts ? exts[0] : "pdf"
+				File dummy = createDummyFile("default_attach_${idx}.${ext}", 0)
+				injectFileToInput(fi, dummy.absolutePath)
+			} catch (Exception ignore) {}
+		}
 	}
 
 	// =========================================================
@@ -1347,51 +1275,71 @@ class RegExceptionHelperBase {
 	static List<String> scanMainFormDomOrder() {
 		try {
 			Object r = runJs('''
-				var result=[], seen={};
-				function push(k){ if(!seen[k]){ seen[k]=1; result.push(k); } }
-				function isInsideModal(e){ return !!e.closest("[role=dialog],[class*=modal],[class*=popup],[class*=layer]"); }
-				function vis(e){ if(!e) return false; var s=window.getComputedStyle(e); return e.offsetParent!==null&&s.display!=="none"&&s.visibility!=="hidden"&&!isInsideModal(e); }
-				function labelText(el){
-					var lb="";
-					if(el.labels&&el.labels.length) lb=(el.labels[0].innerText||"").toLowerCase();
-					else{ var p=el.closest("div,td,tr,li,section,article"); if(p) lb=(p.innerText||"").toLowerCase(); }
-					return lb;
-				}
-				var all=[];
-				document.querySelectorAll("input:not([type=hidden]):not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]):not([type=file])").forEach(function(e){ if(vis(e)) all.push({e:e,t:"input"}); });
-				var radioSeen={};
-				document.querySelectorAll("input[type=radio]").forEach(function(e){ if(!vis(e)) return; var n=e.name||"r"; if(!radioSeen[n]){ radioSeen[n]=1; all.push({e:e,t:"radio"}); } });
-				document.querySelectorAll("select").forEach(function(e){ if(vis(e)&&e.options&&e.options.length>1) all.push({e:e,t:"select"}); });
-				var cbAdded=false;
-				document.querySelectorAll("input[type=checkbox]").forEach(function(e){ if(!vis(e)||cbAdded) return; all.push({e:e,t:"cb"}); cbAdded=true; });
-				document.querySelectorAll("input[type=file]").forEach(function(e){ if(document.contains(e)&&!isInsideModal(e)) all.push({e:e,t:"file"}); });
-				all.sort(function(a,b){ var ra=a.e.getBoundingClientRect(),rb=b.e.getBoundingClientRect(); return Math.abs(ra.top-rb.top)>10?ra.top-rb.top:ra.left-rb.left; });
-				for(var i=0;i<all.length;i++){
-					var item=all[i],el=item.e;
-					if(item.t==="input"){
-						var id=(el.id||"").toLowerCase(),nm=(el.name||"").toLowerCase(),ph=(el.placeholder||"").toLowerCase(),lb=labelText(el);
-						if(el.type==="password"){
-							(id.indexOf("confirm")>=0||nm.indexOf("confirm")>=0||ph.indexOf("확인")>=0)?push("pwConf"):push("pw");
-						}else if(lb.indexOf("계정 id")>=0 || lb.indexOf("계정id")>=0 || lb.indexOf("아이디")>=0 || ((id.indexOf("id")>=0||nm.indexOf("id")>=0||ph.indexOf("아이디")>=0) && ph.indexOf("이메일")<0)) push("id");
-						else if(id.indexOf("email")>=0||nm.indexOf("email")>=0||ph.indexOf("이메일")>=0||ph.indexOf("@")>=0) push("email");
-						else if(id.indexOf("name")>=0||nm.indexOf("name")>=0||ph.indexOf("이름")>=0) push("name");
-						else if(id.indexOf("phone")>=0||nm.indexOf("phone")>=0||ph.indexOf("전화")>=0) push("phone");
-						else if(id.indexOf("addr")>=0||nm.indexOf("addr")>=0||ph.indexOf("주소")>=0||ph.indexOf("우편")>=0) push("address");
-					}else if(item.t==="radio") push("btnGroup");
-					else if(item.t==="select") push("select_"+(el.id||el.name||i));
-					else if(item.t==="cb") push("terms");
-					else if(item.t==="file") push("file_"+(el.id||el.name||i));
-				}
-				return result.join(",");
-			''')
-			List<String> raw = (r?.toString() ?: "").split(",").findAll { it?.trim() }
-			List<String> ordered = []
-			if (raw.contains("id")) ordered << "id"
-			raw.each { if (it != "id") ordered << it }
-			return ordered
+                var result=[], seen={};
+                function push(k){ if(!seen[k]){ seen[k]=1; result.push(k); } }
+                function isModal(e){ return !!e.closest("[role=dialog],[class*=modal],[class*=popup],[class*=layer]"); }
+                function vis(e){ if(!e) return false; var s=window.getComputedStyle(e); return s.display!=="none"&&s.visibility!=="hidden"; }
+
+                // 필드별 top 위치 수집
+                var items=[];
+
+                // ── 일반 input (text/password/etc, file/radio/checkbox/hidden 제외) ──
+                document.querySelectorAll("input:not([type=hidden]):not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]):not([type=file])").forEach(function(e){
+                    if(!vis(e)||isModal(e)) return;
+                    var r=e.getBoundingClientRect(); if(r.width===0&&r.height===0) return;
+                    var id=(e.id||"").toLowerCase(),nm=(e.name||"").toLowerCase(),ph=(e.placeholder||"").toLowerCase();
+                    var key=null;
+                    if(e.type==="password") key=(id.indexOf("confirm")>=0||nm.indexOf("confirm")>=0||ph.indexOf("확인")>=0)?"pwConf":"pw";
+                    else if(id.indexOf("email")>=0||nm.indexOf("email")>=0||ph.indexOf("이메일")>=0||ph.indexOf("@")>=0) key="email";
+                    else if(id.indexOf("id")>=0||nm.indexOf("id")>=0||ph.indexOf("아이디")>=0||ph.indexOf("id")>=0) key="id";
+                    else if(id.indexOf("name")>=0||nm.indexOf("name")>=0||ph.indexOf("이름")>=0||ph.indexOf("성명")>=0) key="name";
+                    else if(id.indexOf("phone")>=0||nm.indexOf("phone")>=0||ph.indexOf("전화")>=0) key="phone";
+                    else if(id.indexOf("addr")>=0||nm.indexOf("addr")>=0||id.indexOf("zip")>=0||nm.indexOf("zip")>=0||ph.indexOf("주소")>=0||ph.indexOf("우편")>=0) key="address";
+                    if(key) items.push({key:key, top:r.top, left:r.left});
+                });
+
+                // ── radio / 버튼그룹 ──
+                var radioSeen={};
+                document.querySelectorAll("input[type=radio]").forEach(function(e){
+                    if(!vis(e)||isModal(e)) return;
+                    var n=e.name||"r"; if(radioSeen[n]) return; radioSeen[n]=1;
+                    var r=e.getBoundingClientRect();
+                    items.push({key:"btnGroup", top:r.top, left:r.left});
+                });
+
+                // ── select ──
+                document.querySelectorAll("select").forEach(function(e){
+                    if(!vis(e)||isModal(e)||!e.options||e.options.length<2) return;
+                    var r=e.getBoundingClientRect(); if(r.width===0) return;
+                    items.push({key:"select_"+(e.id||e.name||"s"), top:r.top, left:r.left});
+                });
+
+                // ── checkbox (약관) — 첫 번째만 ──
+                document.querySelectorAll("input[type=checkbox]").forEach(function(e){
+                    if(!vis(e)||isModal(e)||seen["terms"]) return;
+                    var r=e.getBoundingClientRect();
+                    var top=r.top; if(top===0){ var p=e.parentElement; if(p) top=p.getBoundingClientRect().top; }
+                    items.push({key:"terms", top:top, left:r.left});
+                });
+
+                // ── file input — 부모 컨테이너 rect 사용 ──
+                document.querySelectorAll("input[type=file]").forEach(function(e){
+                    if(isModal(e)) return;
+                    var top=0, left=0;
+                    // 부모를 최대 5단계 올라가며 크기>0인 rect 찾기
+                    var p=e; for(var d=0;d<5;d++){ p=p.parentElement; if(!p) break; var r=p.getBoundingClientRect(); if(r.height>0){ top=r.top; left=r.left; break; } }
+                    items.push({key:"file_"+(e.id||e.name||"f"), top:top, left:left});
+                });
+
+                // ── 정렬: top 오름차순, 같은 행(±20px)이면 left 오름차순 ──
+                items.sort(function(a,b){ return Math.abs(a.top-b.top)>20?a.top-b.top:a.left-b.left; });
+
+                items.forEach(function(x){ push(x.key); });
+                return result.join(",");
+            ''')
+			return (r?.toString() ?: "").split(",").findAll { it?.trim() }
 		} catch (Exception e) { return [] }
 	}
-
 
 	static boolean hasVisibleCssElement(String css) {
 		try { return driver().findElements(By.cssSelector(css)).any { isElementVisible(it) } } catch (Exception e) { return false }
@@ -1400,195 +1348,206 @@ class RegExceptionHelperBase {
 	// =========================================================
 	// [K] TC 생성
 	// =========================================================
-	static List<Map> buildStaticTestCases() {
+
+	/** 필드별 TC 그룹 Map 반환 */
+	static Map<String, List<Map>> buildTcGroups(Map mainScan) {
 		String FAIL = "실패", PASS = "성공"
-		List<Map> nameTcs = isNameSearchPopupMode ? [] : [
-			makeTc("단위-이름", "빈 값",    "이름", "name", "",        FAIL),
-			makeTc("단위-이름", "숫자",     "이름", "name", "123",      FAIL),
-			makeTc("단위-이름", "공백",     "이름", "name", "홍 길동",  FAIL),
-			makeTc("단위-이름", "이모지",   "이름", "name", "홍길동😊", FAIL),
-			makeTc("단위-이름", "51자초과", "이름", "name", "홍" * 51,  FAIL),
-			makeTc("단위-이름", "특수문자", "이름", "name", "홍#길동",  FAIL),
-			makeTc("단위-이름", "2자정상",  "이름", "name", "김철",     PASS)
+		Map<String, List<Map>> groups = [:]
+
+		if (!isNameSearchPopupMode) {
+			groups["name"] = [
+				makeTc("단위-이름", "빈 값",    "이름", "name", "",        FAIL),
+				makeTc("단위-이름", "숫자",     "이름", "name", "123",      FAIL),
+				makeTc("단위-이름", "공백",     "이름", "name", "홍 길동",  FAIL),
+				makeTc("단위-이름", "이모지",   "이름", "name", "홍길동😊", FAIL),
+				makeTc("단위-이름", "51자초과", "이름", "name", "홍" * 51,  FAIL),
+				makeTc("단위-이름", "특수문자", "이름", "name", "홍#길동",  FAIL),
+				makeTc("단위-이름", "2자정상",  "이름", "name", "김철",     PASS),
+			]
+		}
+
+		groups["id"] = [
+			makeTc("단위-아이디", "빈 값",    "아이디", "id", "",        FAIL),
+			makeTc("단위-아이디", "3자미달",  "아이디", "id", "tes",      FAIL),
+			makeTc("단위-아이디", "한글",     "아이디", "id", "관리자12", FAIL),
+			makeTc("단위-아이디", "이모지",   "아이디", "id", "✨✨123", FAIL),
+			makeTc("단위-아이디", "특수문자", "아이디", "id", "user!@#",  FAIL),
+			makeTc("단위-아이디", "공백",     "아이디", "id", "use 01",   FAIL),
+			makeTc("단위-아이디", "50자초과", "아이디", "id", "a" * 50,   FAIL),
+			makeTc("단위-아이디", "6자정상",  "아이디", "id", "user12",   PASS),
 		]
-		return nameTcs + [
-			// 아이디
-			makeTc("단위-아이디", "빈 값",   "아이디", "id", "",       FAIL),
-			makeTc("단위-아이디", "3자미달", "아이디", "id", "tes",     FAIL),
-			makeTc("단위-아이디", "한글",    "아이디", "id", "관리자12", FAIL),
-			makeTc("단위-아이디", "이모지",  "아이디", "id", "✨✨123", FAIL),
-			makeTc("단위-아이디", "특수문자","아이디", "id", "user!@#", FAIL),
-			makeTc("단위-아이디", "공백",    "아이디", "id", "use 01",  FAIL),
-			makeTc("단위-아이디", "50자초과","아이디", "id", "a" * 50,  FAIL),
-			makeTc("단위-아이디", "6자정상", "아이디", "id", "user12",  PASS),
-			// 비밀번호
-			makeTc("단위-비밀번호", "빈 값",  "비밀번호", "pw", "",         FAIL),
-			makeTc("단위-비밀번호", "7자미달","비밀번호", "pw", "123456",    FAIL),
-			makeTc("단위-비밀번호", "영문만", "비밀번호", "pw", "password",  FAIL),
-			makeTc("단위-비밀번호", "숫자만", "비밀번호", "pw", "12345678",  FAIL),
-			makeTc("단위-비밀번호", "특수만", "비밀번호", "pw", '1@#$%^&*', FAIL),
-			makeTc("단위-비밀번호", "공백",   "비밀번호", "pw", "Pass 12!", FAIL),
-			makeTc("단위-비밀번호", "영숫자만","비밀번호","pw", "pass1234",  FAIL),
-			makeTc("단위-비밀번호", "한글",   "비밀번호", "pw", "비밀123!@", FAIL),
-			makeTc("단위-비밀번호", "8자정상","비밀번호", "pw", "Test12!@",  PASS),
-			// 비번확인
-			makeTc("단위-비번확인", "빈 값",    "비밀번호", "pwConf", "",          FAIL),
-			makeTc("단위-비번확인", "불일치",   "비밀번호", "pwConf", "wrong!@#1", FAIL),
-			makeTc("단위-비번확인", "한글",     "비밀번호", "pwConf", "비밀123!@", FAIL),
-			makeTc("단위-비번확인", "공백만",   "비밀번호", "pwConf", "       ",   FAIL),
-			makeTc("단위-비번확인", "대소불일치","비밀번호","pwConf", "test123!@", FAIL),
-			makeTc("단위-비번확인", "정상일치", "비밀번호", "pwConf", "Test123!@", PASS),
-			// 주소
+
+		groups["pw"] = [
+			makeTc("단위-비밀번호", "빈 값",    "비밀번호", "pw", "",         FAIL),
+			makeTc("단위-비밀번호", "7자미달",  "비밀번호", "pw", "123456",    FAIL),
+			makeTc("단위-비밀번호", "영문만",   "비밀번호", "pw", "password",  FAIL),
+			makeTc("단위-비밀번호", "숫자만",   "비밀번호", "pw", "12345678",  FAIL),
+			makeTc("단위-비밀번호", "특수만",   "비밀번호", "pw", '1@#$%^&*',  FAIL),
+			makeTc("단위-비밀번호", "공백",     "비밀번호", "pw", "Pass 12!", FAIL),
+			makeTc("단위-비밀번호", "영숫자만", "비밀번호", "pw", "pass1234",  FAIL),
+			makeTc("단위-비밀번호", "한글",     "비밀번호", "pw", "비밀123!@", FAIL),
+			makeTc("단위-비밀번호", "8자정상",  "비밀번호", "pw", "Test12!@",  PASS),
+		]
+
+		groups["pwConf"] = [
+			makeTc("단위-비번확인", "빈 값",      "비밀번호", "pwConf", "",          FAIL),
+			makeTc("단위-비번확인", "불일치",     "비밀번호", "pwConf", "wrong!@#1", FAIL),
+			makeTc("단위-비번확인", "한글",       "비밀번호", "pwConf", "비밀123!@", FAIL),
+			makeTc("단위-비번확인", "공백만",     "비밀번호", "pwConf", "       ",   FAIL),
+			makeTc("단위-비번확인", "대소불일치", "비밀번호", "pwConf", "test123!@", FAIL),
+			makeTc("단위-비번확인", "정상일치",   "비밀번호", "pwConf", "Test123!@", PASS),
+		]
+
+		groups["address"] = [
 			makeTc("단위-주소", "전체미입력", "주소", "address", "clear",      FAIL),
 			makeTc("단위-주소", "우편번호만", "주소", "address", "zipOnly",    FAIL),
 			makeTc("단위-주소", "도로명만",   "주소", "address", "roadOnly",   FAIL),
 			makeTc("단위-주소", "상세만",     "주소", "address", "detailOnly", FAIL),
-			// 시나리오
-			makeTc("시나리오", "전체빈값",    "이름", "clear",         "clear",     FAIL),
-			makeTc("시나리오", "중복확인생략","중복확인", "skipDupCheck","testus01", FAIL),
-			makeTc("시나리오", "ID변경",      "중복확인", "id",          "user02",   FAIL),
-			makeTc("시나리오", "ID삭제",      "아이디", "id",            "",         FAIL),
-			makeTc("시나리오", "중복3회",     "중복확인", "tripledup",   "tripledup", PASS),
-			makeTc("시나리오", "ID공백",      "중복확인", "id",          " use 01 ", FAIL),
-			makeTc("시나리오", "전체재시도",  "이름", "clear",           "clear",    FAIL),
-			makeTc("시나리오", "ID대소문자",  "중복확인", "id",          "USER01",   PASS),
-			// 성공
-			makeTc("성공", "정상가입", "성공", "success", "success", PASS)
 		]
-	}
 
-	static List<Map> buildMainFormDynamicTestCases(Map mainScan) {
-		List<Map> tcs = []
-		String FAIL = "실패", PASS = "성공"
-
-		(mainScan.groups ?: []).each { Map g ->
+		(mainScan.groups ?: []).eachWithIndex { Map g, int gi ->
 			String label = (g.label ?: "선택항목").toString()
 			List options = (g.options ?: []) as List
 			if (options.size() < 2) return
-			tcs << makeTc("단위-${label}", "${label} 미선택", label, "btnGroupClear", g.name?.toString(), FAIL)
+			List<Map> gtcs = []
+			gtcs << makeTc("단위-${label}", "${label} 미선택", label, "btnGroupClear", g.name?.toString(), FAIL)
 			options.eachWithIndex { Object opt, int i ->
-				tcs << makeTc("단위-${label}", "${label} [${opt}]", label, "btnGroupSelect", "${g.name}::${i}", PASS)
+				gtcs << makeTc("단위-${label}", "${label} [${opt}]", label, "btnGroupSelect", "${g.name}::${i}", PASS)
 			}
+			groups["btnGroup_${gi}"] = gtcs
 		}
 
-		(mainScan.selects ?: []).each { Map sel ->
+		(mainScan.selects ?: []).eachWithIndex { Map sel, int si ->
 			String label = (sel.label ?: "드롭박스").toString()
-			String sid = (sel.id ?: sel.name ?: "").toString()
+			String sid   = (sel.id ?: sel.name ?: "").toString()
 			if (!sid) return
-			tcs << makeTc("단위-${label}", "${label} 미선택", label, "selectReset", sid, FAIL)
-			List options = (sel.options ?: []) as List
-			options.eachWithIndex { Object obj, int i ->
+			List<Map> stcs = []
+			stcs << makeTc("단위-${label}", "${label} 미선택", label, "selectReset", sid, FAIL)
+			(sel.options ?: []).eachWithIndex { Object obj, int i ->
 				Map opt = obj as Map; String txt = (opt.text ?: "").toString()
 				if (i == 0 || !txt.trim() || txt.contains("선택")) return
-				tcs << makeTc("단위-${label}", "${label} [${txt}]", label, "selectOption", "${sid}::${i}", PASS)
+				stcs << makeTc("단위-${label}", "${label} [${txt}]", label, "selectOption", "${sid}::${i}", PASS)
 			}
+			groups["select_${sid}"] = stcs
 		}
 
 		List<Map> checkboxes = (mainScan.checkboxes ?: []) as List<Map>
 		if (checkboxes && hasVisibleCssElement("input[type='checkbox']")) {
-			tcs << makeTc("단위-약관", "전체미체크", "약관", "uncheckAll", "all", FAIL)
-			tcs << makeTc("단위-약관", "전체체크",   "약관", "checkAll",   "all", PASS)
+			List<Map> ctcs = []
+			ctcs << makeTc("단위-약관", "전체미체크", "약관", "uncheckAll",     "all", FAIL)
+			ctcs << makeTc("단위-약관", "전체체크",   "약관", "checkAll",       "all", PASS)
 			if (((checkboxes[0]?.label ?: "") as String).contains("전체"))
-				tcs << makeTc("단위-약관", "전체동의만", "약관", "checkOnlyFirst", "0", PASS)
+				ctcs << makeTc("단위-약관", "전체동의만", "약관", "checkOnlyFirst", "0",  PASS)
 			checkboxes.eachWithIndex { Map cb, int i ->
 				if (((cb.label ?: "") as String).contains("전체")) return
-				String label = ((cb.label ?: "항목${i}") as String).take(15)
-				tcs << makeTc("단위-약관", "[${label}] 미체크", "약관", "uncheckOne", "${i}", FAIL)
-				tcs << makeTc("단위-약관", "[${label}] 체크",   "약관", "checkOne",   "${i}", PASS)
+				String lbl = ((cb.label ?: "항목${i}") as String).take(15)
+				ctcs << makeTc("단위-약관", "[${lbl}] 미체크", "약관", "uncheckOne", "${i}", FAIL)
+				ctcs << makeTc("단위-약관", "[${lbl}] 체크",   "약관", "checkOne",   "${i}", PASS)
 			}
+			groups["terms"] = ctcs
 		}
 
-		// ── 파일 첨부 필드 동적 TC 생성 ──────────────────────────
-		List<Map> fileInputs = (mainScan.fileInputs ?: []) as List<Map>
-		fileInputs.each { Map fi ->
-			String label   = (fi.label   ?: "첨부파일").toString()
-			String accept  = (fi.accept  ?: "").toString()
-			int    fileIdx = (fi.index   ?: 0) as int
-
-			// accept 속성으로 허용 확장자 파악
+		(mainScan.fileInputs ?: []).eachWithIndex { Map fi, int fii ->
+			String label   = (fi.label  ?: "첨부파일").toString()
+			String accept  = (fi.accept ?: "").toString()
+			int    fileIdx = (fi.index  ?: 0) as int
 			List<String> allowedExts = []
 			if (accept.trim()) {
 				accept.split(",").each { String token ->
 					token = token.trim().toLowerCase()
-					if (token.startsWith(".")) allowedExts << token.substring(1)
-					else if (token == "image/jpeg")         { allowedExts << "jpg"; allowedExts << "jpeg" }
-					else if (token == "image/png")          allowedExts << "png"
-					else if (token == "application/pdf")    allowedExts << "pdf"
-					else if (token.contains("hwp"))         allowedExts << "hwp"
-					else if (token.startsWith("image/"))    allowedExts << token.split("/")[1]
+					if (token.startsWith("."))            allowedExts << token.substring(1)
+					else if (token == "image/jpeg")       { allowedExts << "jpg"; allowedExts << "jpeg" }
+					else if (token == "image/png")         allowedExts << "png"
+					else if (token == "application/pdf")   allowedExts << "pdf"
+					else if (token.contains("hwp"))        allowedExts << "hwp"
+					else if (token.startsWith("image/"))   allowedExts << token.split("/")[1]
 				}
 				allowedExts = allowedExts.unique().findAll { it }
 			}
 			if (!allowedExts) allowedExts = ["pdf", "jpg", "png"]
-
-			// 미첨부 제출
-			tcs << makeTc("단위-${label}", "${label} 미첨부", label, "fileEmpty::${fileIdx}", "", FAIL)
-
-			// 허용 확장자 정상 업로드 (최대 2개)
+			List<Map> ftcs = []
+			ftcs << makeTc("단위-${label}", "${label} 미첨부",         label, "fileEmpty::${fileIdx}",    "",            FAIL)
 			allowedExts.take(2).each { String ext ->
-				tcs << makeTc("단위-${label}", "${label} 정상[.${ext}]", label, "fileValid::${fileIdx}", ext, PASS)
+				ftcs << makeTc("단위-${label}", "${label} 정상[.${ext}]",   label, "fileValid::${fileIdx}",    ext,           PASS)
 			}
-
-			// 비허용 확장자
 			["exe", "sh", "bat"].findAll { !allowedExts.contains(it) }.each { String badExt ->
-				tcs << makeTc("단위-${label}", "${label} 비허용[.${badExt}]", label, "fileInvalid::${fileIdx}", badExt, FAIL)
+				ftcs << makeTc("단위-${label}", "${label} 비허용[.${badExt}]", label, "fileInvalid::${fileIdx}", badExt,        FAIL)
 			}
-
-			// 용량 초과 (허용 확장자 중 첫번째로)
-			tcs << makeTc("단위-${label}", "${label} 용량초과", label, "fileOversize::${fileIdx}", allowedExts[0], FAIL)
+			ftcs << makeTc("단위-${label}", "${label} 용량초과",        label, "fileOversize::${fileIdx}", allowedExts[0], FAIL)
+			groups["file_${fi.id ?: fi.name ?: fii}"] = ftcs
 		}
 
-		return tcs
-	}
-
-	static List<Map> buildNamePopupDynamicTestCases(Map popupScan) {
-		if (!isNameSearchPopupMode) return []
-		return [makeTc("단위-이름팝업", "이름팝업 시나리오", "이름팝업", "namePopupScenario", "", "성공")]
-	}
-
-	// =========================================================
-	// [K-2] TC 정렬
-	// =========================================================
-	static List<Map> sortTestCasesByDomOrder(List<Map> tcs, List<String> domOrder) {
-		def domIndex = { String key ->
-			for (int i = 0; i < domOrder.size(); i++) {
-				String x = domOrder[i]
-				if (x == key || x.startsWith(key)) return i
-			}
-			return 100
+		if (isNameSearchPopupMode) {
+			groups["namePopup"] = [makeTc("단위-이름팝업", "이름팝업 시나리오", "이름팝업", "namePopupScenario", "", "성공")]
 		}
 
-		tcs.sort { Map one ->
-			String target = (one.target ?: "").toString()
-			String type   = (one.type ?: "").toString()
-			if (type.startsWith("단위-이름")) return domIndex("name") + 0.3
-			if (type.startsWith("단위-")) {
-				Map<String, String> fieldMap = [name: "name", id: "id", pw: "pw", pwConf: "pwConf", address: "address", skipDupCheck: "id", tripledup: "id", email: "email", phone: "phone"]
-				if (fieldMap.containsKey(target)) return domIndex(fieldMap[target])
-				if (target.startsWith("btnGroup")) return domIndex("btnGroup")
-				if (target.toLowerCase().contains("check") || target.toLowerCase().contains("uncheck")) return domIndex("terms")
-				if (target.startsWith("file")) return domIndex("address") + 0.5
-				if (target.toLowerCase().contains("select")) {
-					String selId = ((one.value ?: "") as String).contains("::") ? ((one.value ?: "") as String).split("::")[0] : ""
-					Integer matched = null
-					for (int i = 0; i < domOrder.size(); i++) {
-						if (domOrder[i].startsWith("select_") && selId && domOrder[i].contains(selId)) { matched = i; break }
-					}
-					if (matched != null) return matched
-					return domIndex("select_")
-				}
-				return 50
-			}
-			if (type == "시나리오") return 60
-			if (type == "성공") return 70
-			return 100
-		}
-
-		tcs.eachWithIndex { Map tc, int i -> tc.id = String.format("TC-%02d", i + 1) }
-		return tcs
+		return groups
 	}
 
-	// =========================================================
+	/** domOrder 순서대로 TC 그룹 조립 */
+	static List<Map> buildAllTcsByDomOrder(List<String> domOrder, Map mainScan) {
+		String FAIL = "실패", PASS = "성공"
+		Map<String, List<Map>> groups = buildTcGroups(mainScan)
+
+		def resolveKey = { String dk ->
+			// "name" / "namePopup": 팝업형이면 namePopup 우선, 직접입력형이면 name
+			if (dk == "name" || dk == "namePopup")
+				return groups.containsKey("namePopup") ? "namePopup" : (groups.containsKey("name") ? "name" : null)
+			if (dk == "id" || dk == "email") return groups.containsKey("id")      ? "id"      : null
+			if (dk == "pw")                  return groups.containsKey("pw")      ? "pw"      : null
+			if (dk == "pwConf")              return groups.containsKey("pwConf")  ? "pwConf"  : null
+			if (dk == "address")             return groups.containsKey("address") ? "address" : null
+			if (dk == "terms")               return groups.containsKey("terms")   ? "terms"   : null
+			if (dk.startsWith("btnGroup"))   return groups.keySet().find { it.startsWith("btnGroup_") }
+			if (dk.startsWith("select_")) {
+				String sid = dk.substring("select_".length())
+				return groups.keySet().find { it == "select_${sid}" } ?: groups.keySet().find { it.startsWith("select_") }
+			}
+			if (dk.startsWith("file_")) {
+				String fid = dk.substring("file_".length())
+				return groups.keySet().find { it == "file_${fid}" } ?: groups.keySet().find { it.startsWith("file_") }
+			}
+			return null
+		}
+
+		List<Map> result = []
+		Set<String> used = [] as Set
+
+		domOrder.each { String dk ->
+			String gk = resolveKey(dk)
+			if (gk && !used.contains(gk)) { result.addAll(groups[gk] ?: []); used << gk }
+		}
+
+		["name","id","pw","pwConf","address","terms"].each { String gk ->
+			if (!used.contains(gk) && groups.containsKey(gk)) { result.addAll(groups[gk]); used << gk }
+		}
+		groups.keySet().findAll { it.startsWith("btnGroup_") || it.startsWith("select_") || it.startsWith("file_") }.each { String gk ->
+			if (!used.contains(gk)) { result.addAll(groups[gk]); used << gk }
+		}
+		if (!used.contains("namePopup") && groups.containsKey("namePopup")) result.addAll(groups["namePopup"])
+
+		result.addAll([
+			makeTc("시나리오", "전체빈값",    "이름",    "clear",        "clear",     FAIL),
+			makeTc("시나리오", "중복확인생략","중복확인", "skipDupCheck", "testus01",  FAIL),
+			makeTc("시나리오", "ID변경",      "중복확인", "id",          "user02",    FAIL),
+			makeTc("시나리오", "ID삭제",      "아이디",  "id",           "",          FAIL),
+			makeTc("시나리오", "중복3회",     "중복확인", "tripledup",   "tripledup", PASS),
+			makeTc("시나리오", "ID공백",      "중복확인", "id",          " use 01 ", FAIL),
+			makeTc("시나리오", "전체재시도",  "이름",    "clear",         "clear",     FAIL),
+			makeTc("시나리오", "ID대소문자",  "중복확인", "id",          "USER01",    PASS),
+			makeTc("성공", "정상가입", "성공", "success", "success", PASS),
+		])
+
+		result.eachWithIndex { Map tc, int i -> tc.id = String.format("TC-%02d", i + 1) }
+		return result
+	}
+
+	static List<Map> buildStaticTestCases() { return [] }
+	static List<Map> buildMainFormDynamicTestCases(Map s) { return [] }
+	static List<Map> buildNamePopupDynamicTestCases(Map s) { return [] }
+	static List<Map> sortTestCasesByDomOrder(List<Map> t, List<String> d) { return t }
+
+		// =========================================================
 	// 이름 자동 선택 (팝업 or 직접 입력 분기)
 	// =========================================================
 	static void setNameByAutoSelection(String value) {
@@ -1688,47 +1647,34 @@ class RegExceptionHelperBase {
 	 * input[type=file] 에 파일 경로 주입
 	 * hidden 처리된 필드도 JS로 노출 후 sendKeys
 	 */
-
 	static void injectFileToInput(org.openqa.selenium.WebElement fileInput, String absolutePath) {
-		Map origin = (Map) ((org.openqa.selenium.JavascriptExecutor) driver()).executeScript("""
-			var e = arguments[0];
-			return {
-				style: e.getAttribute('style') || '',
-				hidden: !!e.hidden,
-				ariaHidden: e.getAttribute('aria-hidden'),
-				tabIndex: e.getAttribute('tabindex')
-			};
-		""", fileInput)
-		try {
-			((org.openqa.selenium.JavascriptExecutor) driver()).executeScript("""
-				var e = arguments[0];
-				e.hidden = false;
-				e.removeAttribute('aria-hidden');
-				e.style.display = 'block';
-				e.style.visibility = 'visible';
-				e.style.opacity = '0.001';
-				e.style.position = 'fixed';
-				e.style.left = '-10000px';
-				e.style.top = '0';
-				e.style.width = '1px';
-				e.style.height = '1px';
-				e.style.zIndex = '-1';
-				e.style.pointerEvents = 'none';
-			""", fileInput)
-			waitSec(0.1)
-			fileInput.sendKeys(absolutePath)
-			waitSec(0.3)
-		} finally {
-			((org.openqa.selenium.JavascriptExecutor) driver()).executeScript("""
-				var e = arguments[0], s = arguments[1];
-				if (s.style) e.setAttribute('style', s.style); else e.removeAttribute('style');
-				e.hidden = !!s.hidden;
-				if (s.ariaHidden == null) e.removeAttribute('aria-hidden'); else e.setAttribute('aria-hidden', s.ariaHidden);
-				if (s.tabIndex == null) e.removeAttribute('tabindex'); else e.setAttribute('tabindex', s.tabIndex);
-			""", fileInput, origin)
-		}
+		((org.openqa.selenium.JavascriptExecutor) driver()).executeScript("""
+            var e = arguments[0];
+            e.removeAttribute('hidden');
+            if(window.getComputedStyle(e).display === 'none') e.style.display = 'block';
+            if(window.getComputedStyle(e).visibility === 'hidden') e.style.visibility = 'visible';
+            e.style.opacity  = '1';
+            e.style.width    = '1px';
+            e.style.height   = '1px';
+            e.style.overflow = 'hidden';
+        """, fileInput)
+		waitSec(0.2)
+		fileInput.sendKeys(absolutePath)
+		waitSec(0.5)
+		((org.openqa.selenium.JavascriptExecutor) driver()).executeScript("""
+            var e = arguments[0];
+            e.style.display    = 'none';
+            e.style.visibility = 'hidden';
+            e.style.opacity    = '0';
+            e.style.width      = '';
+            e.style.height     = '';
+        """, fileInput)
 	}
 
+	/**
+	 * 페이지 내 accept 속성으로 허용 확장자 자동 감지
+	 * 없으면 기본 세트 반환
+	 */
 	static List<String> detectFileAcceptExtensions(org.openqa.selenium.WebElement fileInput) {
 		String accept = fileInput.getAttribute("accept") ?: ""
 		if (!accept.trim()) return ["pdf", "jpg", "jpeg", "png", "hwp"]

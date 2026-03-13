@@ -24,11 +24,16 @@ WebUI.openBrowser('')
 //WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join3.html')
 //WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join3.html')
 //WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join3.html')
-//WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join3.html')
-//WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join3.html')
-//WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join6.html')
-WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join7.html')
 
+//WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join6.html')
+//WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join7.html')
+//----------------------------------------------------------------------
+
+
+
+
+//WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join7.html')
+WebUI.navigateToUrl('file:///C:/Users/ssr0128/Desktop/page/join3.html')
 CustomKeywords.'RegExceptionHelper.runAll'()
 
 
